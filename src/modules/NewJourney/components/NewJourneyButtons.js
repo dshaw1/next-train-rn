@@ -1,0 +1,97 @@
+import React from "react";
+import PropTypes from "prop-types";
+import {
+  TouchableOpacity,
+  Button,
+  Text,
+  View,
+  StyleSheet,
+  TouchableNativeFeedback,
+  Platform
+} from "react-native";
+
+const NewJourneyButtons = props => {
+  renderPlatformButtons = () => {
+    if (Platform.OS === "ios") {
+      return (
+        <Button
+          title="Add Journey"
+          style={styles.fetchBtn}
+          disabled={props.disabled}
+          onPress={props.onFetch}
+        />
+      );
+    } else {
+      return (
+        <TouchableNativeFeedback
+          style={styles.fetchBtn}
+          disabled={props.disabled}
+          onPress={props.onFetch}
+        >
+          <View>
+            <Text style={styles.fetchBtnText}>Add Journey</Text>
+          </View>
+        </TouchableNativeFeedback>
+      );
+    }
+  };
+
+  return (
+    <View>
+      <TouchableOpacity onPress={props.onDepartPress}>
+        <View style={styles.row}>
+          <Text style={styles.text}>
+            Departure: {props.departureStop !== "" ? props.departureStop : ""}
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={props.onArrivPress}>
+        <View style={styles.row}>
+          <Text style={styles.text}>
+            Arrival: {props.arrivalStop !== "" ? props.arrivalStop : ""}
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+      {this.renderPlatformButtons()}
+    </View>
+  );
+};
+
+NewJourneyButtons.propTypes = {
+  disabled: PropTypes.bool,
+  onPress: PropTypes.func,
+  onFetch: PropTypes.func,
+  onDepartPress: PropTypes.func,
+  onArrivPress: PropTypes.func,
+  departureStop: PropTypes.string,
+  arrivalStop: PropTypes.string
+};
+
+const styles = StyleSheet.create({
+  row: {
+    height: 48,
+    paddingHorizontal: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(0, 0, 0, 0.054)"
+  },
+  text: {
+    fontSize: 16
+  },
+  fetchBtn: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 50
+  },
+  fetchBtnText: {
+    color: "blue",
+    fontSize: 20
+  }
+});
+
+export default NewJourneyButtons;
