@@ -157,13 +157,16 @@ class Favourites extends Component {
             ).then(() => {
               this.setState({ favourites: tempArray });
             });
-          });
+          })
+          .catch((err) => {
+            this.setState({ isLoading: false })
+            return err;
+          })
         }
       });
     } else return;
   };
 
-  // DRY any async fetching???
   fetchAsyncStorageData = () => {
     AsyncStorage.getItem("@NextTrain:MyKey")
       .then(journeyStr => {
@@ -216,6 +219,7 @@ class Favourites extends Component {
   };
 
   render() {
+    // console.log(this.state.favourites);
     // array of indexes used for sortable list
     const order = Object.keys(this.state.favourites);
     const newFavArr = this.state.favourites;

@@ -16,12 +16,14 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
 import { fetchNewJourney } from "../actions/journeys";
+
 import ListContainer from "../modules/NewJourney/components/ListContainer";
 import ListItem from "../modules/NewJourney/components/ListItem";
 import StopsModal from "../modules/NewJourney/components/StopsModal";
 import NewJourneyButtons from "../modules/NewJourney/components/NewJourneyButtons";
 import DuplicateJourneyMessage from "../modules/NewJourney/components/DuplicateJourneyMessage";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
+import ErrorComponent from "../modules/global/components/ErrorComponent";
 
 // JSON data of all stops
 import stops from "../utils/stops";
@@ -41,7 +43,8 @@ class NewJourney extends Component {
       arrivalLat: "",
       arrivalLong: "",
       dataSource: stops,
-      duplicateJourney: false
+      duplicateJourney: false,
+      fetchError: false
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -197,19 +200,17 @@ class NewJourney extends Component {
         });
 
         // Saving favourites to phone's asyncStorage
-        this.handleAsyncStorage(asyncObject)
-          .then(() => {
-            this.setState({ isLoading: false });
-            this.props.navigator.resetTo({
-              screen: "app.Favourites",
-              title: "Favourites",
-              animationType: "slide-horizontal"
-            });
-          })
+        this.handleAsyncStorage(asyncObject).then(() => {
+          this.setState({ isLoading: false });
+          this.props.navigator.resetTo({
+            screen: "app.Favourites",
+            title: "Favourites",
+            animationType: "slide-horizontal"
+          });
+        });
       })
       .catch(err => {
-        this.setState({ isLoading: false });
-        return console.log(err);
+        return this.setState({ isLoading: false, fetchError: true });
       });
   };
 
@@ -233,6 +234,9 @@ class NewJourney extends Component {
           <ActivityIndicator style={styles.activityIndicator} size="small" />
         </View>
       );
+    }
+    if (this.state.fetchError) {
+      return <ErrorComponent />;
     }
     return (
       <View style={styles.contentContainer}>
