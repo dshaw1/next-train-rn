@@ -8,7 +8,7 @@ const ShowErrorMessage = () => {
         Error retrieving data.
       </Text>
       <Text style={styles.errorText}>
-      Check your network connection.
+      Please check your network connection.
       </Text>
     </View>
   );
