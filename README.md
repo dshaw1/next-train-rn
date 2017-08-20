@@ -5,6 +5,5 @@ TODO
 - DRY up code and clean up variable naming, use of this.state.etc...
 - Add PropTypes to all components that require it
 - Add vibration to SortableListView onPress
-- Limit journeys to 6?
+- Add "Add up to 6 saved journeys" message on favourite screen when journeys.length === 0
 - Style components
-- Handle fetch errors on client-side
