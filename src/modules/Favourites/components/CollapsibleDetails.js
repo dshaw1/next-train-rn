@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
 });
 
 CollapsibleDetails.propTypes = {
+  collapse: PropTypes.bool.isRequired,
   content: PropTypes.object.isRequired,
   showModal: PropTypes.func.isRequired
 }

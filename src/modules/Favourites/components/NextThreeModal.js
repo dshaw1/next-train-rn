@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
 
 NextThreeModal.propTypes = {
   hideModal: PropTypes.func.isRequired,
-  visible: PropTypes.bool.isRequired
+  visible: PropTypes.bool.isRequired,
+  nextThreeData: PropTypes.array.isRequired
 }
 
 export default NextThreeModal;

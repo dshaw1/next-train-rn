@@ -10,8 +10,6 @@ const NoSearchResults = props => {
   )
 }
 
-NoSearchResults.propTypes = {
-
-}
+NoSearchResults.propTypes = {}
 
 export default NoSearchResults;
