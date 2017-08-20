@@ -18,7 +18,6 @@ import PropTypes from "prop-types";
 import { fetchNewJourney, toggleEditing } from "../actions/journeys";
 
 import SortableListView from "react-native-sortable-listview";
-import Row from "../modules/global/components/Row";
 import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
@@ -38,7 +37,7 @@ class Favourites extends Component {
   }
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#0dd3bb",
+    navBarBackgroundColor: "#00a4d8",
     statusBarTextColorScheme: "light"
   };
 
@@ -294,13 +293,6 @@ class Favourites extends Component {
 }
 
 const styles = StyleSheet.create({
-  listContainer: {
-    marginTop: 20,
-    marginBottom: 40,
-    borderTopWidth: 0.5,
-    borderColor: "gainsboro",
-    backgroundColor: "#ffffff"
-  },
   itemContainer: {
     paddingTop: 10,
     paddingRight: 10,
@@ -315,7 +307,8 @@ const styles = StyleSheet.create({
   },
   favouritesContainer: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#ebebeb"
   },
   activityIndicator: {
     marginTop: 20
@@ -324,7 +317,9 @@ const styles = StyleSheet.create({
 
 Favourites.propTypes = {
   journeys: PropTypes.object,
-  fetchNewJourney: PropTypes.func
+  fetchNewJourney: PropTypes.func,
+  toggleEditing: PropTypes.func,
+  navigator: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
