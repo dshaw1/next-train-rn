@@ -23,6 +23,7 @@ import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import { RegularButtons } from "../modules/global/helpers/navigationButtonOptions";
+import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 
 class Favourites extends Component {
   constructor(props) {
@@ -30,7 +31,8 @@ class Favourites extends Component {
     this.state = {
       favourites: [],
       refreshing: false,
-      isLoading: false
+      isLoading: false,
+      fetchError: false
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -77,7 +79,8 @@ class Favourites extends Component {
     if (event.type == "NavBarButtonPress") {
       if (event.id == "add") {
         this.pushScreen();
-      } if (event.id == "edit") {
+      }
+      if (event.id == "edit") {
         this.props.toggleEditing();
         this.props.navigator.setButtons({
           leftButtons: [
@@ -137,31 +140,32 @@ class Favourites extends Component {
             id: item.id
           };
           // Fetches target journey from API and updates said journey, keeping correct position
-          this.props.fetchNewJourney(fetchObj, "now").then(res => {
-            // Helper function for creating new journey array
-            const newStepsArr = journeyArrayHelper(res);
-            const asyncObject = Object.assign({
-              ...fetchObj,
-              departTime: res.journey.routes[0].legs[0].departure_time,
-              arrivTime: res.journey.routes[0].legs[0].arrival_time,
-              steps: newStepsArr
-            });
+          this.props
+            .fetchNewJourney(fetchObj, "now")
+            .then(res => {
+              // Helper function for creating new journey array
+              const newStepsArr = journeyArrayHelper(res);
+              const asyncObject = Object.assign({
+                ...fetchObj,
+                departTime: res.journey.routes[0].legs[0].departure_time,
+                arrivTime: res.journey.routes[0].legs[0].arrival_time,
+                steps: newStepsArr
+              });
 
-            const foundIndex = tempArray.findIndex(
-              journey => journey.id == item.id
-            );
-            tempArray.splice(foundIndex, 1, asyncObject);
-            AsyncStorage.setItem(
-              "@NextTrain:MyKey",
-              JSON.stringify(tempArray)
-            ).then(() => {
-              this.setState({ favourites: tempArray });
+              const foundIndex = tempArray.findIndex(
+                journey => journey.id == item.id
+              );
+              tempArray.splice(foundIndex, 1, asyncObject);
+              AsyncStorage.setItem(
+                "@NextTrain:MyKey",
+                JSON.stringify(tempArray)
+              ).then(() => {
+                this.setState({ favourites: tempArray, fetchError: false });
+              });
+            })
+            .catch(err => {
+              return this.setState({ isLoading: false, fetchError: true });
             });
-          })
-          .catch((err) => {
-            this.setState({ isLoading: false })
-            return err;
-          })
         }
       });
     } else return;
@@ -182,7 +186,7 @@ class Favourites extends Component {
       })
       .catch(err => {
         this.setState({ isLoading: false });
-        return console.log(err);
+        return err;
       });
   };
 
@@ -219,7 +223,6 @@ class Favourites extends Component {
   };
 
   render() {
-    // console.log(this.state.favourites);
     // array of indexes used for sortable list
     const order = Object.keys(this.state.favourites);
     const newFavArr = this.state.favourites;
@@ -267,6 +270,7 @@ class Favourites extends Component {
       return (
         <View style={styles.favouritesContainer}>
           <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
+          {this.state.fetchError ? <ShowErrorMessage /> : null}
           <ScrollView
             refreshControl={
               <RefreshControl

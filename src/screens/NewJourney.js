@@ -23,7 +23,7 @@ import StopsModal from "../modules/NewJourney/components/StopsModal";
 import NewJourneyButtons from "../modules/NewJourney/components/NewJourneyButtons";
 import DuplicateJourneyMessage from "../modules/NewJourney/components/DuplicateJourneyMessage";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
-import ErrorComponent from "../modules/global/components/ErrorComponent";
+import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 
 // JSON data of all stops
 import stops from "../utils/stops";
@@ -43,8 +43,7 @@ class NewJourney extends Component {
       arrivalLat: "",
       arrivalLong: "",
       dataSource: stops,
-      duplicateJourney: false,
-      fetchError: false
+      duplicateJourney: false
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -148,6 +147,10 @@ class NewJourney extends Component {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem("@NextTrain:MyKey")
         .then(data => {
+          if(JSON.parse(data).length === 6) {
+            this.setState({ isLoading: false })
+            return alert("You've reached the journey limit!");
+          }
           const journeys = data == null ? [] : JSON.parse(data);
           journeys.map(item => {
             // Check for duplicate journeys here
@@ -163,7 +166,6 @@ class NewJourney extends Component {
           } else return;
         })
         .catch(err => {
-          console.log(err);
           return reject(err);
         });
     });
@@ -201,7 +203,7 @@ class NewJourney extends Component {
 
         // Saving favourites to phone's asyncStorage
         this.handleAsyncStorage(asyncObject).then(() => {
-          this.setState({ isLoading: false });
+          this.setState({ isLoading: false, fetchError: false });
           this.props.navigator.resetTo({
             screen: "app.Favourites",
             title: "Favourites",
@@ -235,12 +237,10 @@ class NewJourney extends Component {
         </View>
       );
     }
-    if (this.state.fetchError) {
-      return <ErrorComponent />;
-    }
     return (
       <View style={styles.contentContainer}>
         <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
+        {this.state.fetchError? <ShowErrorMessage /> : null}
         <NewJourneyButtons
           onDepartPress={() => {
             this.setState({ modalType: "DEP" });
