@@ -74,17 +74,10 @@ class CollapsibleList extends Component {
         {items.map((item, index) => {
           return (
             <View key={index}>
-              <TouchableHighlight
-                underlayColor={"rgba(0,0,0,0.2)"}
-                style={styles.header}
-                onPress={() => {
-                  this.toggleDetails(index);
-                }}
-              >
-                <View>
-                  <CollapsibleTitle item={item} />
-                </View>
-              </TouchableHighlight>
+              <CollapsibleTitle
+                toggleDetails={() => this.toggleDetails(index)}
+                item={item}
+              />
               <CollapsibleDetails
                 collapse={this.state.activeItem !== index}
                 content={item}
@@ -119,10 +112,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  header: {
-    borderTopWidth: 1,
-    borderColor: "#eee"
-  },
   headerBorder: {
     borderBottomWidth: 1
   },
@@ -148,7 +137,8 @@ CollapsibleList.propTypes = {
   items: PropTypes.array,
   removeJourney: PropTypes.func,
   headerRender: PropTypes.func,
-  contentRender: PropTypes.func
+  contentRender: PropTypes.func,
+  fetchNewJourney: PropTypes.func
 };
 
 const mapStateToProps = state => {
