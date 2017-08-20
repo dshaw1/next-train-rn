@@ -1,29 +1,73 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableHighlight,
+  Platform,
+  StyleSheet
+} from "react-native";
 import PropTypes from "prop-types";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const CollapsibleTitle = props => {
+  renderIcon = () => {
+    if (Platform.OS === "ios") {
+      return <Icon name="ios-return-right" size={30} color="#3e4450" />;
+    } else {
+      return <Icon name="md-return-right" size={34} color="#3e4450" />;
+    }
+  };
+
   const item = props.item;
-  
   return (
-    <View style={styles.headerItem}>
-      <Text style={styles.headerText}>
-        {`${item.departStop} to ${item.arrivStop}`}
-      </Text>
-      <Text style={styles.headerText}>
-        {`Departs at ${item.departTime.text} arrives at ${item.arrivTime.text}`}
-      </Text>
-    </View>
+    <TouchableHighlight
+      underlayColor={"rgba(0,0,0,0.2)"}
+      style={styles.itemContainer}
+      onPress={index => {
+        props.toggleDetails(index);
+      }}
+    >
+      <View style={styles.headerItem}>
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <Icon name="ios-return-right" size={30} color="#3e4450" />
+          <View style={{ marginLeft: 15 }}>
+            <Text style={styles.titleText}>
+              {item.departStop}
+            </Text>
+            <Text style={styles.titleText}>
+              {item.arrivStop}
+            </Text>
+          </View>
+        </View>
+        <Text style={styles.timeText}>
+          {`Departs at ${item.departTime.text} arrives at ${item.arrivTime
+            .text}`}
+        </Text>
+      </View>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
+  itemContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    borderRadius: 4,
+    height: 100,
+    backgroundColor: "#ffffff"
+  },
   headerItem: {
     padding: 10,
-    backgroundColor: "#fff"
+    flex: 1
   },
-  headerText: {
-    color: "grey"
+  titleText: {
+    color: "#3e4450",
+    fontWeight: "500"
+  },
+  timeText: {
+    color: "#3e4450",
+    fontWeight: "100"
   }
 });
 
