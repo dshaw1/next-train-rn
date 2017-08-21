@@ -283,7 +283,7 @@ NewJourney.propTypes = {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    backgroundColor: "#26272b",
+    backgroundColor: "#353535",
     flex: 1,
     flexDirection: "column"
   },

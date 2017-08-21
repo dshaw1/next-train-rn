@@ -37,7 +37,7 @@ class Favourites extends Component {
   }
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#1964be",
+    navBarBackgroundColor: "#0dd3bb",
     statusBarTextColorScheme: "light"
   };
 

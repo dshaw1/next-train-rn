@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 const CollapsibleTitle = props => {
   renderIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-return-right" size={30} color="#3e4450" />;
+      return <Icon name="ios-arrow-down" size={30} color="#3e4450" />;
     } else {
       return <Icon name="md-return-right" size={34} color="#3e4450" />;
     }
@@ -28,21 +28,27 @@ const CollapsibleTitle = props => {
       }}
     >
       <View style={styles.headerItem}>
-        <View style={{ flex: 1, flexDirection: "row" }}>
-          <Icon name="ios-return-right" size={30} color="#3e4450" />
+        <View style={{ flexDirection: "row", height: 24 }}>
+          <Text style={styles.timeText}>
+            {item.departTime.text}
+          </Text>
           <View style={{ marginLeft: 15 }}>
             <Text style={styles.titleText}>
               {item.departStop}
             </Text>
+          </View>
+        </View>
+        <View style={{ flexDirection: "row", height: 24 }}>
+          <Text style={styles.timeText}>
+            {item.arrivTime.text}
+          </Text>
+          <View style={{ marginLeft: 15 }}>
             <Text style={styles.titleText}>
               {item.arrivStop}
             </Text>
           </View>
         </View>
-        <Text style={styles.timeText}>
-          {`Departs at ${item.departTime.text} arrives at ${item.arrivTime
-            .text}`}
-        </Text>
+        <Icon name="ios-arrow-down" size={18} color="#3e4450" />
       </View>
     </TouchableHighlight>
   );
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: 10,
     borderRadius: 4,
-    height: 100,
+    height: 80,
     backgroundColor: "#ffffff"
   },
   headerItem: {
@@ -63,11 +69,13 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: "#3e4450",
-    fontWeight: "500"
+    fontWeight: "500",
+    fontSize: 13
   },
   timeText: {
     color: "#3e4450",
-    fontWeight: "100"
+    fontWeight: "100",
+    fontSize: 13
   }
 });
 

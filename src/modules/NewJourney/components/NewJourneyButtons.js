@@ -80,17 +80,15 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(0, 0, 0, 0.054)"
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
+    color: "#ffffff"
   },
   fetchBtn: {
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 50
-  },
-  fetchBtnText: {
-    color: "blue",
-    fontSize: 20
+    marginTop: 50,
+    color: "#ffffff"
   }
 });
 
