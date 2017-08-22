@@ -19,6 +19,64 @@ const CollapsibleTitle = props => {
   };
 
   const item = props.item;
+  console.log(item.steps);
+  // Render travel icons based on travel_mode
+  checkTravelMode = item.steps.map((step, index) => {
+    if (
+      step.travel_mode === "TRANSIT" &&
+      step.transit_details.line.vehicle.type === "HEAVY_RAIL"
+    ) {
+      return (
+        <Icon
+          key={index}
+          name="ios-subway"
+          size={22}
+          color="#3e4450"
+          style={{ marginLeft: 5 }}
+        />
+      );
+    }
+    if (
+      step.travel_mode === "TRANSIT" &&
+      step.transit_details.line.vehicle.type === "BUS"
+    ) {
+      return (
+        <Icon
+          key={index}
+          name="ios-bus"
+          size={22}
+          color="#3e4450"
+          style={{ marginLeft: 5 }}
+        />
+      );
+    }
+    if (step.travel_mode === "WALKING" && step.distance.value >= 500) {
+      return (
+        <Icon
+          key={index}
+          name="ios-walk"
+          size={22}
+          color="#3e4450"
+          style={{ marginLeft: 5 }}
+        />
+      );
+    }
+    if (
+      step.travel_mode === "TRANSIT" &&
+      step.transit_details.line.vehicle.type === "TRAM"
+    ) {
+      return (
+        <Icon
+          key={index}
+          name="ios-train"
+          size={22}
+          color="#3e4450"
+          style={{ marginLeft: 5 }}
+        />
+      );
+    }
+  });
+
   return (
     <TouchableHighlight
       underlayColor={"rgba(0,0,0,0.2)"}
@@ -48,7 +106,21 @@ const CollapsibleTitle = props => {
             </Text>
           </View>
         </View>
-        <Icon name="ios-arrow-down" size={18} color="#3e4450" />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            marginTop: 10
+          }}
+        >
+          <View style={{ flexDirection: "row" }}>
+            {checkTravelMode}
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <Icon name="ios-arrow-down" size={18} color="#3e4450" />
+          </View>
+        </View>
       </View>
     </TouchableHighlight>
   );
@@ -60,7 +132,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: 10,
     borderRadius: 4,
-    height: 80,
+    height: 100,
     backgroundColor: "#ffffff"
   },
   headerItem: {
