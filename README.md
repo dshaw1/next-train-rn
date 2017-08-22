@@ -7,3 +7,4 @@ TODO
 - Add vibration to SortableListView onPress
 - Add "Add up to 6 saved journeys" message on favourite screen when journeys.length === 0
 - Style components
+- Separate CollapsibleTitle into iOS and Android versions for icons..?
