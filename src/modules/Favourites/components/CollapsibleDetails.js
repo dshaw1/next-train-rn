@@ -38,12 +38,21 @@ export default class CollapsibleDetails extends Component {
               key={index}
             >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
           );
-        } else {
+        } 
+        if (stop.transit_details.line.vehicle.type === "BUS") { 
           journeyArr.push(
             <Text
               style={styles.contentText}
               key={index}
             >{`${shortName} Bus departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+          );
+        }
+        if (stop.transit_details.line.vehicle.type === "TRAM") { 
+          journeyArr.push(
+            <Text
+              style={styles.contentText}
+              key={index}
+            >{`${shortName} Tram departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
           );
         }
       } else if (stop.travel_mode === "WALKING" && stop.distance.value >= 500) {
