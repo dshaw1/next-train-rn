@@ -11,10 +11,12 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { fetchNewJourney } from "../../actions/journeys";
+
 import CollapsibleDetails from "./components/CollapsibleDetails";
 import CollapsibleTitle from "./components/CollapsibleTitle";
 import NextThreeModal from "./components/NextThreeModal";
 import nextThreeDepartures from "./helpers/nextThreeDepartures";
+import ShowErrorMessage from "../global/components/ShowErrorMessage";
 
 class CollapsibleList extends Component {
   constructor(props) {
@@ -23,7 +25,8 @@ class CollapsibleList extends Component {
       isLoading: false,
       activeItem: undefined,
       modalVisible: false,
-      nextDepartures: []
+      nextDepartures: [],
+      fetchError: false
     };
   }
 
@@ -42,11 +45,13 @@ class CollapsibleList extends Component {
         return this.setState({
           ...nextDepartures,
           isLoading: false,
-          modalVisible: visible
+          modalVisible: visible,
+          fetchError: false
         });
       })
       .catch((err) => {
-        return console.log(err);
+        this.setState({ fetchError: true, isLoading: false })
+        return err;
       })
     }
   }
@@ -71,12 +76,14 @@ class CollapsibleList extends Component {
     const { items, headerRender } = this.props;
     return (
       <View style={styles.container}>
+      {this.state.fetchError? <ShowErrorMessage /> : null}
         {items.map((item, index) => {
           return (
             <View key={index}>
               <CollapsibleTitle
                 toggleDetails={() => this.toggleDetails(index)}
                 item={item}
+                collapse={this.state.activeItem !== index}
               />
               <CollapsibleDetails
                 collapse={this.state.activeItem !== index}

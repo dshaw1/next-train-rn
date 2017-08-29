@@ -10,16 +10,23 @@ import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const CollapsibleTitle = props => {
-  renderIcon = () => {
+  renderDownIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-down" size={30} color="#3e4450" />;
+      return <Icon name="ios-arrow-down" size={18} color="#3e4450" />;
     } else {
-      return <Icon name="md-return-right" size={34} color="#3e4450" />;
+      return <Icon name="md-return-down" size={18} color="#3e4450" />;
+    }
+  };
+
+  renderUpIcon = () => {
+    if (Platform.OS === "ios") {
+      return <Icon name="ios-arrow-up" size={18} color="#3e4450" />;
+    } else {
+      return <Icon name="md-return-up" size={18} color="#3e4450" />;
     }
   };
 
   const item = props.item;
-  console.log(item.steps);
   // Render travel icons based on travel_mode
   checkTravelMode = item.steps.map((step, index) => {
     if (
@@ -32,7 +39,7 @@ const CollapsibleTitle = props => {
           name="ios-subway"
           size={22}
           color="#3e4450"
-          style={{ marginLeft: 5 }}
+          style={styles.iconStyle}
         />
       );
     }
@@ -46,7 +53,7 @@ const CollapsibleTitle = props => {
           name="ios-bus"
           size={22}
           color="#3e4450"
-          style={{ marginLeft: 5 }}
+          style={styles.iconStyle}
         />
       );
     }
@@ -57,7 +64,7 @@ const CollapsibleTitle = props => {
           name="ios-walk"
           size={22}
           color="#3e4450"
-          style={{ marginLeft: 5 }}
+          style={styles.iconStyle}
         />
       );
     }
@@ -71,7 +78,7 @@ const CollapsibleTitle = props => {
           name="ios-train"
           size={22}
           color="#3e4450"
-          style={{ marginLeft: 5 }}
+          style={styles.iconStyle}
         />
       );
     }
@@ -80,45 +87,38 @@ const CollapsibleTitle = props => {
   return (
     <TouchableHighlight
       underlayColor={"rgba(0,0,0,0.2)"}
-      style={styles.itemContainer}
+      style={!props.collapse ? styles.selectedItemContainer : styles.itemContainer}
       onPress={index => {
         props.toggleDetails(index);
       }}
     >
       <View style={styles.headerItem}>
-        <View style={{ flexDirection: "row", height: 24 }}>
+        <View style={styles.headerRow}>
           <Text style={styles.timeText}>
             {item.departTime.text}
           </Text>
-          <View style={{ marginLeft: 15 }}>
+          <View>
             <Text style={styles.titleText}>
               {item.departStop}
             </Text>
           </View>
         </View>
-        <View style={{ flexDirection: "row", height: 24 }}>
+        <View style={styles.headerRow}>
           <Text style={styles.timeText}>
             {item.arrivTime.text}
           </Text>
-          <View style={{ marginLeft: 15 }}>
+          <View>
             <Text style={styles.titleText}>
               {item.arrivStop}
             </Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            marginTop: 10
-          }}
-        >
-          <View style={{ flexDirection: "row" }}>
+        <View style={styles.iconsContainer}>
+          <View style={styles.flexRow}>
             {checkTravelMode}
           </View>
-          <View style={{ flexDirection: "row" }}>
-            <Icon name="ios-arrow-down" size={18} color="#3e4450" />
+          <View style={styles.flexRow}>
+            {!props.collapse ? renderUpIcon() : renderDownIcon()}
           </View>
         </View>
       </View>
@@ -135,6 +135,17 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: "#ffffff"
   },
+  selectedItemContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
+    borderBottomLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+    height: 100,
+    backgroundColor: "#ffffff"
+  },
   headerItem: {
     padding: 10,
     flex: 1
@@ -147,7 +158,25 @@ const styles = StyleSheet.create({
   timeText: {
     color: "#3e4450",
     fontWeight: "100",
-    fontSize: 13
+    fontSize: 13,
+    width: 60,
+    marginRight: 15
+  },
+  iconStyle: {
+    marginLeft: 5
+  },
+  flexRow: {
+    flexDirection: 'row'
+  },
+  iconsContainer: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    marginTop: 10
+  },
+  headerRow: {
+    flexDirection: "row",
+    height: 24
   }
 });
 

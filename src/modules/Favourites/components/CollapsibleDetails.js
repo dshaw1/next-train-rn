@@ -12,8 +12,8 @@ export default class CollapsibleDetails extends Component {
     this.state = {
       height: new Animated.Value(this.props.height)
     };
-    // this.getContentHeight = this.getContentHeight.bind(this);
-    // this.handleHeight = this.handleHeight.bind(this);
+    this.getContentHeight = this.getContentHeight.bind(this);
+    this.handleHeight = this.handleHeight.bind(this);
 
     this.contentInit = true;
     this.contentHeight = 0;
@@ -38,8 +38,8 @@ export default class CollapsibleDetails extends Component {
               key={index}
             >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
           );
-        } 
-        if (stop.transit_details.line.vehicle.type === "BUS") { 
+        }
+        if (stop.transit_details.line.vehicle.type === "BUS") {
           journeyArr.push(
             <Text
               style={styles.contentText}
@@ -47,7 +47,7 @@ export default class CollapsibleDetails extends Component {
             >{`${shortName} Bus departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
           );
         }
-        if (stop.transit_details.line.vehicle.type === "TRAM") { 
+        if (stop.transit_details.line.vehicle.type === "TRAM") {
           journeyArr.push(
             <Text
               style={styles.contentText}
@@ -67,65 +67,83 @@ export default class CollapsibleDetails extends Component {
     return journeyArr;
   };
 
-  // getContentHeight(event) {
-  //   if (!this.contentInit) {
-  //     this.props.maxHeight ? this.contentHeight = Math.min(this.props.maxHeight, event.nativeEvent.layout.height) : this.contentHeight = event.nativeEvent.layout.height;
-  //     this.contentInit = true;
+  getContentHeight(event) {
+    if (!this.contentInit) {
+      this.props.maxHeight ? this.contentHeight = Math.min(this.props.maxHeight, event.nativeEvent.layout.height) : this.contentHeight = event.nativeEvent.layout.height;
+      this.contentInit = true;
 
-  //   }
-  // }
+    }
+  }
 
-  // handleHeight() {
-  //   if (this.props.collapse) {
-  //     Animated.timing(
-  //       this.state.height,
-  //       {toValue: 0,
-  //         duration: this.props.duration}
-  //     ).start();
-  //   } else {
-  //     Animated.timing(
-  //       this.state.height,
-  //       {toValue: this.contentHeight,
-  //         duration: this.props.duration}
-  //     ).start();
-  //   }
-  // }
+  handleHeight() {
+    if (this.props.collapse) {
+      Animated.timing(
+        this.state.height,
+        {toValue: 0,
+          duration: this.props.duration}
+      ).start();
+    } else {
+      Animated.timing(
+        this.state.height,
+        {toValue: this.contentHeight,
+          duration: this.props.duration}
+      ).start();
+    }
+  }
   render() {
-    // if (this.contentInit) {
-    //   this.handleHeight();
-    // }
+    if (this.contentInit) {
+      this.handleHeight();
+    }
     return (
-      <ScrollView>
+      <View style={styles.detailsContainer}>
         {!this.props.collapse
-          ? <View>
+          ? <View >
               <Text
-                style={{ color: "#0dd3bb", fontSize: 20 }}
+                style={styles.nextThreeBtn}
                 onPress={() => this.props.showModal()}
               >
                 Next 3
               </Text>
-              {this.renderListContent(this.props.content)}
+              <View style={styles.detailsCtonainer}>
+                {this.renderListContent(this.props.content)}
+              </View>
+              <View style={styles.bottomBorderRadius}></View>
             </View>
           : null}
-      </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  collapseContainer: {
-    paddingTop: 0
-  },
-  collapseItem: {
-    paddingBottom: 0
+  detailsCtonainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 4
   },
   contentText: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 4,
+    backgroundColor: "#fff",
+    color: "#3e4450"
+  },
+  nextThreeBtn: {
     padding: 10,
-    backgroundColor: "grey",
-    color: "#ffffff"
+    marginLeft: 10,
+    marginRight: 10,
+    color: "#3e4450",
+    fontSize: 20,
+    backgroundColor: "#fff"
+  },
+  bottomBorderRadius: {
+    height: 10, 
+    backgroundColor: "#fff",
+    marginLeft: 10,
+    marginRight: 10,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4
   }
 });
 
@@ -133,4 +151,4 @@ CollapsibleDetails.propTypes = {
   collapse: PropTypes.bool.isRequired,
   content: PropTypes.object.isRequired,
   showModal: PropTypes.func.isRequired
-}
+};
