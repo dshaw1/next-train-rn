@@ -9,14 +9,14 @@ export default class CollapsibleDetails extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      height: new Animated.Value(this.props.height)
-    };
-    this.getContentHeight = this.getContentHeight.bind(this);
-    this.handleHeight = this.handleHeight.bind(this);
+    // this.state = {
+    //   height: new Animated.Value(this.props.height)
+    // };
+    // this.getContentHeight = this.getContentHeight.bind(this);
+    // this.handleHeight = this.handleHeight.bind(this);
 
-    this.contentInit = true;
-    this.contentHeight = 0;
+    // this.contentInit = true;
+    // this.contentHeight = 0;
   }
 
   // Render each journey leg as bus or train method of transport
@@ -67,33 +67,33 @@ export default class CollapsibleDetails extends Component {
     return journeyArr;
   };
 
-  getContentHeight(event) {
-    if (!this.contentInit) {
-      this.props.maxHeight ? this.contentHeight = Math.min(this.props.maxHeight, event.nativeEvent.layout.height) : this.contentHeight = event.nativeEvent.layout.height;
-      this.contentInit = true;
+  // getContentHeight(event) {
+  //   if (!this.contentInit) {
+  //     this.props.maxHeight ? this.contentHeight = Math.min(this.props.maxHeight, event.nativeEvent.layout.height) : this.contentHeight = event.nativeEvent.layout.height;
+  //     this.contentInit = true;
 
-    }
-  }
+  //   }
+  // }
 
-  handleHeight() {
-    if (this.props.collapse) {
-      Animated.timing(
-        this.state.height,
-        {toValue: 0,
-          duration: this.props.duration}
-      ).start();
-    } else {
-      Animated.timing(
-        this.state.height,
-        {toValue: this.contentHeight,
-          duration: this.props.duration}
-      ).start();
-    }
-  }
+  // handleHeight() {
+  //   if (this.props.collapse) {
+  //     Animated.timing(
+  //       this.state.height,
+  //       {toValue: 0,
+  //         duration: this.props.duration}
+  //     ).start();
+  //   } else {
+  //     Animated.timing(
+  //       this.state.height,
+  //       {toValue: this.contentHeight,
+  //         duration: this.props.duration}
+  //     ).start();
+  //   }
+  // }
   render() {
-    if (this.contentInit) {
-      this.handleHeight();
-    }
+    // if (this.contentInit) {
+    //   this.handleHeight();
+    // }
     return (
       <View style={styles.detailsContainer}>
         {!this.props.collapse
