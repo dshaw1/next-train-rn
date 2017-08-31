@@ -147,7 +147,7 @@ class NewJourney extends Component {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem("@NextTrain:MyKey")
         .then(data => {
-          if(JSON.parse(data).length === 6) {
+          if(JSON.parse(data) && JSON.parse(data).length === 6) {
             this.setState({ isLoading: false })
             return alert("You've reached the journey limit!");
           }
