@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   Platform,
   StyleSheet
 } from "react-native";
@@ -14,7 +14,7 @@ const CollapsibleTitle = props => {
     if (Platform.OS === "ios") {
       return <Icon name="ios-arrow-down" size={18} color="#3e4450" />;
     } else {
-      return <Icon name="md-return-down" size={18} color="#3e4450" />;
+      return <Icon name="md-arrow-dropdown" size={18} color="#3e4450" />;
     }
   };
 
@@ -22,7 +22,7 @@ const CollapsibleTitle = props => {
     if (Platform.OS === "ios") {
       return <Icon name="ios-arrow-up" size={18} color="#3e4450" />;
     } else {
-      return <Icon name="md-return-up" size={18} color="#3e4450" />;
+      return <Icon name="md-arrow-dropup" size={18} color="#3e4450" />;
     }
   };
 
@@ -85,8 +85,8 @@ const CollapsibleTitle = props => {
   });
 
   return (
-    <TouchableHighlight
-      underlayColor={"rgba(0,0,0,0.2)"}
+    <TouchableOpacity
+      activeOpacity={1}
       style={!props.collapse ? styles.selectedItemContainer : styles.itemContainer}
       onPress={index => {
         props.toggleDetails(index);
@@ -122,7 +122,7 @@ const CollapsibleTitle = props => {
           </View>
         </View>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 
