@@ -48,6 +48,11 @@ class NewJourney extends Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
+  static navigatorStyle = {
+    navBarBackgroundColor: "#00a4d8",
+    statusBarTextColorScheme: "light"
+  };
+
   // handle back navigation buttons
   onNavigatorEvent(event) {
     if (event.type == "NavBarButtonPress") {
@@ -232,14 +237,12 @@ class NewJourney extends Component {
     if (this.state.isLoading) {
       return (
         <View>
-          <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
           <ActivityIndicator style={styles.activityIndicator} size="small" />
         </View>
       );
     }
     return (
       <View style={styles.contentContainer}>
-        <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
         {this.state.fetchError? <ShowErrorMessage /> : null}
         <NewJourneyButtons
           onDepartPress={() => {
@@ -283,7 +286,7 @@ NewJourney.propTypes = {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    backgroundColor: "#353535",
+    backgroundColor: "#363636",
     flex: 1,
     flexDirection: "column"
   },

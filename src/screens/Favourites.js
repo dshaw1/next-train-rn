@@ -21,7 +21,6 @@ import SortableListView from "react-native-sortable-listview";
 import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
-import { RegularButtons } from "../modules/global/helpers/navigationButtonOptions";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 
 class Favourites extends Component {
@@ -37,12 +36,9 @@ class Favourites extends Component {
   }
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#0dd3bb",
+    navBarBackgroundColor: "#00a4d8",
     statusBarTextColorScheme: "light"
   };
-
-  // Set Navigation Buttons on mount
-  static navigatorButtons = RegularButtons;
 
   pushScreen = () => {
     if (this.props.journeys.editing === true) {
@@ -238,7 +234,6 @@ class Favourites extends Component {
     if (this.state.isLoading) {
       return (
         <View>
-          <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
           <ActivityIndicator style={styles.activityIndicator} size="small" />
         </View>
       );
@@ -247,7 +242,6 @@ class Favourites extends Component {
     if (editing) {
       return (
         <View style={styles.favouritesContainer}>
-          <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
           <SortableListView
             style={{ flex: 1 }}
             data={this.state.favourites}
@@ -268,7 +262,6 @@ class Favourites extends Component {
       // Show CollapsibleList
       return (
         <View style={styles.favouritesContainer}>
-          <StatusBar backgroundColor="#00a4d8" barStyle="light-content" />
           {this.state.fetchError ? <ShowErrorMessage /> : null}
           <ScrollView
             refreshControl={
@@ -293,18 +286,6 @@ class Favourites extends Component {
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    height: 60,
-    backgroundColor: "transparent",
-    borderBottomColor: "#bbb",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  },
-  itemHeading: {
-    fontWeight: "bold"
-  },
   favouritesContainer: {
     flex: 1,
     justifyContent: "center",
