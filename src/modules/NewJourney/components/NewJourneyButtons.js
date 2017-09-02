@@ -10,8 +10,10 @@ import {
   Platform
 } from "react-native";
 
+import Icon from "react-native-vector-icons/Ionicons";
+
 const NewJourneyButtons = props => {
-  renderPlatformButtons = () => {
+  renderAddButton = () => {
     if (Platform.OS === "ios") {
       return (
         <Button
@@ -40,21 +42,23 @@ const NewJourneyButtons = props => {
     <View>
       <TouchableOpacity onPress={props.onDepartPress}>
         <View style={styles.row}>
+          <Icon name="ios-subway-outline" size={22} color="#fff" />
           <Text style={styles.text}>
-            Departure: {props.departureStop !== "" ? props.departureStop : ""}
+            {props.departureStop !== "" ? props.departureStop : "Departure"}
           </Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={props.onArrivPress}>
         <View style={styles.row}>
+          <Icon name="ios-subway-outline" size={22} color="#fff" />
           <Text style={styles.text}>
-            Arrival: {props.arrivalStop !== "" ? props.arrivalStop : ""}
+            {props.arrivalStop !== "" ? props.arrivalStop : "Arrival"}
           </Text>
         </View>
       </TouchableOpacity>
 
-      {this.renderPlatformButtons()}
+      {this.renderAddButton()}
     </View>
   );
 };
