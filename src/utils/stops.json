@@ -4,1518 +4,1518 @@
     "stop_id": 1220,
     "stop_latitude": -37.8666039,
     "stop_longitude": 144.7608,
-    "stop_name": "Aircraft Station"
+    "stop_name": "Aircraft"
   },
   {
     "route_type": 0,
     "stop_id": 1002,
     "stop_latitude": -37.8683167,
     "stop_longitude": 145.079666,
-    "stop_name": "Alamein Station"
+    "stop_name": "Alamein"
   },
   {
     "route_type": 0,
     "stop_id": 1003,
     "stop_latitude": -37.7776566,
     "stop_longitude": 144.8247,
-    "stop_name": "Albion Station"
+    "stop_name": "Albion"
   },
   {
     "route_type": 0,
     "stop_id": 1004,
     "stop_latitude": -37.7783966,
     "stop_longitude": 145.03125,
-    "stop_name": "Alphington Station"
+    "stop_name": "Alphington"
   },
   {
     "route_type": 0,
     "stop_id": 1005,
     "stop_latitude": -37.86715,
     "stop_longitude": 144.829651,
-    "stop_name": "Altona Station"
+    "stop_name": "Altona"
   },
   {
     "route_type": 0,
     "stop_id": 1006,
     "stop_latitude": -37.76124,
     "stop_longitude": 144.9607,
-    "stop_name": "Anstey Station"
+    "stop_name": "Anstey"
   },
   {
     "route_type": 0,
     "stop_id": 1008,
     "stop_latitude": -37.8564529,
     "stop_longitude": 145.019333,
-    "stop_name": "Armadale Station"
+    "stop_name": "Armadale"
   },
   {
     "route_type": 0,
     "stop_id": 1009,
     "stop_latitude": -37.77531,
     "stop_longitude": 144.921829,
-    "stop_name": "Ascot Vale Station"
+    "stop_name": "Ascot Vale"
   },
   {
     "route_type": 0,
     "stop_id": 1010,
     "stop_latitude": -37.86197,
     "stop_longitude": 145.081345,
-    "stop_name": "Ashburton Station"
+    "stop_name": "Ashburton"
   },
   {
     "route_type": 0,
     "stop_id": 1011,
     "stop_latitude": -38.02722,
     "stop_longitude": 145.102158,
-    "stop_name": "Aspendale Station"
+    "stop_name": "Aspendale"
   },
   {
     "route_type": 0,
     "stop_id": 1012,
     "stop_latitude": -37.8224,
     "stop_longitude": 145.045837,
-    "stop_name": "Auburn Station"
+    "stop_name": "Auburn"
   },
   {
     "route_type": 0,
     "stop_id": 1013,
     "stop_latitude": -37.8694878,
     "stop_longitude": 144.993515,
-    "stop_name": "Balaclava Station"
+    "stop_name": "Balaclava"
   },
   {
     "route_type": 0,
     "stop_id": 1014,
     "stop_latitude": -37.7335243,
     "stop_longitude": 144.96283,
-    "stop_name": "Batman Station"
+    "stop_name": "Batman"
   },
   {
     "route_type": 0,
     "stop_id": 1015,
     "stop_latitude": -38.194046,
     "stop_longitude": 145.160522,
-    "stop_name": "Baxter Station"
+    "stop_name": "Baxter"
   },
   {
     "route_type": 0,
     "stop_id": 1016,
     "stop_latitude": -37.84173,
     "stop_longitude": 145.268143,
-    "stop_name": "Bayswater Station"
+    "stop_name": "Bayswater"
   },
   {
     "route_type": 0,
     "stop_id": 1017,
     "stop_latitude": -38.050827,
     "stop_longitude": 145.366074,
-    "stop_name": "Beaconsfield Station"
+    "stop_name": "Beaconsfield"
   },
   {
     "route_type": 0,
     "stop_id": 1018,
     "stop_latitude": -37.9091,
     "stop_longitude": 145.355286,
-    "stop_name": "Belgrave Station"
+    "stop_name": "Belgrave"
   },
   {
     "route_type": 0,
     "stop_id": 1019,
     "stop_latitude": -37.7455673,
     "stop_longitude": 145.000153,
-    "stop_name": "Bell Station"
+    "stop_name": "Bell"
   },
   {
     "route_type": 0,
     "stop_id": 1020,
     "stop_latitude": -37.9174271,
     "stop_longitude": 145.036987,
-    "stop_name": "Bentleigh Station"
+    "stop_name": "Bentleigh"
   },
   {
     "route_type": 0,
     "stop_id": 1021,
     "stop_latitude": -38.04041,
     "stop_longitude": 145.345718,
-    "stop_name": "Berwick Station"
+    "stop_name": "Berwick"
   },
   {
     "route_type": 0,
     "stop_id": 1022,
     "stop_latitude": -38.33739,
     "stop_longitude": 145.178024,
-    "stop_name": "Bittern Station"
+    "stop_name": "Bittern"
   },
   {
     "route_type": 0,
     "stop_id": 1023,
     "stop_latitude": -37.82007,
     "stop_longitude": 145.150009,
-    "stop_name": "Blackburn Station"
+    "stop_name": "Blackburn"
   },
   {
     "route_type": 0,
     "stop_id": 1024,
     "stop_latitude": -38.0629463,
     "stop_longitude": 145.119675,
-    "stop_name": "Bonbeach Station"
+    "stop_name": "Bonbeach"
   },
   {
     "route_type": 0,
     "stop_id": 1025,
     "stop_latitude": -37.8604546,
     "stop_longitude": 145.284378,
-    "stop_name": "Boronia Station"
+    "stop_name": "Boronia"
   },
   {
     "route_type": 0,
     "stop_id": 1026,
     "stop_latitude": -37.8192177,
     "stop_longitude": 145.121429,
-    "stop_name": "Box Hill Station"
+    "stop_name": "Box Hill"
   },
   {
     "route_type": 0,
     "stop_id": 1027,
     "stop_latitude": -37.9264832,
     "stop_longitude": 144.989151,
-    "stop_name": "Brighton Beach Station"
+    "stop_name": "Brighton Beach"
   },
   {
     "route_type": 0,
     "stop_id": 1028,
     "stop_latitude": -37.6830521,
     "stop_longitude": 144.919617,
-    "stop_name": "Broadmeadows Station"
+    "stop_name": "Broadmeadows"
   },
   {
     "route_type": 0,
     "stop_id": 1029,
     "stop_latitude": -37.76772,
     "stop_longitude": 144.9596,
-    "stop_name": "Brunswick Station"
+    "stop_name": "Brunswick"
   },
   {
     "route_type": 0,
     "stop_id": 1030,
     "stop_latitude": -37.8275566,
     "stop_longitude": 145.007553,
-    "stop_name": "Burnley Station"
+    "stop_name": "Burnley"
   },
   {
     "route_type": 0,
     "stop_id": 1031,
     "stop_latitude": -37.8515625,
     "stop_longitude": 145.0805,
-    "stop_name": "Burwood Station"
+    "stop_name": "Burwood"
   },
   {
     "route_type": 0,
     "stop_id": 1032,
     "stop_latitude": -37.8265648,
     "stop_longitude": 145.058685,
-    "stop_name": "Camberwell Station"
+    "stop_name": "Camberwell"
   },
   {
     "route_type": 0,
     "stop_id": 1033,
     "stop_latitude": -37.82449,
     "stop_longitude": 145.081223,
-    "stop_name": "Canterbury Station"
+    "stop_name": "Canterbury"
   },
   {
     "route_type": 0,
     "stop_id": 1223,
     "stop_latitude": -38.07129,
     "stop_longitude": 145.43779,
-    "stop_name": "Cardinia Road Station"
+    "stop_name": "Cardinia Road"
   },
   {
     "route_type": 0,
     "stop_id": 1034,
     "stop_latitude": -37.88624,
     "stop_longitude": 145.058578,
-    "stop_name": "Carnegie Station"
+    "stop_name": "Carnegie"
   },
   {
     "route_type": 0,
     "stop_id": 1035,
     "stop_latitude": -38.0748978,
     "stop_longitude": 145.122421,
-    "stop_name": "Carrum Station"
+    "stop_name": "Carrum"
   },
   {
     "route_type": 0,
     "stop_id": 1036,
     "stop_latitude": -37.8774567,
     "stop_longitude": 145.042526,
-    "stop_name": "Caulfield Station"
+    "stop_name": "Caulfield"
   },
   {
     "route_type": 0,
     "stop_id": 1037,
     "stop_latitude": -37.8243027,
     "stop_longitude": 145.088654,
-    "stop_name": "Chatham Station"
+    "stop_name": "Chatham"
   },
   {
     "route_type": 0,
     "stop_id": 1038,
     "stop_latitude": -38.05196,
     "stop_longitude": 145.116043,
-    "stop_name": "Chelsea Station"
+    "stop_name": "Chelsea"
   },
   {
     "route_type": 0,
     "stop_id": 1039,
     "stop_latitude": -37.9666519,
     "stop_longitude": 145.05455,
-    "stop_name": "Cheltenham Station"
+    "stop_name": "Cheltenham"
   },
   {
     "route_type": 0,
     "stop_id": 1040,
     "stop_latitude": -37.9251671,
     "stop_longitude": 145.120682,
-    "stop_name": "Clayton Station"
+    "stop_name": "Clayton"
   },
   {
     "route_type": 0,
     "stop_id": 1041,
     "stop_latitude": -37.7886543,
     "stop_longitude": 144.995422,
-    "stop_name": "Clifton Hill Station"
+    "stop_name": "Clifton Hill"
   },
   {
     "route_type": 0,
     "stop_id": 1042,
     "stop_latitude": -37.74234,
     "stop_longitude": 144.963348,
-    "stop_name": "Coburg Station"
+    "stop_name": "Coburg"
   },
   {
     "route_type": 0,
     "stop_id": 1043,
     "stop_latitude": -37.8045235,
     "stop_longitude": 144.993744,
-    "stop_name": "Collingwood Station"
+    "stop_name": "Collingwood"
   },
   {
     "route_type": 0,
     "stop_id": 1221,
     "stop_latitude": -37.661,
     "stop_longitude": 144.926056,
-    "stop_name": "Coolaroo Station"
+    "stop_name": "Coolaroo"
   },
   {
     "route_type": 0,
     "stop_id": 1044,
     "stop_latitude": -37.6019249,
     "stop_longitude": 144.943314,
-    "stop_name": "Craigieburn Station"
+    "stop_name": "Craigieburn"
   },
   {
     "route_type": 0,
     "stop_id": 1045,
     "stop_latitude": -38.09954,
     "stop_longitude": 145.2806,
-    "stop_name": "Cranbourne Station"
+    "stop_name": "Cranbourne"
   },
   {
     "route_type": 0,
     "stop_id": 1046,
     "stop_latitude": -38.36612,
     "stop_longitude": 145.204041,
-    "stop_name": "Crib Point Station"
+    "stop_name": "Crib Point"
   },
   {
     "route_type": 0,
     "stop_id": 1047,
     "stop_latitude": -37.7641,
     "stop_longitude": 144.997055,
-    "stop_name": "Croxton Station"
+    "stop_name": "Croxton"
   },
   {
     "route_type": 0,
     "stop_id": 1048,
     "stop_latitude": -37.79544,
     "stop_longitude": 145.2806,
-    "stop_name": "Croydon Station"
+    "stop_name": "Croydon"
   },
   {
     "route_type": 0,
     "stop_id": 1049,
     "stop_latitude": -37.9899673,
     "stop_longitude": 145.209732,
-    "stop_name": "Dandenong Station"
+    "stop_name": "Dandenong"
   },
   {
     "route_type": 0,
     "stop_id": 1050,
     "stop_latitude": -37.7749634,
     "stop_longitude": 145.038483,
-    "stop_name": "Darebin Station"
+    "stop_name": "Darebin"
   },
   {
     "route_type": 0,
     "stop_id": 1051,
     "stop_latitude": -37.8689575,
     "stop_longitude": 145.062943,
-    "stop_name": "Darling Station"
+    "stop_name": "Darling"
   },
   {
     "route_type": 0,
     "stop_id": 1053,
     "stop_latitude": -37.7791824,
     "stop_longitude": 145.00824,
-    "stop_name": "Dennis Station"
+    "stop_name": "Dennis"
   },
   {
     "route_type": 0,
     "stop_id": 1054,
     "stop_latitude": -37.6732941,
     "stop_longitude": 145.158508,
-    "stop_name": "Diamond Creek Station"
+    "stop_name": "Diamond Creek"
   },
   {
     "route_type": 0,
     "stop_id": 1055,
     "stop_latitude": -37.6270142,
     "stop_longitude": 144.719925,
-    "stop_name": "Diggers Rest Station"
+    "stop_name": "Diggers Rest"
   },
   {
     "route_type": 0,
     "stop_id": 1056,
     "stop_latitude": -37.7635841,
     "stop_longitude": 145.05394,
-    "stop_name": "Eaglemont Station"
+    "stop_name": "Eaglemont"
   },
   {
     "route_type": 0,
     "stop_id": 1057,
     "stop_latitude": -37.8258934,
     "stop_longitude": 145.068192,
-    "stop_name": "East Camberwell Station"
+    "stop_name": "East Camberwell"
   },
   {
     "route_type": 0,
     "stop_id": 1058,
     "stop_latitude": -37.87693,
     "stop_longitude": 145.0694,
-    "stop_name": "East Malvern Station"
+    "stop_name": "East Malvern"
   },
   {
     "route_type": 0,
     "stop_id": 1059,
     "stop_latitude": -37.8264046,
     "stop_longitude": 144.99707,
-    "stop_name": "East Richmond Station"
+    "stop_name": "East Richmond"
   },
   {
     "route_type": 0,
     "stop_id": 1060,
     "stop_latitude": -38.0380554,
     "stop_longitude": 145.108536,
-    "stop_name": "Edithvale Station"
+    "stop_name": "Edithvale"
   },
   {
     "route_type": 0,
     "stop_id": 1061,
     "stop_latitude": -37.88475,
     "stop_longitude": 145.0009,
-    "stop_name": "Elsternwick Station"
+    "stop_name": "Elsternwick"
   },
   {
     "route_type": 0,
     "stop_id": 1062,
     "stop_latitude": -37.71355,
     "stop_longitude": 145.147827,
-    "stop_name": "Eltham Station"
+    "stop_name": "Eltham"
   },
   {
     "route_type": 0,
     "stop_id": 1063,
     "stop_latitude": -37.65239,
     "stop_longitude": 145.030121,
-    "stop_name": "Epping Station"
+    "stop_name": "Epping"
   },
   {
     "route_type": 0,
     "stop_id": 1064,
     "stop_latitude": -37.75601,
     "stop_longitude": 144.9162,
-    "stop_name": "Essendon Station"
+    "stop_name": "Essendon"
   },
   {
     "route_type": 0,
     "stop_id": 1065,
     "stop_latitude": -37.7791748,
     "stop_longitude": 145.0169,
-    "stop_name": "Fairfield Station"
+    "stop_name": "Fairfield"
   },
   {
     "route_type": 0,
     "stop_id": 1066,
     "stop_latitude": -37.7146225,
     "stop_longitude": 144.960556,
-    "stop_name": "Fawkner Station"
+    "stop_name": "Fawkner"
   },
   {
     "route_type": 0,
     "stop_id": 1067,
     "stop_latitude": -37.8817,
     "stop_longitude": 145.295258,
-    "stop_name": "Ferntree Gully Station"
+    "stop_name": "Ferntree Gully"
   },
   {
     "route_type": 0,
     "stop_id": 1068,
     "stop_latitude": -37.8119774,
     "stop_longitude": 144.955658,
-    "stop_name": "Flagstaff Station"
+    "stop_name": "Flagstaff"
   },
   {
     "route_type": 0,
     "stop_id": 1069,
     "stop_latitude": -37.7881355,
     "stop_longitude": 144.939316,
-    "stop_name": "Flemington Bridge Station"
+    "stop_name": "Flemington Bridge"
   },
   {
     "route_type": 0,
     "stop_id": 1070,
     "stop_latitude": -37.7871971,
     "stop_longitude": 144.9076,
-    "stop_name": "Flemington Racecourse Station"
+    "stop_name": "Flemington Racecourse"
   },
   {
     "route_type": 0,
     "stop_id": 1071,
     "stop_latitude": -37.81831,
     "stop_longitude": 144.966965,
-    "stop_name": "Flinders Street Station"
+    "stop_name": "Flinders Street"
   },
   {
     "route_type": 0,
     "stop_id": 1072,
     "stop_latitude": -37.8010864,
     "stop_longitude": 144.9032,
-    "stop_name": "Footscray Station"
+    "stop_name": "Footscray"
   },
   {
     "route_type": 0,
     "stop_id": 1073,
     "stop_latitude": -38.1429863,
     "stop_longitude": 145.12616,
-    "stop_name": "Frankston Station"
+    "stop_name": "Frankston"
   },
   {
     "route_type": 0,
     "stop_id": 1074,
     "stop_latitude": -37.8966942,
     "stop_longitude": 145.004166,
-    "stop_name": "Gardenvale Station"
+    "stop_name": "Gardenvale"
   },
   {
     "route_type": 0,
     "stop_id": 1075,
     "stop_latitude": -37.8532829,
     "stop_longitude": 145.051666,
-    "stop_name": "Gardiner Station"
+    "stop_name": "Gardiner"
   },
   {
     "route_type": 0,
     "stop_id": 1076,
     "stop_latitude": -37.7575073,
     "stop_longitude": 144.80957,
-    "stop_name": "Ginifer Station"
+    "stop_name": "Ginifer"
   },
   {
     "route_type": 0,
     "stop_id": 1077,
     "stop_latitude": -37.8593063,
     "stop_longitude": 145.058228,
-    "stop_name": "Glen Iris Station"
+    "stop_name": "Glen Iris"
   },
   {
     "route_type": 0,
     "stop_id": 1078,
     "stop_latitude": -37.8795,
     "stop_longitude": 145.162064,
-    "stop_name": "Glen Waverley Station"
+    "stop_name": "Glen Waverley"
   },
   {
     "route_type": 0,
     "stop_id": 1079,
     "stop_latitude": -37.7472153,
     "stop_longitude": 144.920944,
-    "stop_name": "Glenbervie Station"
+    "stop_name": "Glenbervie"
   },
   {
     "route_type": 0,
     "stop_id": 1080,
     "stop_latitude": -37.8214645,
     "stop_longitude": 145.036438,
-    "stop_name": "Glenferrie Station"
+    "stop_name": "Glenferrie"
   },
   {
     "route_type": 0,
     "stop_id": 1081,
     "stop_latitude": -37.8897171,
     "stop_longitude": 145.042221,
-    "stop_name": "Glenhuntly Station"
+    "stop_name": "Glenhuntly"
   },
   {
     "route_type": 0,
     "stop_id": 1082,
     "stop_latitude": -37.7045326,
     "stop_longitude": 144.917221,
-    "stop_name": "Glenroy Station"
+    "stop_name": "Glenroy"
   },
   {
     "route_type": 0,
     "stop_id": 1083,
     "stop_latitude": -37.700676,
     "stop_longitude": 144.958878,
-    "stop_name": "Gowrie Station"
+    "stop_name": "Gowrie"
   },
   {
     "route_type": 0,
     "stop_id": 1084,
     "stop_latitude": -37.70395,
     "stop_longitude": 145.108246,
-    "stop_name": "Greensborough Station"
+    "stop_name": "Greensborough"
   },
   {
     "route_type": 0,
     "stop_id": 1085,
     "stop_latitude": -38.0177422,
     "stop_longitude": 145.269775,
-    "stop_name": "Hallam Station"
+    "stop_name": "Hallam"
   },
   {
     "route_type": 0,
     "stop_id": 1086,
     "stop_latitude": -37.937973,
     "stop_longitude": 145.001465,
-    "stop_name": "Hampton Station"
+    "stop_name": "Hampton"
   },
   {
     "route_type": 0,
     "stop_id": 1087,
     "stop_latitude": -37.8439827,
     "stop_longitude": 145.075562,
-    "stop_name": "Hartwell Station"
+    "stop_name": "Hartwell"
   },
   {
     "route_type": 0,
     "stop_id": 1088,
     "stop_latitude": -38.30566,
     "stop_longitude": 145.185974,
-    "stop_name": "Hastings Station"
+    "stop_name": "Hastings"
   },
   {
     "route_type": 0,
     "stop_id": 1089,
     "stop_latitude": -37.844593,
     "stop_longitude": 145.002136,
-    "stop_name": "Hawksburn Station"
+    "stop_name": "Hawksburn"
   },
   {
     "route_type": 0,
     "stop_id": 1090,
     "stop_latitude": -37.8218231,
     "stop_longitude": 145.0229,
-    "stop_name": "Hawthorn Station"
+    "stop_name": "Hawthorn"
   },
   {
     "route_type": 0,
     "stop_id": 1091,
     "stop_latitude": -37.8188972,
     "stop_longitude": 145.212784,
-    "stop_name": "Heatherdale Station"
+    "stop_name": "Heatherdale"
   },
   {
     "route_type": 0,
     "stop_id": 1092,
     "stop_latitude": -37.82832,
     "stop_longitude": 145.244553,
-    "stop_name": "Heathmont Station"
+    "stop_name": "Heathmont"
   },
   {
     "route_type": 0,
     "stop_id": 1093,
     "stop_latitude": -37.7570763,
     "stop_longitude": 145.060684,
-    "stop_name": "Heidelberg Station"
+    "stop_name": "Heidelberg"
   },
   {
     "route_type": 0,
     "stop_id": 1094,
     "stop_latitude": -37.83467,
     "stop_longitude": 145.022629,
-    "stop_name": "Heyington Station"
+    "stop_name": "Heyington"
   },
   {
     "route_type": 0,
     "stop_id": 1095,
     "stop_latitude": -37.9484253,
     "stop_longitude": 145.04187,
-    "stop_name": "Highett Station"
+    "stop_name": "Highett"
   },
   {
     "route_type": 0,
     "stop_id": 1096,
     "stop_latitude": -37.8744,
     "stop_longitude": 145.090652,
-    "stop_name": "Holmesglen Station"
+    "stop_name": "Holmesglen"
   },
   {
     "route_type": 0,
     "stop_id": 1097,
     "stop_latitude": -37.8832779,
     "stop_longitude": 144.700958,
-    "stop_name": "Hoppers Crossing Station"
+    "stop_name": "Hoppers Crossing"
   },
   {
     "route_type": 0,
     "stop_id": 1098,
     "stop_latitude": -37.89488,
     "stop_longitude": 145.077637,
-    "stop_name": "Hughesdale Station"
+    "stop_name": "Hughesdale"
   },
   {
     "route_type": 0,
     "stop_id": 1099,
     "stop_latitude": -37.91102,
     "stop_longitude": 145.102371,
-    "stop_name": "Huntingdale Station"
+    "stop_name": "Huntingdale"
   },
   {
     "route_type": 0,
     "stop_id": 1100,
     "stop_latitude": -37.6394,
     "stop_longitude": 145.192017,
-    "stop_name": "Hurstbridge Station"
+    "stop_name": "Hurstbridge"
   },
   {
     "route_type": 0,
     "stop_id": 1101,
     "stop_latitude": -37.768898,
     "stop_longitude": 145.045425,
-    "stop_name": "Ivanhoe Station"
+    "stop_name": "Ivanhoe"
   },
   {
     "route_type": 0,
     "stop_id": 1102,
     "stop_latitude": -37.6951332,
     "stop_longitude": 144.915848,
-    "stop_name": "Jacana Station"
+    "stop_name": "Jacana"
   },
   {
     "route_type": 0,
     "stop_id": 1103,
     "stop_latitude": -37.7749825,
     "stop_longitude": 144.95871,
-    "stop_name": "Jewell Station"
+    "stop_name": "Jewell"
   },
   {
     "route_type": 0,
     "stop_id": 1104,
     "stop_latitude": -37.81653,
     "stop_longitude": 144.9841,
-    "stop_name": "Jolimont Station"
+    "stop_name": "Jolimont"
   },
   {
     "route_type": 0,
     "stop_id": 1105,
     "stop_latitude": -37.8736,
     "stop_longitude": 145.112091,
-    "stop_name": "Jordanville Station"
+    "stop_name": "Jordanville"
   },
   {
     "route_type": 0,
     "stop_id": 1106,
     "stop_latitude": -38.12174,
     "stop_longitude": 145.135284,
-    "stop_name": "Kananook Station"
+    "stop_name": "Kananook"
   },
   {
     "route_type": 0,
     "stop_id": 1107,
     "stop_latitude": -37.7292747,
     "stop_longitude": 144.793732,
-    "stop_name": "Keilor Plains Station"
+    "stop_name": "Keilor Plains"
   },
   {
     "route_type": 0,
     "stop_id": 1108,
     "stop_latitude": -37.7937775,
     "stop_longitude": 144.930527,
-    "stop_name": "Kensington Station"
+    "stop_name": "Kensington"
   },
   {
     "route_type": 0,
     "stop_id": 1109,
     "stop_latitude": -37.6948662,
     "stop_longitude": 145.011887,
-    "stop_name": "Keon Park Station"
+    "stop_name": "Keon Park"
   },
   {
     "route_type": 0,
     "stop_id": 1110,
     "stop_latitude": -37.8399277,
     "stop_longitude": 145.033554,
-    "stop_name": "Kooyong Station"
+    "stop_name": "Kooyong"
   },
   {
     "route_type": 0,
     "stop_id": 1111,
     "stop_latitude": -37.8207779,
     "stop_longitude": 145.1407,
-    "stop_name": "Laburnum Station"
+    "stop_name": "Laburnum"
   },
   {
     "route_type": 0,
     "stop_id": 1112,
     "stop_latitude": -37.66585,
     "stop_longitude": 145.0172,
-    "stop_name": "Lalor Station"
+    "stop_name": "Lalor"
   },
   {
     "route_type": 0,
     "stop_id": 1113,
     "stop_latitude": -37.8636932,
     "stop_longitude": 144.772614,
-    "stop_name": "Laverton Station"
+    "stop_name": "Laverton"
   },
   {
     "route_type": 0,
     "stop_id": 1114,
     "stop_latitude": -38.1520348,
     "stop_longitude": 145.139542,
-    "stop_name": "Leawarra Station"
+    "stop_name": "Leawarra"
   },
   {
     "route_type": 0,
     "stop_id": 1115,
     "stop_latitude": -37.7555161,
     "stop_longitude": 145.347717,
-    "stop_name": "Lilydale Station"
+    "stop_name": "Lilydale"
   },
   {
     "route_type": 0,
     "stop_id": 1222,
     "stop_latitude": -38.0573463,
     "stop_longitude": 145.249283,
-    "stop_name": "Lynbrook Station"
+    "stop_name": "Lynbrook"
   },
   {
     "route_type": 0,
     "stop_id": 1116,
     "stop_latitude": -37.7942619,
     "stop_longitude": 144.936172,
-    "stop_name": "Macaulay Station"
+    "stop_name": "Macaulay"
   },
   {
     "route_type": 0,
     "stop_id": 1117,
     "stop_latitude": -37.72601,
     "stop_longitude": 145.069153,
-    "stop_name": "Macleod Station"
+    "stop_name": "Macleod"
   },
   {
     "route_type": 0,
     "stop_id": 1118,
     "stop_latitude": -37.86625,
     "stop_longitude": 145.0293,
-    "stop_name": "Malvern Station"
+    "stop_name": "Malvern"
   },
   {
     "route_type": 0,
     "stop_id": 1119,
     "stop_latitude": -37.910305,
     "stop_longitude": 145.0383,
-    "stop_name": "McKinnon Station"
+    "stop_name": "McKinnon"
   },
   {
     "route_type": 0,
     "stop_id": 1120,
     "stop_latitude": -37.8099365,
     "stop_longitude": 144.9626,
-    "stop_name": "Melbourne Central Station"
+    "stop_name": "Melbourne Central"
   },
   {
     "route_type": 0,
     "stop_id": 1122,
     "stop_latitude": -37.9818649,
     "stop_longitude": 145.06517,
-    "stop_name": "Mentone Station"
+    "stop_name": "Mentone"
   },
   {
     "route_type": 0,
     "stop_id": 1123,
     "stop_latitude": -38.0790024,
     "stop_longitude": 145.2635,
-    "stop_name": "Merinda Park Station"
+    "stop_name": "Merinda Park"
   },
   {
     "route_type": 0,
     "stop_id": 1124,
     "stop_latitude": -37.7209358,
     "stop_longitude": 144.961319,
-    "stop_name": "Merlynston Station"
+    "stop_name": "Merlynston"
   },
   {
     "route_type": 0,
     "stop_id": 1125,
     "stop_latitude": -37.7778435,
     "stop_longitude": 144.992981,
-    "stop_name": "Merri Station"
+    "stop_name": "Merri"
   },
   {
     "route_type": 0,
     "stop_id": 1126,
     "stop_latitude": -37.9151344,
     "stop_longitude": 144.996292,
-    "stop_name": "Middle Brighton Station"
+    "stop_name": "Middle Brighton"
   },
   {
     "route_type": 0,
     "stop_id": 1127,
     "stop_latitude": -37.8025,
     "stop_longitude": 144.891479,
-    "stop_name": "Middle Footscray Station"
+    "stop_name": "Middle Footscray"
   },
   {
     "route_type": 0,
     "stop_id": 1128,
     "stop_latitude": -37.8180122,
     "stop_longitude": 145.191971,
-    "stop_name": "Mitcham Station"
+    "stop_name": "Mitcham"
   },
   {
     "route_type": 0,
     "stop_id": 1129,
     "stop_latitude": -37.8194275,
     "stop_longitude": 145.10553,
-    "stop_name": "Mont Albert Station"
+    "stop_name": "Mont Albert"
   },
   {
     "route_type": 0,
     "stop_id": 1130,
     "stop_latitude": -37.7152977,
     "stop_longitude": 145.1215,
-    "stop_name": "Montmorency Station"
+    "stop_name": "Montmorency"
   },
   {
     "route_type": 0,
     "stop_id": 1131,
     "stop_latitude": -37.7657051,
     "stop_longitude": 144.919159,
-    "stop_name": "Moonee Ponds Station"
+    "stop_name": "Moonee Ponds"
   },
   {
     "route_type": 0,
     "stop_id": 1132,
     "stop_latitude": -37.93435,
     "stop_longitude": 145.036743,
-    "stop_name": "Moorabbin Station"
+    "stop_name": "Moorabbin"
   },
   {
     "route_type": 0,
     "stop_id": 1133,
     "stop_latitude": -37.7847481,
     "stop_longitude": 145.312408,
-    "stop_name": "Mooroolbark Station"
+    "stop_name": "Mooroolbark"
   },
   {
     "route_type": 0,
     "stop_id": 1134,
     "stop_latitude": -38.006588,
     "stop_longitude": 145.087662,
-    "stop_name": "Mordialloc Station"
+    "stop_name": "Mordialloc"
   },
   {
     "route_type": 0,
     "stop_id": 1135,
     "stop_latitude": -37.7544823,
     "stop_longitude": 144.961823,
-    "stop_name": "Moreland Station"
+    "stop_name": "Moreland"
   },
   {
     "route_type": 0,
     "stop_id": 1136,
     "stop_latitude": -38.3540344,
     "stop_longitude": 145.1896,
-    "stop_name": "Morradoo Station"
+    "stop_name": "Morradoo"
   },
   {
     "route_type": 0,
     "stop_id": 1137,
     "stop_latitude": -37.87525,
     "stop_longitude": 145.128052,
-    "stop_name": "Mount Waverley Station"
+    "stop_name": "Mount Waverley"
   },
   {
     "route_type": 0,
     "stop_id": 1138,
     "stop_latitude": -37.8901978,
     "stop_longitude": 145.067383,
-    "stop_name": "Murrumbeena Station"
+    "stop_name": "Murrumbeena"
   },
   {
     "route_type": 0,
     "stop_id": 1139,
     "stop_latitude": -38.02781,
     "stop_longitude": 145.30397,
-    "stop_name": "Narre Warren Station"
+    "stop_name": "Narre Warren"
   },
   {
     "route_type": 0,
     "stop_id": 1140,
     "stop_latitude": -37.7873268,
     "stop_longitude": 144.928986,
-    "stop_name": "Newmarket Station"
+    "stop_name": "Newmarket"
   },
   {
     "route_type": 0,
     "stop_id": 1141,
     "stop_latitude": -37.8427124,
     "stop_longitude": 144.8836,
-    "stop_name": "Newport Station"
+    "stop_name": "Newport"
   },
   {
     "route_type": 0,
     "stop_id": 1142,
     "stop_latitude": -37.9672356,
     "stop_longitude": 145.176941,
-    "stop_name": "Noble Park Station"
+    "stop_name": "Noble Park"
   },
   {
     "route_type": 0,
     "stop_id": 1143,
     "stop_latitude": -37.9048843,
     "stop_longitude": 145.002609,
-    "stop_name": "North Brighton Station"
+    "stop_name": "North Brighton"
   },
   {
     "route_type": 0,
     "stop_id": 1144,
     "stop_latitude": -37.80631,
     "stop_longitude": 144.941513,
-    "stop_name": "North Melbourne Station"
+    "stop_name": "North Melbourne"
   },
   {
     "route_type": 0,
     "stop_id": 1145,
     "stop_latitude": -37.8103943,
     "stop_longitude": 144.9925,
-    "stop_name": "North Richmond Station"
+    "stop_name": "North Richmond"
   },
   {
     "route_type": 0,
     "stop_id": 1146,
     "stop_latitude": -37.85733,
     "stop_longitude": 144.889069,
-    "stop_name": "North Williamstown Station"
+    "stop_name": "North Williamstown"
   },
   {
     "route_type": 0,
     "stop_id": 1147,
     "stop_latitude": -37.7698631,
     "stop_longitude": 144.995285,
-    "stop_name": "Northcote Station"
+    "stop_name": "Northcote"
   },
   {
     "route_type": 0,
     "stop_id": 1148,
     "stop_latitude": -37.8206,
     "stop_longitude": 145.1749,
-    "stop_name": "Nunawading Station"
+    "stop_name": "Nunawading"
   },
   {
     "route_type": 0,
     "stop_id": 1149,
     "stop_latitude": -37.71795,
     "stop_longitude": 144.921509,
-    "stop_name": "Oak Park Station"
+    "stop_name": "Oak Park"
   },
   {
     "route_type": 0,
     "stop_id": 1150,
     "stop_latitude": -37.9003677,
     "stop_longitude": 145.088318,
-    "stop_name": "Oakleigh Station"
+    "stop_name": "Oakleigh"
   },
   {
     "route_type": 0,
     "stop_id": 1151,
     "stop_latitude": -38.066143,
     "stop_longitude": 145.411,
-    "stop_name": "Officer Station"
+    "stop_name": "Officer"
   },
   {
     "route_type": 0,
     "stop_id": 1152,
     "stop_latitude": -37.90321,
     "stop_longitude": 145.039612,
-    "stop_name": "Ormond Station"
+    "stop_name": "Ormond"
   },
   {
     "route_type": 0,
     "stop_id": 1153,
     "stop_latitude": -38.0806122,
     "stop_longitude": 145.486374,
-    "stop_name": "Pakenham Station"
+    "stop_name": "Pakenham"
   },
   {
     "route_type": 0,
     "stop_id": 1154,
     "stop_latitude": -37.9930763,
     "stop_longitude": 145.076324,
-    "stop_name": "Parkdale Station"
+    "stop_name": "Parkdale"
   },
   {
     "route_type": 0,
     "stop_id": 1155,
     "stop_latitude": -37.8110542,
     "stop_longitude": 144.9729,
-    "stop_name": "Parliament Station"
+    "stop_name": "Parliament"
   },
   {
     "route_type": 0,
     "stop_id": 1156,
     "stop_latitude": -37.7307549,
     "stop_longitude": 144.928192,
-    "stop_name": "Pascoe Vale Station"
+    "stop_name": "Pascoe Vale"
   },
   {
     "route_type": 0,
     "stop_id": 1157,
     "stop_latitude": -37.9251442,
     "stop_longitude": 145.035461,
-    "stop_name": "Patterson Station"
+    "stop_name": "Patterson"
   },
   {
     "route_type": 0,
     "stop_id": 1158,
     "stop_latitude": -37.8495178,
     "stop_longitude": 144.989853,
-    "stop_name": "Prahran Station"
+    "stop_name": "Prahran"
   },
   {
     "route_type": 0,
     "stop_id": 1159,
     "stop_latitude": -37.7386742,
     "stop_longitude": 145.000534,
-    "stop_name": "Preston Station"
+    "stop_name": "Preston"
   },
   {
     "route_type": 0,
     "stop_id": 1160,
     "stop_latitude": -37.7284,
     "stop_longitude": 145.002777,
-    "stop_name": "Regent Station"
+    "stop_name": "Regent"
   },
   {
     "route_type": 0,
     "stop_id": 1161,
     "stop_latitude": -37.71689,
     "stop_longitude": 145.006989,
-    "stop_name": "Reservoir Station"
+    "stop_name": "Reservoir"
   },
   {
     "route_type": 0,
     "stop_id": 1162,
     "stop_latitude": -37.8240738,
     "stop_longitude": 144.990158,
-    "stop_name": "Richmond Station"
+    "stop_name": "Richmond"
   },
   {
     "route_type": 0,
     "stop_id": 1164,
     "stop_latitude": -37.81197,
     "stop_longitude": 145.2502,
-    "stop_name": "Ringwood East Station"
+    "stop_name": "Ringwood East"
   },
   {
     "route_type": 0,
     "stop_id": 1163,
     "stop_latitude": -37.81589,
     "stop_longitude": 145.228973,
-    "stop_name": "Ringwood Station"
+    "stop_name": "Ringwood"
   },
   {
     "route_type": 0,
     "stop_id": 1165,
     "stop_latitude": -37.8759079,
     "stop_longitude": 144.995239,
-    "stop_name": "Ripponlea Station"
+    "stop_name": "Ripponlea"
   },
   {
     "route_type": 0,
     "stop_id": 1166,
     "stop_latitude": -37.8315,
     "stop_longitude": 145.069641,
-    "stop_name": "Riversdale Station"
+    "stop_name": "Riversdale"
   },
   {
     "route_type": 0,
     "stop_id": 1168,
     "stop_latitude": -37.7428741,
     "stop_longitude": 145.066147,
-    "stop_name": "Rosanna Station"
+    "stop_name": "Rosanna"
   },
   {
     "route_type": 0,
     "stop_id": 1219,
     "stop_latitude": -37.6382332,
     "stop_longitude": 144.93541,
-    "stop_name": "Roxburgh Park Station"
+    "stop_name": "Roxburgh Park"
   },
   {
     "route_type": 0,
     "stop_id": 1169,
     "stop_latitude": -37.7811928,
     "stop_longitude": 144.9523,
-    "stop_name": "Royal Park Station"
+    "stop_name": "Royal Park"
   },
   {
     "route_type": 0,
     "stop_id": 1170,
     "stop_latitude": -37.78322,
     "stop_longitude": 144.9924,
-    "stop_name": "Rushall Station"
+    "stop_name": "Rushall"
   },
   {
     "route_type": 0,
     "stop_id": 1171,
     "stop_latitude": -37.7078972,
     "stop_longitude": 145.009521,
-    "stop_name": "Ruthven Station"
+    "stop_name": "Ruthven"
   },
   {
     "route_type": 0,
     "stop_id": 1172,
     "stop_latitude": -37.9565,
     "stop_longitude": 145.162827,
-    "stop_name": "Sandown Park Station"
+    "stop_name": "Sandown Park"
   },
   {
     "route_type": 0,
     "stop_id": 1173,
     "stop_latitude": -37.95033,
     "stop_longitude": 145.004562,
-    "stop_name": "Sandringham Station"
+    "stop_name": "Sandringham"
   },
   {
     "route_type": 0,
     "stop_id": 1174,
     "stop_latitude": -38.1040154,
     "stop_longitude": 145.128235,
-    "stop_name": "Seaford Station"
+    "stop_name": "Seaford"
   },
   {
     "route_type": 0,
     "stop_id": 1175,
     "stop_latitude": -37.8678436,
     "stop_longitude": 144.840958,
-    "stop_name": "Seaholme Station"
+    "stop_name": "Seaholme"
   },
   {
     "route_type": 0,
     "stop_id": 1176,
     "stop_latitude": -37.8090019,
     "stop_longitude": 144.89566,
-    "stop_name": "Seddon Station"
+    "stop_name": "Seddon"
   },
   {
     "route_type": 0,
     "stop_id": 1178,
     "stop_latitude": -38.22534,
     "stop_longitude": 145.176239,
-    "stop_name": "Somerville Station"
+    "stop_name": "Somerville"
   },
   {
     "route_type": 0,
     "stop_id": 1179,
     "stop_latitude": -37.7995338,
     "stop_longitude": 144.925476,
-    "stop_name": "South Kensington Station"
+    "stop_name": "South Kensington"
   },
   {
     "route_type": 0,
     "stop_id": 1224,
     "stop_latitude": -37.6491623,
     "stop_longitude": 145.067032,
-    "stop_name": "South Morang Station"
+    "stop_name": "South Morang"
   },
   {
     "route_type": 0,
     "stop_id": 1180,
     "stop_latitude": -37.8384438,
     "stop_longitude": 144.99234,
-    "stop_name": "South Yarra Station"
+    "stop_name": "South Yarra"
   },
   {
     "route_type": 0,
     "stop_id": 1181,
     "stop_latitude": -37.8183327,
     "stop_longitude": 144.95253,
-    "stop_name": "Southern Cross Station"
+    "stop_name": "Southern Cross"
   },
   {
     "route_type": 0,
     "stop_id": 1182,
     "stop_latitude": -37.8306351,
     "stop_longitude": 144.885941,
-    "stop_name": "Spotswood Station"
+    "stop_name": "Spotswood"
   },
   {
     "route_type": 0,
     "stop_id": 1183,
     "stop_latitude": -37.9495125,
     "stop_longitude": 145.153458,
-    "stop_name": "Springvale Station"
+    "stop_name": "Springvale"
   },
   {
     "route_type": 0,
     "stop_id": 1184,
     "stop_latitude": -37.7448578,
     "stop_longitude": 144.800049,
-    "stop_name": "St Albans Station"
+    "stop_name": "St Albans"
   },
   {
     "route_type": 0,
     "stop_id": 1185,
     "stop_latitude": -38.3742371,
     "stop_longitude": 145.221848,
-    "stop_name": "Stony Point Station"
+    "stop_name": "Stony Point"
   },
   {
     "route_type": 0,
     "stop_id": 1186,
     "stop_latitude": -37.74359,
     "stop_longitude": 144.927322,
-    "stop_name": "Strathmore Station"
+    "stop_name": "Strathmore"
   },
   {
     "route_type": 0,
     "stop_id": 1187,
     "stop_latitude": -37.57909,
     "stop_longitude": 144.727325,
-    "stop_name": "Sunbury Station"
+    "stop_name": "Sunbury"
   },
   {
     "route_type": 0,
     "stop_id": 1218,
     "stop_latitude": -37.7877426,
     "stop_longitude": 144.83197,
-    "stop_name": "Sunshine Station"
+    "stop_name": "Sunshine"
   },
   {
     "route_type": 0,
     "stop_id": 1189,
     "stop_latitude": -37.8241425,
     "stop_longitude": 145.098785,
-    "stop_name": "Surrey Hills Station"
+    "stop_name": "Surrey Hills"
   },
   {
     "route_type": 0,
     "stop_id": 1190,
     "stop_latitude": -37.87623,
     "stop_longitude": 145.14978,
-    "stop_name": "Syndal Station"
+    "stop_name": "Syndal"
   },
   {
     "route_type": 0,
     "stop_id": 1191,
     "stop_latitude": -37.9081154,
     "stop_longitude": 145.343,
-    "stop_name": "Tecoma Station"
+    "stop_name": "Tecoma"
   },
   {
     "route_type": 0,
     "stop_id": 1192,
     "stop_latitude": -37.680336,
     "stop_longitude": 145.014282,
-    "stop_name": "Thomastown Station"
+    "stop_name": "Thomastown"
   },
   {
     "route_type": 0,
     "stop_id": 1193,
     "stop_latitude": -37.7550468,
     "stop_longitude": 144.998581,
-    "stop_name": "Thornbury Station"
+    "stop_name": "Thornbury"
   },
   {
     "route_type": 0,
     "stop_id": 1194,
     "stop_latitude": -37.85077,
     "stop_longitude": 145.0139,
-    "stop_name": "Toorak Station"
+    "stop_name": "Toorak"
   },
   {
     "route_type": 0,
     "stop_id": 1195,
     "stop_latitude": -37.84937,
     "stop_longitude": 145.041733,
-    "stop_name": "Tooronga Station"
+    "stop_name": "Tooronga"
   },
   {
     "route_type": 0,
     "stop_id": 1196,
     "stop_latitude": -37.7992554,
     "stop_longitude": 144.862946,
-    "stop_name": "Tottenham Station"
+    "stop_name": "Tottenham"
   },
   {
     "route_type": 0,
     "stop_id": 1197,
     "stop_latitude": -38.2598152,
     "stop_longitude": 145.1864,
-    "stop_name": "Tyabb Station"
+    "stop_name": "Tyabb"
   },
   {
     "route_type": 0,
     "stop_id": 1198,
     "stop_latitude": -37.6660767,
     "stop_longitude": 144.946747,
-    "stop_name": "Upfield Station"
+    "stop_name": "Upfield"
   },
   {
     "route_type": 0,
     "stop_id": 1199,
     "stop_latitude": -37.8926735,
     "stop_longitude": 145.307526,
-    "stop_name": "Upper Ferntree Gully Station"
+    "stop_name": "Upper Ferntree Gully"
   },
   {
     "route_type": 0,
     "stop_id": 1200,
     "stop_latitude": -37.90369,
     "stop_longitude": 145.331329,
-    "stop_name": "Upwey Station"
+    "stop_name": "Upwey"
   },
   {
     "route_type": 0,
     "stop_id": 1201,
     "stop_latitude": -37.7991562,
     "stop_longitude": 144.994446,
-    "stop_name": "Victoria Park Station"
+    "stop_name": "Victoria Park"
   },
   {
     "route_type": 0,
     "stop_id": 1202,
     "stop_latitude": -37.7011261,
     "stop_longitude": 144.774185,
-    "stop_name": "Watergardens Station"
+    "stop_name": "Watergardens"
   },
   {
     "route_type": 0,
     "stop_id": 1203,
     "stop_latitude": -37.7109528,
     "stop_longitude": 145.0838,
-    "stop_name": "Watsonia Station"
+    "stop_name": "Watsonia"
   },
   {
     "route_type": 0,
     "stop_id": 1204,
     "stop_latitude": -37.6639671,
     "stop_longitude": 145.181625,
-    "stop_name": "Wattle Glen Station"
+    "stop_name": "Wattle Glen"
   },
   {
     "route_type": 0,
     "stop_id": 1205,
     "stop_latitude": -37.8993835,
     "stop_longitude": 144.661118,
-    "stop_name": "Werribee Station"
+    "stop_name": "Werribee"
   },
   {
     "route_type": 0,
     "stop_id": 1206,
     "stop_latitude": -37.80181,
     "stop_longitude": 144.88533,
-    "stop_name": "West Footscray Station"
+    "stop_name": "West Footscray"
   },
   {
     "route_type": 0,
     "stop_id": 1207,
     "stop_latitude": -37.8149452,
     "stop_longitude": 144.991425,
-    "stop_name": "West Richmond Station"
+    "stop_name": "West Richmond"
   },
   {
     "route_type": 0,
     "stop_id": 1208,
     "stop_latitude": -37.93849,
     "stop_longitude": 145.13884,
-    "stop_name": "Westall Station"
+    "stop_name": "Westall"
   },
   {
     "route_type": 0,
     "stop_id": 1209,
     "stop_latitude": -37.7806168,
     "stop_longitude": 144.999237,
-    "stop_name": "Westgarth Station"
+    "stop_name": "Westgarth"
   },
   {
     "route_type": 0,
     "stop_id": 1210,
     "stop_latitude": -37.8651657,
     "stop_longitude": 144.813492,
-    "stop_name": "Westona Station"
+    "stop_name": "Westona"
   },
   {
     "route_type": 0,
     "stop_id": 1225,
     "stop_latitude": -37.86987,
     "stop_longitude": 144.747452,
-    "stop_name": "Williams Landing Station"
+    "stop_name": "Williams Landing"
   },
   {
     "route_type": 0,
     "stop_id": 1212,
     "stop_latitude": -37.8639832,
     "stop_longitude": 144.894485,
-    "stop_name": "Williamstown Beach Station"
+    "stop_name": "Williamstown Beach"
   },
   {
     "route_type": 0,
     "stop_id": 1211,
     "stop_latitude": -37.8677559,
     "stop_longitude": 144.905319,
-    "stop_name": "Williamstown Station"
+    "stop_name": "Williamstown"
   },
   {
     "route_type": 0,
     "stop_id": 1213,
     "stop_latitude": -37.8357124,
     "stop_longitude": 145.0703,
-    "stop_name": "Willison Station"
+    "stop_name": "Willison"
   },
   {
     "route_type": 0,
     "stop_id": 1214,
     "stop_latitude": -37.8560524,
     "stop_longitude": 144.992035,
-    "stop_name": "Windsor Station"
+    "stop_name": "Windsor"
   },
   {
     "route_type": 0,
     "stop_id": 1215,
     "stop_latitude": -37.9782524,
     "stop_longitude": 145.1916,
-    "stop_name": "Yarraman Station"
+    "stop_name": "Yarraman"
   },
   {
     "route_type": 0,
     "stop_id": 1216,
     "stop_latitude": -37.81585,
     "stop_longitude": 144.889938,
-    "stop_name": "Yarraville Station"
+    "stop_name": "Yarraville"
   }
 ]
