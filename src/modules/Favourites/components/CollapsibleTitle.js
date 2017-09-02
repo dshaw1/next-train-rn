@@ -36,9 +36,9 @@ const CollapsibleTitle = props => {
       return (
         <Icon
           key={index}
-          name="ios-subway"
+          name="ios-subway-outline"
           size={22}
-          color="#3e4450"
+          color="#00a4d8"
           style={styles.iconStyle}
         />
       );
@@ -50,9 +50,9 @@ const CollapsibleTitle = props => {
       return (
         <Icon
           key={index}
-          name="ios-bus"
+          name="ios-bus-outline"
           size={22}
-          color="#3e4450"
+          color="#fc9a1f"
           style={styles.iconStyle}
         />
       );
@@ -61,7 +61,7 @@ const CollapsibleTitle = props => {
       return (
         <Icon
           key={index}
-          name="ios-walk"
+          name="ios-walk-outline"
           size={22}
           color="#3e4450"
           style={styles.iconStyle}
@@ -75,9 +75,9 @@ const CollapsibleTitle = props => {
       return (
         <Icon
           key={index}
-          name="ios-train"
+          name="ios-train-outline"
           size={22}
-          color="#3e4450"
+          color="#73bd48"
           style={styles.iconStyle}
         />
       );
@@ -128,26 +128,26 @@ const CollapsibleTitle = props => {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 15,
+    marginRight: 15,
     marginTop: 10,
     borderRadius: 4,
-    height: 100,
+    height: 110,
     backgroundColor: "#ffffff"
   },
   selectedItemContainer: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 15,
+    marginRight: 15,
     marginTop: 10,
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
     borderBottomLeftRadius: 0,
     borderBottomLeftRadius: 0,
-    height: 100,
+    height: 110,
     backgroundColor: "#ffffff"
   },
   headerItem: {
-    padding: 10,
+    padding: 15,
     flex: 1
   },
   titleText: {
@@ -160,10 +160,10 @@ const styles = StyleSheet.create({
     fontWeight: "100",
     fontSize: 13,
     width: 60,
-    marginRight: 15
+    marginRight: 5
   },
   iconStyle: {
-    marginLeft: 5
+    marginRight: 5
   },
   flexRow: {
     flexDirection: 'row'

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, Animated, ScrollView, View, Text } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default class CollapsibleDetails extends Component {
   static defaultProps = {
@@ -33,34 +34,45 @@ export default class CollapsibleDetails extends Component {
 
         if (stop.transit_details.line.vehicle.type === "HEAVY_RAIL") {
           journeyArr.push(
-            <Text
-              style={styles.contentText}
-              key={index}
-            >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            <View key={index} style={styles.detailItem}>
+              <Icon name="ios-radio-button-on" size={16} color="#00a4d8" />
+              <Text
+                style={styles.contentText}
+              >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            </View>
           );
         }
         if (stop.transit_details.line.vehicle.type === "BUS") {
           journeyArr.push(
-            <Text
-              style={styles.contentText}
-              key={index}
-            >{`${shortName} Bus departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            <View key={index} style={styles.detailItem}>
+              <Icon name="ios-radio-button-on" size={16} color="#fc9a1f" />
+              <Text
+                style={styles.contentText}
+                key={index}
+              >{`${shortName} Bus departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            </View>
           );
         }
         if (stop.transit_details.line.vehicle.type === "TRAM") {
           journeyArr.push(
-            <Text
-              style={styles.contentText}
-              key={index}
-            >{`${shortName} Tram departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            <View key={index} style={styles.detailItem}>
+              <Icon name="ios-radio-button-on" size={16} color="#73bd48" />
+              <Text
+                style={styles.contentText}
+                key={index}
+              >{`${shortName} Tram departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
+            </View>
           );
         }
       } else if (stop.travel_mode === "WALKING" && stop.distance.value >= 500) {
         journeyArr.push(
-          <Text
-            style={styles.contentText}
-            key={index}
-          >{`${stop.html_instructions} - ${stop.distance.text}`}</Text>
+          <View key={index} style={styles.detailItem}>
+            <Icon name="ios-radio-button-on" size={16} color="#3e4450" />
+            <Text
+              style={styles.contentText}
+              key={index}
+            >{`${stop.html_instructions} - ${stop.distance.text}`}</Text>
+          </View>
         );
       }
     });
@@ -96,20 +108,17 @@ export default class CollapsibleDetails extends Component {
     // }
     return (
       <View style={styles.detailsContainer}>
-        {!this.props.collapse
-          ? <View >
-              <Text
-                style={styles.nextThreeBtn}
-                onPress={() => this.props.showModal()}
-              >
-                Next 3
-              </Text>
-              <View style={styles.detailsCtonainer}>
-                {this.renderListContent(this.props.content)}
-              </View>
-              <View style={styles.bottomBorderRadius}></View>
+        {!this.props.collapse ? (
+          <View>
+            <View style={styles.separatorContainer}>
+              <View style={styles.separator} />
             </View>
-          : null}
+            <View style={styles.detailsCtonainer}>
+              {this.renderListContent(this.props.content)}
+            </View>
+            <View style={styles.bottomBorderRadius} />
+          </View>
+        ) : null}
       </View>
     );
   }
@@ -117,31 +126,48 @@ export default class CollapsibleDetails extends Component {
 
 const styles = StyleSheet.create({
   detailsCtonainer: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 15,
+    marginRight: 15,
     borderRadius: 4
   },
   contentText: {
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderRadius: 4,
     backgroundColor: "#fff",
-    color: "#3e4450"
+    color: "#3e4450",
+    paddingLeft: 15,
+    width: "95%",
+    fontSize: 12
+  },
+  detailItem: {
+    paddingTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
   nextThreeBtn: {
     padding: 10,
     marginLeft: 10,
     marginRight: 10,
     color: "#3e4450",
-    fontSize: 20,
+    fontSize: 16,
     backgroundColor: "#fff"
   },
-  bottomBorderRadius: {
-    height: 10, 
+  separatorContainer: {
     backgroundColor: "#fff",
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 15,
+    marginRight: 15
+  },
+  separator: {
+    backgroundColor: "#CED0CE",
+    height: StyleSheet.hairlineWidth,
+    marginBottom: 5
+  },
+  bottomBorderRadius: {
+    height: 15,
+    backgroundColor: "#fff",
+    marginLeft: 15,
+    marginRight: 15,
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4
   }

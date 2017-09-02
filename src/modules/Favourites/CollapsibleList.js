@@ -128,10 +128,6 @@ const styles = StyleSheet.create({
   collapseItem: {
     paddingBottom: 0
   },
-  headerItem: {
-    padding: 10,
-    backgroundColor: "#fff"
-  },
   headerText: {
     color: "grey"
   },
