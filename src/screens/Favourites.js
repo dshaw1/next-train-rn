@@ -22,6 +22,7 @@ import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
+import { RegularButtons } from "../modules/global/components/NavigationButtons";
 
 class Favourites extends Component {
   constructor(props) {
@@ -34,6 +35,8 @@ class Favourites extends Component {
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
+
+  static navigatorButtons = RegularButtons;
 
   static navigatorStyle = {
     navBarBackgroundColor: "#00a4d8",

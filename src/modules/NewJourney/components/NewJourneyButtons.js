@@ -40,25 +40,35 @@ const NewJourneyButtons = props => {
 
   return (
     <View>
-      <TouchableOpacity onPress={props.onDepartPress}>
-        <View style={styles.row}>
-          <Icon name="ios-subway-outline" size={22} color="#fff" />
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.row} onPress={props.onDepartPress}>
+          <Icon
+            style={styles.icon}
+            name="ios-subway-outline"
+            size={34}
+            color="#fff"
+          />
           <Text style={styles.text}>
             {props.departureStop !== "" ? props.departureStop : "Departure"}
           </Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={props.onArrivPress}>
-        <View style={styles.row}>
-          <Icon name="ios-subway-outline" size={22} color="#fff" />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.row} onPress={props.onArrivPress}>
+          <Icon
+            style={styles.icon}
+            name="ios-subway-outline"
+            size={34}
+            color="#fff"
+          />
           <Text style={styles.text}>
             {props.arrivalStop !== "" ? props.arrivalStop : "Arrival"}
           </Text>
-        </View>
-      </TouchableOpacity>
-
-      {this.renderAddButton()}
+        </TouchableOpacity>
+        {props.departureStop && props.arrivalStop ? (
+          this.renderAddButton()
+        ) : null}
+      </View>
     </View>
   );
 };
@@ -74,22 +84,36 @@ NewJourneyButtons.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  row: {
-    height: 48,
-    paddingHorizontal: 16,
+  container: {
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
+    borderRadius: 4,
+    height: 40
+  },
+  innerContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.054)"
+
+    borderWidth: 4,
+    borderColor: "#fff",
+    borderStyle: "solid",
+    borderRadius: 14
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  icon: {
+    textAlign: "center"
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#ffffff"
   },
   fetchBtn: {
-    flex: 1,
-    flexDirection: "column",
     alignItems: "center",
     marginTop: 50,
     color: "#ffffff"

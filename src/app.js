@@ -15,24 +15,7 @@ registerScreens(store, Provider);
 Navigation.startSingleScreenApp({
   screen: {
     screen: "app.Favourites",
-    title: "Favourites",
-    navigatorButtons: {
-      leftButtons: [
-        {
-          title: "Edit",
-          id: "edit",
-          buttonColor: "#fff"
-        }
-      ],
-      rightButtons: [
-        {
-          title: "Add",
-          id: "add",
-          buttonColor: "#fff",
-          disabled: false
-        }
-      ]
-    }
+    title: "Favourites"
   },
   appStyle: {
     orientation: "portrait",

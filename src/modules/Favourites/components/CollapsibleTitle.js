@@ -85,6 +85,7 @@ const CollapsibleTitle = props => {
   });
 
   return (
+    <View>
     <TouchableOpacity
       activeOpacity={1}
       style={!props.collapse ? styles.selectedItemContainer : styles.itemContainer}
@@ -123,6 +124,7 @@ const CollapsibleTitle = props => {
         </View>
       </View>
     </TouchableOpacity>
+    </View>
   );
 };
 
