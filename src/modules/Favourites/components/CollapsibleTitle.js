@@ -12,17 +12,17 @@ import Icon from "react-native-vector-icons/Ionicons";
 const CollapsibleTitle = props => {
   renderDownIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-down" size={18} color="#3e4450" />;
+      return <Icon name="ios-arrow-down" size={18} color="#6b6b6b" />;
     } else {
-      return <Icon name="md-arrow-dropdown" size={18} color="#3e4450" />;
+      return <Icon name="md-arrow-dropdown" size={18} color="#6b6b6b" />;
     }
   };
 
   renderUpIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-up" size={18} color="#3e4450" />;
+      return <Icon name="ios-arrow-up" size={18} color="#6b6b6b" />;
     } else {
-      return <Icon name="md-arrow-dropup" size={18} color="#3e4450" />;
+      return <Icon name="md-arrow-dropup" size={18} color="#6b6b6b" />;
     }
   };
 
@@ -86,44 +86,36 @@ const CollapsibleTitle = props => {
 
   return (
     <View>
-    <TouchableOpacity
-      activeOpacity={1}
-      style={!props.collapse ? styles.selectedItemContainer : styles.itemContainer}
-      onPress={index => {
-        props.toggleDetails(index);
-      }}
-    >
-      <View style={styles.headerItem}>
-        <View style={styles.headerRow}>
-          <Text style={styles.timeText}>
-            {item.departTime.text}
-          </Text>
-          <View>
-            <Text style={styles.titleText}>
-              {item.departStop}
-            </Text>
+      <TouchableOpacity
+        activeOpacity={1}
+        style={
+          !props.collapse ? styles.selectedItemContainer : styles.itemContainer
+        }
+        onPress={index => {
+          props.toggleDetails(index);
+        }}
+      >
+        <View style={styles.headerItem}>
+          <View style={styles.headerRow}>
+            <Text style={styles.timeText}>{item.departTime.text}</Text>
+            <View>
+              <Text style={styles.titleText}>{item.departStop}</Text>
+            </View>
+          </View>
+          <View style={styles.headerRow}>
+            <Text style={styles.timeText}>{item.arrivTime.text}</Text>
+            <View>
+              <Text style={styles.titleText}>{item.arrivStop}</Text>
+            </View>
+          </View>
+          <View style={styles.iconsContainer}>
+            <View style={styles.flexRow}>{checkTravelMode}</View>
+            <View style={styles.flexRow}>
+              {!props.collapse ? renderUpIcon() : renderDownIcon()}
+            </View>
           </View>
         </View>
-        <View style={styles.headerRow}>
-          <Text style={styles.timeText}>
-            {item.arrivTime.text}
-          </Text>
-          <View>
-            <Text style={styles.titleText}>
-              {item.arrivStop}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.iconsContainer}>
-          <View style={styles.flexRow}>
-            {checkTravelMode}
-          </View>
-          <View style={styles.flexRow}>
-            {!props.collapse ? renderUpIcon() : renderDownIcon()}
-          </View>
-        </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -134,8 +126,8 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 10,
     borderRadius: 4,
-    height: 110,
-    backgroundColor: "#ffffff"
+    height: 100,
+    backgroundColor: "#ffffff",
   },
   selectedItemContainer: {
     marginLeft: 15,
@@ -145,7 +137,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 4,
     borderBottomLeftRadius: 0,
     borderBottomLeftRadius: 0,
-    height: 110,
+    height: 100,
     backgroundColor: "#ffffff"
   },
   headerItem: {
@@ -168,13 +160,13 @@ const styles = StyleSheet.create({
     marginRight: 5
   },
   flexRow: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
   iconsContainer: {
     flexDirection: "row",
     alignItems: "flex-end",
     justifyContent: "space-between",
-    marginTop: 10
+    marginTop: 5
   },
   headerRow: {
     flexDirection: "row",

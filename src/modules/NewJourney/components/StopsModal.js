@@ -69,9 +69,6 @@ StopsModal.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1
-  },
   closeModal: {
     backgroundColor: "#fff",
     flexDirection: "row",

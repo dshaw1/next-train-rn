@@ -49,7 +49,7 @@ class NewJourney extends Component {
   }
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#00a4d8",
+    navBarBackgroundColor: "#0dd3bb",
     statusBarTextColorScheme: "light"
   };
 
@@ -152,8 +152,8 @@ class NewJourney extends Component {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem("@NextTrain:MyKey")
         .then(data => {
-          if(JSON.parse(data) && JSON.parse(data).length === 6) {
-            this.setState({ isLoading: false })
+          if (JSON.parse(data) && JSON.parse(data).length === 6) {
+            this.setState({ isLoading: false });
             return alert("You've reached the journey limit!");
           }
           const journeys = data == null ? [] : JSON.parse(data);
@@ -223,9 +223,9 @@ class NewJourney extends Component {
 
   render() {
     // Render duplicate journey message if needed
-    const renderDuplicateMsg = this.state.duplicateJourney
-      ? <DuplicateJourneyMessage />
-      : null;
+    const renderDuplicateMsg = this.state.duplicateJourney ? (
+      <DuplicateJourneyMessage />
+    ) : null;
     // Disable fetch button unless both stops are selected
     const btnDisabled =
       this.state.departureStop === "" || this.state.arrivalStop === ""
@@ -243,7 +243,7 @@ class NewJourney extends Component {
     }
     return (
       <View style={styles.contentContainer}>
-        {this.state.fetchError? <ShowErrorMessage /> : null}
+        {this.state.fetchError ? <ShowErrorMessage /> : null}
         <NewJourneyButtons
           onDepartPress={() => {
             this.setState({ modalType: "DEP" });
@@ -257,22 +257,18 @@ class NewJourney extends Component {
           onFetch={() => this.handleJourneyFetch()}
           {...this.state}
         />
-        {/* Temporary duplicate message */}
-        {renderDuplicateMsg}
-        <StopsModal
-          visible={this.state.modalVisible}
-          hideModal={() => {
-            this.setModalVisible(!this.state.modalVisible);
-          }}
-          onChangeText={text => this.filterSearch(text)}
-          value={this.state.filterText}
-          resultsLength={this.state.dataSource.length}
-          content={
-            <View>
-              {renderContent}
-            </View>
-          }
-        />
+         {/* Temporary duplicate message */}
+         {renderDuplicateMsg}
+         <StopsModal
+           visible={this.state.modalVisible}
+           hideModal={() => {
+             this.setModalVisible(!this.state.modalVisible);
+           }}
+           onChangeText={text => this.filterSearch(text)}
+           value={this.state.filterText}
+           resultsLength={this.state.dataSource.length}
+           content={<View>{renderContent}</View>}
+         />
       </View>
     );
   }
@@ -286,9 +282,10 @@ NewJourney.propTypes = {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    backgroundColor: "#363636",
+    backgroundColor: "#3e4450",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   activityIndicator: {
     marginTop: 20

@@ -39,7 +39,7 @@ class Favourites extends Component {
   static navigatorButtons = RegularButtons;
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#00a4d8",
+    navBarBackgroundColor: "#0dd3bb",
     statusBarTextColorScheme: "light"
   };
 

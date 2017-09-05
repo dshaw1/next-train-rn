@@ -16,59 +16,83 @@ const NewJourneyButtons = props => {
   renderAddButton = () => {
     if (Platform.OS === "ios") {
       return (
-        <Button
-          title="Add Journey"
-          style={styles.fetchBtn}
-          disabled={props.disabled}
-          onPress={props.onFetch}
-        />
+        <View style={styles.btnContainer}>
+          <TouchableOpacity
+            style={styles.row}
+            disabled={props.disabled}
+            onPress={props.onFetch}
+          >
+            <Text style={styles.fetchBtnText}>Done</Text>
+          </TouchableOpacity>
+        </View>
       );
     } else {
       return (
-        <TouchableNativeFeedback
-          style={styles.fetchBtn}
-          disabled={props.disabled}
-          onPress={props.onFetch}
-        >
-          <View>
-            <Text style={styles.fetchBtnText}>Add Journey</Text>
-          </View>
-        </TouchableNativeFeedback>
+        <View style={styles.btnContainer}>
+          <TouchableNativeFeedback
+            style={styles.fetchBtn}
+            disabled={props.disabled}
+            onPress={props.onFetch}
+          >
+            <View>
+              <Text style={styles.fetchBtnText}>Done</Text>
+            </View>
+          </TouchableNativeFeedback>
+        </View>
       );
     }
   };
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        marginBottom: 10,
+        marginTop: 40
+      }}
+    >
       <View style={styles.container}>
         <TouchableOpacity style={styles.row} onPress={props.onDepartPress}>
           <Icon
             style={styles.icon}
             name="ios-subway-outline"
-            size={34}
-            color="#fff"
+            size={45}
+            color="#3e4450"
           />
-          <Text style={styles.text}>
-            {props.departureStop !== "" ? props.departureStop : "Departure"}
-          </Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>
+              {props.departureStop !== "" ? (
+                props.departureStop
+              ) : (
+                "Departure stop"
+              )}
+            </Text>
+          </View>
         </TouchableOpacity>
-      </View>
-      <View style={styles.container}>
+        <Icon
+          style={styles.smallIcon}
+          name="ios-arrow-round-down"
+          size={20}
+          color="#3e4450"
+        />
         <TouchableOpacity style={styles.row} onPress={props.onArrivPress}>
           <Icon
             style={styles.icon}
             name="ios-subway-outline"
-            size={34}
-            color="#fff"
+            size={45}
+            color="#3e4450"
           />
-          <Text style={styles.text}>
-            {props.arrivalStop !== "" ? props.arrivalStop : "Arrival"}
-          </Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>
+              {props.arrivalStop !== "" ? props.arrivalStop : "Arrival stop"}
+            </Text>
+          </View>
         </TouchableOpacity>
-        {props.departureStop && props.arrivalStop ? (
-          this.renderAddButton()
-        ) : null}
       </View>
+
+      {this.renderAddButton()}
     </View>
   );
 };
@@ -89,17 +113,17 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 10,
     borderRadius: 4,
-    height: 40
+    padding: 20,
+    backgroundColor: "#ffffff"
   },
-  innerContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-
-    borderWidth: 4,
-    borderColor: "#fff",
-    borderStyle: "solid",
-    borderRadius: 14
+  btnContainer: {
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
+    borderRadius: 4,
+    backgroundColor: "#0dd3bb",
+    padding: 10,
+    marginTop: 40
   },
   row: {
     flexDirection: "row",
@@ -107,16 +131,38 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   icon: {
+    textAlign: "left",
+    paddingLeft: (Platform.OS === 'ios') ? 10 : 30
+  },
+  smallIcon: {
+    textAlign: "left",
+    paddingLeft: (Platform.OS === 'ios') ? 0 : 10
+  },
+  fetchIcon: {
     textAlign: "center"
   },
   text: {
-    fontSize: 18,
-    color: "#ffffff"
+    fontSize: 16,
+    color: "#3e4450",
+    flex: 1,
+    textAlign: "left"
   },
-  fetchBtn: {
+  textContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
-    marginTop: 50,
-    color: "#ffffff"
+    borderBottomColor: "rgba(62, 68, 80, 0.35)",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderStyle: "solid",
+    marginLeft: 40,
+    marginRight: 10,
+    paddingBottom: 5
+  },
+  fetchBtnText: {
+    color: "#ffffff",
+    textAlign: "center",
+    fontSize: 22,
+    paddingLeft: 10
   }
 });
 
