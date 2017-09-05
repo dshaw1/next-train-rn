@@ -19,7 +19,7 @@ Navigation.startSingleScreenApp({
   },
   appStyle: {
     orientation: "portrait",
-    statusBarColor: "#0081ab",
+    statusBarColor: "#0ca794",
     navBarTitleTextCentered: false,
     navBarTextColor: "#fff",
     navBarButtonColor: '#fff',
