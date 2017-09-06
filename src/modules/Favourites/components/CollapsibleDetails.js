@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, Animated, ScrollView, View, Text } from "react-native";
+import {
+  StyleSheet,
+  Animated,
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default class CollapsibleDetails extends Component {
@@ -35,7 +42,12 @@ export default class CollapsibleDetails extends Component {
         if (stop.transit_details.line.vehicle.type === "HEAVY_RAIL") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon name="ios-radio-button-on" size={16} color="#00a4d8" />
+              <Icon
+                name="ios-subway-outline"
+                style={styles.icon}
+                size={22}
+                color="#0071cd"
+              />
               <Text
                 style={styles.contentText}
               >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
@@ -45,7 +57,12 @@ export default class CollapsibleDetails extends Component {
         if (stop.transit_details.line.vehicle.type === "BUS") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon name="ios-radio-button-on" size={16} color="#fc9a1f" />
+              <Icon
+                name="ios-bus-outline"
+                style={styles.icon}
+                size={22}
+                color="#fc9a1f"
+              />
               <Text
                 style={styles.contentText}
                 key={index}
@@ -56,7 +73,12 @@ export default class CollapsibleDetails extends Component {
         if (stop.transit_details.line.vehicle.type === "TRAM") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon name="ios-radio-button-on" size={16} color="#73bd48" />
+              <Icon
+                name="ios-train-outline"
+                style={styles.icon}
+                size={22}
+                color="#73bd48"
+              />
               <Text
                 style={styles.contentText}
                 key={index}
@@ -67,7 +89,12 @@ export default class CollapsibleDetails extends Component {
       } else if (stop.travel_mode === "WALKING" && stop.distance.value >= 500) {
         journeyArr.push(
           <View key={index} style={styles.detailItem}>
-            <Icon name="ios-radio-button-on" size={16} color="#3e4450" />
+            <Icon
+              name="ios-walk-outline"
+              style={styles.icon}
+              size={22}
+              color="#3e4450"
+            />
             <Text
               style={styles.contentText}
               key={index}
@@ -116,6 +143,17 @@ export default class CollapsibleDetails extends Component {
             <View style={styles.detailsCtonainer}>
               {this.renderListContent(this.props.content)}
             </View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: "#fff",
+                marginLeft: 15,
+                marginRight: 15,
+                paddingTop: 10
+              }}
+              onPress={() => this.props.showModal()}
+            >
+              <Text style={{ textAlign: 'center' }}>Next 3</Text>
+            </TouchableOpacity>
             <View style={styles.bottomBorderRadius} />
           </View>
         ) : null}
@@ -170,6 +208,9 @@ const styles = StyleSheet.create({
     marginRight: 15,
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4
+  },
+  icon: {
+    width: 15
   }
 });
 
