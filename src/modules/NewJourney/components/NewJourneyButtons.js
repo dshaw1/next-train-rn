@@ -44,15 +44,7 @@ const NewJourneyButtons = props => {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        marginBottom: 10,
-        marginTop: 40
-      }}
-    >
+    <View>
       <View style={styles.container}>
         <TouchableOpacity style={styles.row} onPress={props.onDepartPress}>
           <Icon
@@ -114,7 +106,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderRadius: 4,
     padding: 20,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
+    marginTop: 80
   },
   btnContainer: {
     marginLeft: 15,
@@ -142,7 +135,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#3e4450",
     flex: 1,
     textAlign: "left"
@@ -161,7 +154,7 @@ const styles = StyleSheet.create({
   fetchBtnText: {
     color: "#ffffff",
     textAlign: "center",
-    fontSize: 22,
+    fontSize: 18,
     paddingLeft: 10
   }
 });
