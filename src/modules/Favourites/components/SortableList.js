@@ -80,7 +80,7 @@ export default class RenderRowComponent extends Component {
                 <Text style={styles.titleText}>
                   {this.props.data ? departStop : null}
                 </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.row}>
                 <Text style={styles.smallText}>to </Text>
                 <Text style={styles.titleText}>
                   {this.props.data ? arrivStop : null}
@@ -119,15 +119,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center"
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   titleText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: 13
+    fontSize: 14
   },
   smallText: {
     color: "#3e4450",
-    fontWeight: "500",
-    fontSize: 11
+    fontWeight: "400",
+    fontSize: 12
   },
   icon: {
     width: 30
