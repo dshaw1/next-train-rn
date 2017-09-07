@@ -13,7 +13,7 @@ export default class CollapsibleTitle extends Component {
   componentDidMount() {
     this.countdownInterval = setInterval(() => {
       this.timerCountdown();
-    }, 1000);
+    }, 30000);
   }
 
   componentWillUnmount() {
@@ -48,8 +48,8 @@ export default class CollapsibleTitle extends Component {
           <Icon
             key={index}
             name="ios-subway-outline"
-            size={24}
-            color="#00a4d8"
+            size={26}
+            color="#0071cd"
             style={styles.iconStyle}
           />
         );
@@ -62,7 +62,7 @@ export default class CollapsibleTitle extends Component {
           <Icon
             key={index}
             name="ios-bus-outline"
-            size={24}
+            size={26}
             color="#fc9a1f"
             style={styles.iconStyle}
           />
@@ -73,7 +73,7 @@ export default class CollapsibleTitle extends Component {
           <Icon
             key={index}
             name="ios-walk-outline"
-            size={24}
+            size={26}
             color="#3e4450"
             style={styles.iconStyle}
           />
@@ -87,7 +87,7 @@ export default class CollapsibleTitle extends Component {
           <Icon
             key={index}
             name="ios-train-outline"
-            size={24}
+            size={26}
             color="#73bd48"
             style={styles.iconStyle}
           />
@@ -116,7 +116,7 @@ export default class CollapsibleTitle extends Component {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
     if (countDownDate < now) {
-      return <Text style={styles.countdownText}> 0m</Text>;
+      return <Text style={styles.countdownText}>  0m</Text>;
     } else {
       return (
         <Text style={styles.countdownText}>
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 10,
     borderRadius: 4,
-    height: 120,
+    
     backgroundColor: "#ffffff"
   },
   selectedItemContainer: {
@@ -206,14 +206,13 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 4,
     borderBottomLeftRadius: 0,
     borderBottomLeftRadius: 0,
-    height: 120,
+    
     backgroundColor: "#ffffff"
   },
   headerRow: {
     flexDirection: "row",
-    height: 24,
     justifyContent: "space-between",
-    marginBottom: 10
+    marginBottom: 2
   },
   headerItem: {
     padding: 15,
@@ -271,7 +270,7 @@ const styles = StyleSheet.create({
   },
   iconsContainer: {
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "space-between",
     marginTop: 5
   }

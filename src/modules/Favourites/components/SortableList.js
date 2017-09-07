@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
   titleText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: 14
+    fontSize: 13
   },
   smallText: {
     color: "#3e4450",
     fontWeight: "400",
-    fontSize: 12
+    fontSize: 11
   },
   icon: {
     width: 30
