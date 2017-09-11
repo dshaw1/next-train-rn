@@ -144,25 +144,13 @@ export default class CollapsibleDetails extends Component {
               {this.renderListContent(this.props.content)}
             </View>
             <TouchableOpacity
-              style={{
-                backgroundColor: "#fff",
-                marginLeft: 15,
-                marginRight: 15,
-                paddingTop: 10
-              }}
+              activeOpacity={0.8}
+              style={styles.nextThreeContainer}
               onPress={() => this.props.showModal()}
             >
-            <View style={styles.separator} />
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15, marginTop: 10 }}>
-              <Icon 
-                name="ios-fastforward"
-                size={22}
-                color="#0dd3bb"
-              />
-              <Text style={{ textAlign: 'center', marginLeft: 10 }}>Next 3 departures</Text>
-            </View>
+              <Icon name="ios-fastforward" size={20} color="#0dd3bb" />
+              <Text style={styles.nextThreeText}>VIEW LATER DEPARTURES</Text>
             </TouchableOpacity>
-            <View style={styles.bottomBorderRadius} />
           </View>
         ) : null}
       </View>
@@ -174,7 +162,9 @@ const styles = StyleSheet.create({
   detailsCtonainer: {
     marginLeft: 15,
     marginRight: 15,
-    borderRadius: 4
+    borderRadius: 4,
+    paddingBottom: 15,
+    backgroundColor: "#fff"
   },
   contentText: {
     backgroundColor: "#fff",
@@ -191,13 +181,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff"
   },
-  nextThreeBtn: {
-    padding: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    color: "#3e4450",
-    fontSize: 16,
-    backgroundColor: "#fff"
+  nextThreeContainer: {
+    backgroundColor: "#3e4450",
+    marginLeft: 15,
+    marginRight: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  nextThreeText: {
+    textAlign: "center",
+    marginLeft: 15,
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "100"
   },
   separatorContainer: {
     backgroundColor: "#fff",
@@ -208,14 +210,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#CED0CE",
     height: StyleSheet.hairlineWidth,
     marginBottom: 5
-  },
-  bottomBorderRadius: {
-    height: 15,
-    backgroundColor: "#fff",
-    marginLeft: 15,
-    marginRight: 15,
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4
   },
   icon: {
     width: 15
