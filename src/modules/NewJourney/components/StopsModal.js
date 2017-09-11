@@ -14,13 +14,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import NoSearchResults from "./NoSearchResults";
 
 const StopsModal = props => {
-  renderIcon = () => {
-    if (Platform.OS === "ios") {
-      return <Icon name="ios-close" size={40} color="#000" />;
-    } else {
-      return <Icon name="md-close" size={34} color="#000" />;
-    }
-  };
 
   renderNoResultsComponent = () => {
     if (props.value.length > 2 && props.resultsLength === 0) {
@@ -38,7 +31,7 @@ const StopsModal = props => {
       >
         <View style={styles.closeModal}>
           <TouchableOpacity onPress={props.hideModal}>
-            {this.renderIcon()}
+            <Icon name="md-close" size={32} color="#3e4450" />
           </TouchableOpacity>
         </View>
         <View style={styles.modalContent}>
