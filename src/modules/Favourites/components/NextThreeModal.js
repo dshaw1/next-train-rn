@@ -15,8 +15,8 @@ const NextThreeModal = props => {
     if (data.length) {
       return data.map((item, index) => {
         return (
-          <View key={index}>
-            <Text>
+          <View style={styles.textContainer} key={index}>
+            <Text style={styles.itemText}>
               {item.departure_time.text} - {item.arrival_time.text}
             </Text>
           </View>
@@ -85,6 +85,14 @@ const styles = StyleSheet.create({
   innerActivityContainer: {
     width: 50,
     height: 50
+  },
+  textContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  itemText: {
+    fontSize: 16
   }
 });
 
