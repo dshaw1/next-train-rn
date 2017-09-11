@@ -4,8 +4,7 @@ import {
   StyleSheet,
   View,
   TouchableHighlight,
-  Text,
-  ActivityIndicator
+  Text
 } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -35,24 +34,20 @@ class CollapsibleList extends Component {
     const data = { arriv, depart };
     const newTime = time + 60;
     const fetchJourneys = this.props.fetchNewJourney;
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true, modalVisible: visible });
     if (this.state.modalVisible === false) {
-      const nextThree = nextThreeDepartures(
-        fetchJourneys,
-        data,
-        newTime
-      ).then(nextDepartures => {
-        return this.setState({
-          ...nextDepartures,
-          isLoading: false,
-          modalVisible: visible,
-          fetchError: false
+      const nextThree = nextThreeDepartures(fetchJourneys, data, newTime)
+        .then(nextDepartures => {
+          return this.setState({
+            ...nextDepartures,
+            isLoading: false,
+            fetchError: false
+          });
+        })
+        .catch(err => {
+          this.setState({ fetchError: true, isLoading: false });
+          return err;
         });
-      })
-      .catch((err) => {
-        this.setState({ fetchError: true, isLoading: false })
-        return err;
-      })
     }
   }
 
@@ -76,7 +71,7 @@ class CollapsibleList extends Component {
     const { items, headerRender } = this.props;
     return (
       <View style={styles.container}>
-      {this.state.fetchError? <ShowErrorMessage /> : null}
+        {this.state.fetchError ? <ShowErrorMessage /> : null}
         {items.map((item, index) => {
           return (
             <View key={index}>
@@ -86,6 +81,7 @@ class CollapsibleList extends Component {
                 collapse={this.state.activeItem !== index}
               />
               <CollapsibleDetails
+                loading={this.state.isLoading}
                 collapse={this.state.activeItem !== index}
                 content={item}
                 showModal={() =>
@@ -99,17 +95,14 @@ class CollapsibleList extends Component {
             </View>
           );
         })}
-        {this.state.isLoading
-          ? <View style={styles.activityIndicatorContainer}>
-              <ActivityIndicator size="small" />
-            </View>
-          : <NextThreeModal
-              nextThreeData={this.state.nextDepartures}
-              visible={this.state.modalVisible}
-              hideModal={() => {
-                this.hideModal();
-              }}
-            />}
+        <NextThreeModal
+          loading={this.state.isLoading}
+          nextThreeData={this.state.nextDepartures}
+          visible={this.state.modalVisible}
+          hideModal={() => {
+            this.hideModal();
+          }}
+        />
       </View>
     );
   }
@@ -130,9 +123,6 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "grey"
-  },
-  activityIndicatorContainer: {
-    marginTop: 22
   }
 });
 
