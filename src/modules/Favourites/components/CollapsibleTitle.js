@@ -10,15 +10,47 @@ import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default class CollapsibleTitle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      days: 0,
+      hours: 0,
+      minutes: null
+    };
+  }
+
   componentDidMount() {
-    this.countdownInterval = setInterval(() => {
-      this.timerCountdown();
-    }, 30000);
+    this.interval = setInterval(() => this.countdownInterval(), 1000);
   }
 
   componentWillUnmount() {
-    // Clear auto-fetch interval
-    clearInterval(this.countdownInterval);
+    clearInterval(this.interval);
+  }
+
+  countdownInterval() {
+    // Set the date we're counting down to
+    const countDownDate = new Date(
+      this.props.item.departTime.value * 1000
+    ).getTime();
+
+    // Get todays date and time
+    const now = new Date().getTime();
+
+    // Find the distance between now an the count down date
+    const distance = countDownDate - now;
+
+    // Time calculations for days, hours and minutes
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    this.setState(prevState => ({
+      days: days,
+      hours: hours,
+      minutes: minutes
+    }));
   }
 
   renderDownIcon = () => {
@@ -97,30 +129,14 @@ export default class CollapsibleTitle extends Component {
   };
 
   timerCountdown = () => {
-    // Set the date we're counting down to
-    const countDownDate = new Date(
-      this.props.item.departTime.value * 1000
-    ).getTime();
-
-    // Get todays date and time
-    const now = new Date().getTime();
-
-    // Find the distance between now an the count down date
-    const distance = countDownDate - now;
-
-    // Time calculations for days, hours and minutes
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    if (countDownDate < now) {
-      return <Text style={styles.countdownText}>  0m</Text>;
+    if (this.state.minutes == 0 || this.state.minutes < 0) {
+      return <Text style={styles.countdownText}> 0m</Text>;
     } else {
       return (
         <Text style={styles.countdownText}>
-          {days ? `{days}d` : null} {hours ? `${hours}h` : null} {`${minutes}m`}
+          {this.state.days ? ` ${this.state.days}d` : null}
+          {this.state.hours ? ` ${this.state.hours}h` : null}
+          {this.state.minutes ? ` ${this.state.minutes}m` : null}
         </Text>
       );
     }
@@ -195,7 +211,6 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 10,
     borderRadius: 4,
-    
     backgroundColor: "#ffffff"
   },
   selectedItemContainer: {
@@ -206,7 +221,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 4,
     borderBottomLeftRadius: 0,
     borderBottomLeftRadius: 0,
-    
+
     backgroundColor: "#ffffff"
   },
   headerRow: {

@@ -152,7 +152,15 @@ export default class CollapsibleDetails extends Component {
               }}
               onPress={() => this.props.showModal()}
             >
-              <Text style={{ textAlign: 'center' }}>Next 3</Text>
+            <View style={styles.separator} />
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15, marginTop: 10 }}>
+              <Icon 
+                name="ios-fastforward"
+                size={22}
+                color="#0dd3bb"
+              />
+              <Text style={{ textAlign: 'center', marginLeft: 10 }}>Next 3 departures</Text>
+            </View>
             </TouchableOpacity>
             <View style={styles.bottomBorderRadius} />
           </View>
