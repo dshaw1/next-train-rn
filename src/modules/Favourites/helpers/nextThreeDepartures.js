@@ -11,6 +11,8 @@ export default (nextThreeDepartures = (fetchJourney, data, newTime) => {
   return new Promise((resolve, reject) => {
     fetchJourney(data, newTime)
       .then(res => {
+        const { arrivStop, departStop } = res;
+
         nextDepartures.push({
           departure_time: departTime(res),
           arrival_time: arrivTime(res)
@@ -30,6 +32,8 @@ export default (nextThreeDepartures = (fetchJourney, data, newTime) => {
               arrival_time: arrivTime(res)
             });
             return resolve({
+              arrivStop,
+              departStop,
               nextDepartures
             });
           });

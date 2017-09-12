@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  StyleSheet,
-  View,
-  TouchableHighlight,
-  Text
-} from "react-native";
+import { StyleSheet, View, TouchableHighlight, Text } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -25,6 +20,8 @@ class CollapsibleList extends Component {
       activeItem: undefined,
       modalVisible: false,
       nextDepartures: [],
+      departStop: "",
+      arrivStop: "",
       fetchError: false
     };
   }
@@ -40,6 +37,8 @@ class CollapsibleList extends Component {
         .then(nextDepartures => {
           return this.setState({
             ...nextDepartures,
+            arrivStop: arrivStop,
+            departStop: departStop,
             isLoading: false,
             fetchError: false
           });
@@ -100,6 +99,8 @@ class CollapsibleList extends Component {
         <NextThreeModal
           loading={this.state.isLoading}
           nextThreeData={this.state.nextDepartures}
+          arrivStop={this.state.arrivStop}
+          departStop={this.state.departStop}
           visible={this.state.modalVisible}
           hideModal={() => {
             this.hideModal();

@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -47,7 +48,44 @@ const NextThreeModal = props => {
                   <Icon name="md-close" size={32} color="#3e4450" />
                 </TouchableOpacity>
               </View>
-              {this.renderModalContent(props.nextThreeData)}
+              <View style={styles.container}>
+                <View
+                  style={styles.row}
+                >
+                  <Icon
+                    style={styles.icon}
+                    name="ios-subway-outline"
+                    size={30}
+                    color="#3e4450"
+                  />
+                  <View style={styles.stationContainer}>
+                    <Text style={styles.text}>
+                      {props.departStop}
+                    </Text>
+                  </View>
+                </View>
+                <Icon
+                  style={styles.smallIcon}
+                  name="ios-arrow-round-down"
+                  size={20}
+                  color="#3e4450"
+                />
+                <View
+                  style={styles.row}
+                >
+                  <Icon
+                    style={styles.icon}
+                    name="ios-subway-outline"
+                    size={30}
+                    color="#3e4450"
+                  />
+                  <View style={styles.stationContainer}>
+                    <Text style={styles.text}>
+                      {props.arrivStop}
+                    </Text>
+                  </View>
+                </View>
+              </View>
             </View>
           )}
         </View>
@@ -93,6 +131,41 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 16
+  },
+  container: {
+    borderRadius: 4,
+    padding: 20,
+    backgroundColor: "#ebebeb"
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  icon: {
+    textAlign: "left",
+    paddingLeft: (Platform.OS === 'ios') ? 10 : 30
+  },
+  smallIcon: {
+    textAlign: "left",
+    paddingLeft: (Platform.OS === 'ios') ? 0 : 10
+  },
+  text: {
+    fontSize: 14,
+    color: "#3e4450",
+    flex: 1,
+    textAlign: "left"
+  },
+  stationContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomColor: "rgba(62, 68, 80, 0.35)",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderStyle: "solid",
+    marginLeft: 20,
+    marginRight: 10,
+    paddingBottom: 5
   }
 });
 
