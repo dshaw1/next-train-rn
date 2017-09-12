@@ -30,8 +30,8 @@ class CollapsibleList extends Component {
   }
 
   // PUT THIS INTO A HELPER FUNCTION?
-  setModalVisible(visible, arriv, depart, time) {
-    const data = { arriv, depart };
+  setModalVisible(visible, arriv, arrivStop, depart, departStop, time) {
+    const data = { arriv, depart, arrivStop, departStop };
     const newTime = time + 60;
     const fetchJourneys = this.props.fetchNewJourney;
     this.setState({ isLoading: true, modalVisible: visible });
@@ -88,7 +88,9 @@ class CollapsibleList extends Component {
                   this.setModalVisible(
                     true,
                     item.arriv,
+                    item.arrivStop,
                     item.depart,
+                    item.departStop,
                     item.departTime.value
                   )}
               />

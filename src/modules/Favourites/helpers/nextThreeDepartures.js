@@ -36,7 +36,6 @@ export default (nextThreeDepartures = (fetchJourney, data, newTime) => {
         });
       })
       .catch(err => {
-        console.log(err);
         reject(err);
       });
   });
