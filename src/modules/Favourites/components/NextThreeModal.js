@@ -18,7 +18,11 @@ const NextThreeModal = props => {
         return (
           <View style={styles.textContainer} key={index}>
             <Text style={styles.itemText}>
-              {item.departure_time.text} - {item.arrival_time.text}
+              {item.departure_time.text}
+            </Text>
+            <Icon name="ios-arrow-round-forward" size={24} color="#fff" style={{textAlign: "center",marginLeft: 10, marginRight: 10}} />
+            <Text style={styles.itemText}>           
+              {item.arrival_time.text}
             </Text>
           </View>
         );
@@ -45,46 +49,16 @@ const NextThreeModal = props => {
             <View>
               <View style={styles.closeModal}>
                 <TouchableOpacity onPress={props.hideModal}>
-                  <Icon name="md-close" size={32} color="#3e4450" />
+                  <Icon name="md-close" size={32} color="#0dd3bb" />
                 </TouchableOpacity>
               </View>
-              <View style={styles.container}>
-                <View
-                  style={styles.row}
-                >
-                  <Icon
-                    style={styles.icon}
-                    name="ios-subway-outline"
-                    size={30}
-                    color="#3e4450"
-                  />
-                  <View style={styles.stationContainer}>
-                    <Text style={styles.text}>
-                      {props.departStop}
-                    </Text>
-                  </View>
+                <Text style={styles.titleText}>{props.departStop}</Text>
+                <View style={styles.row}>
+                  <Text style={styles.smallText}>to </Text>
+                  <Text style={styles.titleText}>{props.arrivStop}</Text>
                 </View>
-                <Icon
-                  style={styles.smallIcon}
-                  name="ios-arrow-round-down"
-                  size={20}
-                  color="#3e4450"
-                />
-                <View
-                  style={styles.row}
-                >
-                  <Icon
-                    style={styles.icon}
-                    name="ios-subway-outline"
-                    size={30}
-                    color="#3e4450"
-                  />
-                  <View style={styles.stationContainer}>
-                    <Text style={styles.text}>
-                      {props.arrivStop}
-                    </Text>
-                  </View>
-                </View>
+              <View style={styles.timesContainer}>
+                {renderModalContent(props.nextThreeData)}
               </View>
             </View>
           )}
@@ -96,7 +70,7 @@ const NextThreeModal = props => {
 
 const styles = StyleSheet.create({
   closeModal: {
-    backgroundColor: "#ebebeb",
+    backgroundColor: "#3e4450",
     alignItems: "flex-end"
   },
   modalContainer: {
@@ -104,15 +78,16 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.8)"
+    backgroundColor: "rgba(0, 0, 0, 0.9)"
   },
   innerContainer: {
-    backgroundColor: "#ebebeb",
+    backgroundColor: "#3e4450",
     width: "80%",
-    height: "50%",
+    height: "35%",
     paddingTop: 10,
     paddingLeft: 15,
-    paddingRight: 15
+    paddingRight: 15,
+    borderRadius: 4
   },
   activityIndicatorContainer: {
     flex: 1,
@@ -124,48 +99,35 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50
   },
+  timesContainer: {
+    marginTop: 15
+  },
   textContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center"
   },
   itemText: {
-    fontSize: 16
-  },
-  container: {
-    borderRadius: 4,
-    padding: 20,
-    backgroundColor: "#ebebeb"
+    fontSize: 16,
+    color: "#fff",
+    width: 80,
+    textAlign: "center"
   },
   row: {
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  icon: {
-    textAlign: "left",
-    paddingLeft: (Platform.OS === 'ios') ? 10 : 30
-  },
-  smallIcon: {
-    textAlign: "left",
-    paddingLeft: (Platform.OS === 'ios') ? 0 : 10
-  },
-  text: {
-    fontSize: 14,
-    color: "#3e4450",
-    flex: 1,
-    textAlign: "left"
-  },
-  stationContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    borderBottomColor: "rgba(62, 68, 80, 0.35)",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderStyle: "solid",
-    marginLeft: 20,
-    marginRight: 10,
-    paddingBottom: 5
+    justifyContent: "center"
+  },
+  titleText: {
+    color: "#fff",
+    fontWeight: "500",
+    fontSize: 18,
+    textAlign: "center"
+  },
+  smallText: {
+    color: "#fff",
+    fontWeight: "400",
+    fontSize: 14
   }
 });
 
