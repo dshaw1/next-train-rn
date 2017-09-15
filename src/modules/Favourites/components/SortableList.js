@@ -71,7 +71,7 @@ export default class RenderRowComponent extends Component {
           <View style={styles.headerItem}>
             <View style={styles.headerRow}>
               <TouchableOpacity
-                style={styles.icon}
+                style={styles.removeIcon}
                 onPress={() => this.props.removeJourney(id)}
               >
                 {this.renderRemoveIcon()}
@@ -89,7 +89,7 @@ export default class RenderRowComponent extends Component {
               </View>
             </View>
           </View>
-          <TouchableOpacity {...this.props.sortHandlers}>
+          <TouchableOpacity style={styles.sortButton} {...this.props.sortHandlers}>
             {this.renderReorderIcon()}
           </TouchableOpacity>
         </View>
@@ -133,10 +133,15 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 11
   },
-  icon: {
-    width: 30
+  removeIcon: {
+    width: 50
   },
   flexRow: {
+    flexDirection: "row"
+  },
+  sortButton: {
+    width: 70,
+    justifyContent: "flex-end",
     flexDirection: "row"
   }
 });
