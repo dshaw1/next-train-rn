@@ -148,8 +148,8 @@ export default class CollapsibleDetails extends Component {
               style={styles.nextThreeContainer}
               onPress={() => this.props.showModal()}
             >
-              <Icon name="ios-fastforward" size={20} color="#0dd3bb" />
-              <Text style={styles.nextThreeText}>VIEW LATER DEPARTURES</Text>
+              <Icon name="ios-eye-outline" size={22} color="#fff" />
+              <Text style={styles.nextThreeText}>View Later Journeys</Text>
             </TouchableOpacity>
           </View>
         ) : null}
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
   detailsCtonainer: {
     marginLeft: 15,
     marginRight: 15,
-    borderRadius: 4,
     paddingBottom: 15,
     backgroundColor: "#fff"
   },
@@ -185,8 +184,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#3e4450",
     marginLeft: 15,
     marginRight: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
     paddingLeft: 15,
     paddingRight: 15,
     borderBottomLeftRadius: 4,
