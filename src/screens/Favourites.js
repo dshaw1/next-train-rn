@@ -22,6 +22,7 @@ import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
+import NoJourneys from "../modules/Favourites/components/NoJourneys";
 import { iOSButtons } from "../modules/global/components/iOSNavigationButtons";
 import { androidButtons } from "../modules/global/components/androidNavigationButtons";
 
@@ -271,11 +272,10 @@ class Favourites extends Component {
       );
     }
     // Show SortableListView
-    if (editing) {
+    if (editing && this.state.favourites.length) {
       return (
         <View style={styles.favouritesContainer}>
           <SortableListView
-            style={{ flex: 1 }}
             data={this.state.favourites}
             order={order}
             onRowMoved={item => {
@@ -291,6 +291,12 @@ class Favourites extends Component {
           />
         </View>
       );
+    }
+    if (editing && this.state.favourites.length === 0) {
+      return <NoJourneys />;
+    }
+    if (this.state.favourites.length === 0) {
+      return <NoJourneys />;
     } else {
       // Show CollapsibleList
       return (
