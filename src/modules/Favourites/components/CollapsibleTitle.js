@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 2
+    marginBottom: (Platform.OS === 'ios') ? 2 : 5
   },
   headerItem: {
     padding: 15,
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     padding: 4,
     borderRadius: 2,
     width: 70,
-    height: 30,
+    height: (Platform.OS === 'ios') ? 30 : 32,
     justifyContent: "center"
   },
   timeText: {
@@ -266,8 +266,9 @@ const styles = StyleSheet.create({
   timeTitleText: {
     color: "#3e4450",
     fontWeight: "100",
-    fontSize: 10,
-    textAlign: "center"
+    fontSize: (Platform.OS === 'ios') ? 10 : 11,
+    textAlign: "center",
+    marginBottom: (Platform.OS === 'ios') ? 0 : -3
   },
   countdownText: {
     fontSize: 13,
@@ -280,7 +281,7 @@ const styles = StyleSheet.create({
   },
   flexRow: {
     flexDirection: "row",
-    marginBottom: -10,
+    marginBottom: (Platform.OS === 'ios') ? -10 : -5,
     alignItems: "center"
   },
   iconsContainer: {
