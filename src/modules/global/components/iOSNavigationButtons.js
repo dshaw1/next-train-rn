@@ -1,4 +1,4 @@
-export const RegularButtons = {
+export const iOSButtons = {
   leftButtons: [
     {
       title: "Edit",
