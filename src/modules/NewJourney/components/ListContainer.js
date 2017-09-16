@@ -37,14 +37,13 @@ ListContainer.propTypes = {
 
 const styles = StyleSheet.create({
   listContainer: {
-    marginTop: 20,
-    marginBottom: 40,
+    marginLeft: 15,
+    marginBottom: 50,
     borderTopWidth: 0.5,
     borderColor: "gainsboro",
-    backgroundColor: "#ffffff"
+    backgroundColor: "#fff"
   },
   separatorStyle: {
-    height: 1,
     backgroundColor: "#CED0CE",
     height: StyleSheet.hairlineWidth
   }
