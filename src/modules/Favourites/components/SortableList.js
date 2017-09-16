@@ -56,7 +56,7 @@ export default class RenderRowComponent extends Component {
             style={{ flex: 0 }}
             name="md-reorder"
             size={32}
-            color="#3e445"
+            color="#3e4450"
           />
         </View>
       );
@@ -81,15 +81,18 @@ export default class RenderRowComponent extends Component {
                   {this.props.data ? departStop : null}
                 </Text>
                 <View style={styles.row}>
-                <Text style={styles.smallText}>to </Text>
-                <Text style={styles.titleText}>
-                  {this.props.data ? arrivStop : null}
-                </Text>
+                  <Text style={styles.smallText}>to </Text>
+                  <Text style={styles.titleText}>
+                    {this.props.data ? arrivStop : null}
+                  </Text>
                 </View>
               </View>
             </View>
           </View>
-          <TouchableOpacity style={styles.sortButton} {...this.props.sortHandlers}>
+          <TouchableOpacity
+            style={styles.sortButton}
+            {...this.props.sortHandlers}
+          >
             {this.renderReorderIcon()}
           </TouchableOpacity>
         </View>
@@ -120,8 +123,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   row: {
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: "row",
+    alignItems: "center"
   },
   titleText: {
     color: "#3e4450",
@@ -134,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: 11
   },
   removeIcon: {
-    width: 50
+    width: 40
   },
   flexRow: {
     flexDirection: "row"
