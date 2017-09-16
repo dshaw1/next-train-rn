@@ -14,7 +14,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import NoSearchResults from "./NoSearchResults";
 
 const StopsModal = props => {
-
   renderNoResultsComponent = () => {
     if (props.value.length > 2 && props.resultsLength === 0) {
       return <NoSearchResults />;
@@ -31,18 +30,27 @@ const StopsModal = props => {
       >
         <View style={styles.closeModal}>
           <TouchableOpacity onPress={props.hideModal}>
-            <Icon name="md-close" size={32} color="#3e4450" />
+            <Text style={styles.closeModalText}>Cancel</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.modalContent}>
-          <View>
-            <TextInput
-              onChangeText={props.onChangeText}
-              value={props.value}
-              style={styles.searchInput}
-              placeholder="Start typing to search..."
-              autoCorrect={false}
-            />
+          <View style={styles.inputBackground}>
+            <View style={styles.inputContainer}>
+              <Icon
+                style={styles.searchIcon}
+                name="ios-search-outline"
+                size={20}
+                color="#3e4450"
+              />
+              <TextInput
+                onChangeText={props.onChangeText}
+                value={props.value}
+                style={styles.searchInput}
+                placeholder="Start typing to search..."
+                autoCorrect={false}
+                underlineColorAndroid="transparent"
+              />
+            </View>
           </View>
           {props.content}
           {this.renderNoResultsComponent()}
@@ -62,22 +70,49 @@ StopsModal.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  modalContainer: {
+    backgroundColor: "#3e4450"
+  },
   closeModal: {
-    backgroundColor: "#fff",
+    backgroundColor: "#3e4450",
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: Platform.OS === "ios" ? 5 : 5,
-    marginRight: Platform.OS === "ios" ? 15 : 10
+    paddingTop: Platform.OS === "ios" ? 22 : 0,
+    paddingRight: Platform.OS === "ios" ? 10 : 10
+  },
+  closeModalText: {
+    color: "#fff",
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontSize: 14
   },
   searchInput: {
+    fontSize: 14,
     height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
+    width: "90%",
     backgroundColor: "#fff"
   },
   modalContent: {
     flex: 1,
     flexDirection: "column"
+  },
+  inputContainer: {
+    backgroundColor: "#fff",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    borderRadius: 4,
+    marginLeft: 10,
+    marginRight: 10,
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  inputBackground: {
+    backgroundColor: "#3e4450",
+    paddingBottom: 10
+  },
+  searchIcon: {
+    marginRight: 10
   }
 });
 
