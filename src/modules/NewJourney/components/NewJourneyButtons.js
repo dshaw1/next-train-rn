@@ -16,26 +16,26 @@ const NewJourneyButtons = props => {
   renderAddButton = () => {
     if (Platform.OS === "ios") {
       return (
-        <View style={styles.btnContainer}>
+        <View style={!props.disabled ? styles.btnContainer : styles.disabledBtn}>
           <TouchableOpacity
             style={styles.row}
             disabled={props.disabled}
             onPress={props.onFetch}
           >
-            <Text style={styles.fetchBtnText}>Done</Text>
+            <Text style={styles.fetchBtnText}>Add</Text>
           </TouchableOpacity>
         </View>
       );
     } else {
       return (
-        <View style={styles.btnContainer}>
+        <View style={!props.disabled ? styles.btnContainer : styles.disabledBtn}>
           <TouchableNativeFeedback
             style={styles.fetchBtn}
             disabled={props.disabled}
             onPress={props.onFetch}
           >
             <View>
-              <Text style={styles.fetchBtnText}>Done</Text>
+              <Text style={styles.fetchBtnText}>Add</Text>
             </View>
           </TouchableNativeFeedback>
         </View>
@@ -117,6 +117,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#0dd3bb",
     padding: 10,
     marginTop: 40
+  },
+  disabledBtn: {
+    display: "none"
   },
   row: {
     flexDirection: "row",
