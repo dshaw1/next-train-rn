@@ -6,7 +6,6 @@ import thunk from "redux-thunk";
 
 import { registerScreens } from "./screens/index";
 import rootReducer from "./reducers/rootReducer";
-import { AddButton } from "./modules/global/components/NavigationButtons";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
