@@ -7,9 +7,9 @@ import {
   StyleSheet,
   AsyncStorage,
   ActivityIndicator,
-  StatusBar,
   RefreshControl,
-  TouchableHighlight
+  TouchableHighlight,
+  Platform
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -22,7 +22,8 @@ import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
-import { RegularButtons } from "../modules/global/components/NavigationButtons";
+import { iOSButtons } from "../modules/global/components/iOSNavigationButtons";
+import { androidButtons } from "../modules/global/components/androidNavigationButtons";
 
 class Favourites extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Favourites extends Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  static navigatorButtons = RegularButtons;
+  static navigatorButtons = Platform.OS === "ios" ? iOSButtons : androidButtons;
 
   static navigatorStyle = {
     navBarBackgroundColor: "#0dd3bb",
@@ -80,40 +81,72 @@ class Favourites extends Component {
       }
       if (event.id == "edit") {
         this.props.toggleEditing();
-        this.props.navigator.setButtons({
-          leftButtons: [
-            {
-              title: "Done",
-              id: "done",
-              buttonColor: "#fff"
-            }
-          ],
-          rightButtons: [
-            {
-              disabled: true,
-              buttonColor: "#fff"
-            }
-          ]
-        });
+        Platform.OS === "ios"
+          ? this.props.navigator.setButtons({
+              leftButtons: [
+                {
+                  title: "Done",
+                  id: "done",
+                  buttonColor: "#fff"
+                }
+              ],
+              rightButtons: [
+                {
+                  id: "add",
+                  disabled: true,
+                  buttonColor: "#fff"
+                }
+              ]
+            })
+          : this.props.navigator.setButtons({
+              rightButtons: [
+                {
+                  title: "Done",
+                  id: "done",
+                  buttonColor: "#fff"
+                },
+                {
+                  id: "add",
+                  disabled: true,
+                  buttonColor: "#fff"
+                }
+              ]
+            });
       } else if (event.id == "done") {
         this.props.toggleEditing();
-        this.props.navigator.setButtons({
-          leftButtons: [
-            {
-              title: "Edit",
-              id: "edit",
-              buttonColor: "#fff"
-            }
-          ],
-          rightButtons: [
-            {
-              title: "Add",
-              id: "add",
-              buttonColor: "#fff",
-              disabled: false
-            }
-          ]
-        });
+        Platform.OS === "ios"
+          ? this.props.navigator.setButtons({
+              leftButtons: [
+                {
+                  title: "Edit",
+                  id: "edit",
+                  buttonColor: "#fff"
+                }
+              ],
+              rightButtons: [
+                {
+                  title: "Add",
+                  id: "add",
+                  buttonColor: "#fff",
+                  disabled: false
+                }
+              ]
+            })
+          : this.props.navigator.setButtons({
+              rightButtons: [
+                {
+                  title: "Add",
+                  id: "add",
+                  buttonColor: "#fff",
+                  disabled: false
+                },
+                {
+                  title: "Edit",
+                  id: "edit",
+                  buttonColor: "#fff"
+                }
+              ]
+            });
       }
     }
   }
@@ -226,11 +259,7 @@ class Favourites extends Component {
     const newFavArr = this.state.favourites;
     const editing = this.props.journeys.editing;
     const renderContent = data => {
-      return (
-        <View>
-          {data}
-        </View>
-      );
+      return <View>{data}</View>;
     };
 
     // Show ActivityIndicator
@@ -253,11 +282,12 @@ class Favourites extends Component {
               order.splice(item.to, 0, order.splice(item.from, 1)[0]);
               this.updateListOrder(newFavArr, item);
             }}
-            renderRow={row =>
+            renderRow={row => (
               <RenderRowComponent
                 removeJourney={id => this.removeJourneyFromAsync(id)}
                 data={row}
-              />}
+              />
+            )}
           />
         </View>
       );
