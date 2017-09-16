@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingBottom: 10,
     height: 40,
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    fontSize: 14
   }
 });
 
