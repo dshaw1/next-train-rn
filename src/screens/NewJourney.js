@@ -233,6 +233,9 @@ class NewJourney extends Component {
         : false;
     const renderContent =
       this.state.filterText.length >= 1 ? this.renderListContainer() : null;
+    const statusBarToggle = this.state.modalVisible
+      ? this.props.navigator.setStyle({ statusBarColor: "#3e4450" })
+      : this.props.navigator.setStyle({ statusBarColor: "#0ca794" });
 
     if (this.state.isLoading) {
       return (
@@ -257,18 +260,18 @@ class NewJourney extends Component {
           onFetch={() => this.handleJourneyFetch()}
           {...this.state}
         />
-         {/* Temporary duplicate message */}
-         {renderDuplicateMsg}
-         <StopsModal
-           visible={this.state.modalVisible}
-           hideModal={() => {
-             this.setModalVisible(!this.state.modalVisible);
-           }}
-           onChangeText={text => this.filterSearch(text)}
-           value={this.state.filterText}
-           resultsLength={this.state.dataSource.length}
-           content={<View>{renderContent}</View>}
-         />
+        {/* Temporary duplicate message */}
+        {renderDuplicateMsg}
+        <StopsModal
+          visible={this.state.modalVisible}
+          hideModal={() => {
+            this.setModalVisible(!this.state.modalVisible);
+          }}
+          onChangeText={text => this.filterSearch(text)}
+          value={this.state.filterText}
+          resultsLength={this.state.dataSource.length}
+          content={<View>{renderContent}</View>}
+        />
       </View>
     );
   }
