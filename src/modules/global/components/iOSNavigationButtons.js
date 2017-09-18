@@ -16,3 +16,20 @@ export const iOSButtons = {
   ]
 };
 
+export const iOSEditButtons = {
+  leftButtons: [
+    {
+      title: "Done",
+      id: "done",
+      buttonColor: "#fff"
+    }
+  ],
+  rightButtons: [
+    {
+      id: "add",
+      disabled: true,
+      buttonColor: "#fff"
+    }
+  ]
+}
+

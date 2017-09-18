@@ -14,3 +14,17 @@ export const androidButtons = {
   ]
 };
 
+export const androidEditButtons = {
+  rightButtons: [
+    {
+      title: "Done",
+      id: "done",
+      buttonColor: "#fff"
+    },
+    {
+      id: "add",
+      disabled: true,
+      buttonColor: "#fff"
+    }
+  ]
+};
