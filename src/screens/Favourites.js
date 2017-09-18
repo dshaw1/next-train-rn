@@ -54,9 +54,6 @@ class Favourites extends Component {
   pushScreen = () => {
     if (this.props.journeys.editing === true) {
       this.props.toggleEditing();
-      this.props.navigator.setButtons({
-        RegularButtons
-      });
     }
     this.props.navigator.push({
       screen: "app.NewJourney",
