@@ -52,7 +52,9 @@ const StopsModal = props => {
               />
             </View>
           </View>
-          {props.content}
+          <View style={styles.listContainer}>
+            {props.content}
+          </View>
           {this.renderNoResultsComponent()}
         </View>
       </Modal>
@@ -113,6 +115,9 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     marginRight: 10
+  },
+  listContainer: {
+    flex: 1
   }
 });
 
