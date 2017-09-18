@@ -23,8 +23,14 @@ import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 import NoJourneys from "../modules/Favourites/components/NoJourneys";
-import { iOSButtons } from "../modules/global/components/iOSNavigationButtons";
-import { androidButtons } from "../modules/global/components/androidNavigationButtons";
+import {
+  iOSButtons,
+  iOSEditButtons
+} from "../modules/global/components/iOSNavigationButtons";
+import {
+  androidButtons,
+  androidEditButtons
+} from "../modules/global/components/androidNavigationButtons";
 
 class Favourites extends Component {
   constructor(props) {
@@ -84,69 +90,19 @@ class Favourites extends Component {
         this.props.toggleEditing();
         Platform.OS === "ios"
           ? this.props.navigator.setButtons({
-              leftButtons: [
-                {
-                  title: "Done",
-                  id: "done",
-                  buttonColor: "#fff"
-                }
-              ],
-              rightButtons: [
-                {
-                  id: "add",
-                  disabled: true,
-                  buttonColor: "#fff"
-                }
-              ]
+              ...iOSEditButtons
             })
           : this.props.navigator.setButtons({
-              rightButtons: [
-                {
-                  title: "Done",
-                  id: "done",
-                  buttonColor: "#fff"
-                },
-                {
-                  id: "add",
-                  disabled: true,
-                  buttonColor: "#fff"
-                }
-              ]
+              ...androidEditButtons
             });
       } else if (event.id == "done") {
         this.props.toggleEditing();
         Platform.OS === "ios"
           ? this.props.navigator.setButtons({
-              leftButtons: [
-                {
-                  title: "Edit",
-                  id: "edit",
-                  buttonColor: "#fff"
-                }
-              ],
-              rightButtons: [
-                {
-                  title: "Add",
-                  id: "add",
-                  buttonColor: "#fff",
-                  disabled: false
-                }
-              ]
+              ...iOSButtons
             })
           : this.props.navigator.setButtons({
-              rightButtons: [
-                {
-                  title: "Add",
-                  id: "add",
-                  buttonColor: "#fff",
-                  disabled: false
-                },
-                {
-                  title: "Edit",
-                  id: "edit",
-                  buttonColor: "#fff"
-                }
-              ]
+              ...androidButtons
             });
       }
     }
@@ -235,6 +191,16 @@ class Favourites extends Component {
     ).then(() => {
       this.setState({ favourites: favArr });
     });
+
+    if (favArr.length === 0) {
+      Platform.OS === "ios"
+        ? this.props.navigator.setButtons({
+            ...iOSButtons
+          })
+        : this.props.navigator.setButtons({
+            ...androidButtons
+          });
+    }
   };
 
   handlePullRefresh = () => {
@@ -255,6 +221,7 @@ class Favourites extends Component {
   };
 
   render() {
+    console.log(iOSEditButtons);
     // array of indexes used for sortable list
     const order = Object.keys(this.state.favourites);
     const newFavArr = this.state.favourites;

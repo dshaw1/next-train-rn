@@ -1,12 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const NoJourneys = () => {
+const NoJourneys = (props) => {
   return (
     <View style={styles.resultsContainer}>
-      <Icon name="ios-subway-outline" size={90} color="#ebebeb" />
-      <Text style={styles.text}>Add up to 6 journeys</Text>
+      <Icon style={styles.icon} name="ios-subway-outline" size={120} color="#0dd3bb" />
+      <Text style={styles.text}>Add your first journey,</Text>
+      <Text style={styles.text}>you can save up to six favourites.</Text>
     </View>
   );
 };
@@ -16,9 +17,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: "20%"
   },
+  icon: {
+    marginBottom: Platform.OS === "ios" ? 0 : 10
+  },
   text: {
     textAlign: "center",
-    color: "#ebebeb",
+    color: "#cccccc",
     fontSize: 18
   }
 });
