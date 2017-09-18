@@ -26,7 +26,6 @@ class CollapsibleList extends Component {
     };
   }
 
-  // PUT THIS INTO A HELPER FUNCTION?
   setModalVisible(visible, arriv, arrivStop, depart, departStop, time) {
     const data = { arriv, depart, arrivStop, departStop };
     const newTime = time + 60;
