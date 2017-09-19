@@ -8,7 +8,7 @@ const NoSearchResults = props => {
     if (Platform.OS === "ios") {
       return <Icon name="ios-sad-outline" size={90} color="#ebebeb" />;
     } else {
-      return <Icon name="md-sad" size={60} color="#ebebeb" />;
+      return <Icon name="md-sad" size={90} color="#ebebeb" />;
     }
   };
 
@@ -22,10 +22,9 @@ const NoSearchResults = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "flex-start"
+    marginTop: "20%"
   },
   noResultsText: {
     marginTop: Platform.OS === "ios" ? 0 : 10,
