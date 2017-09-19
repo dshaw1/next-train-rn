@@ -10,7 +10,8 @@ import {
   RefreshControl,
   TouchableHighlight,
   Platform,
-  LayoutAnimation
+  LayoutAnimation,
+  UIManager
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -44,6 +45,10 @@ class Favourites extends Component {
       fetchError: false
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
   }
 
   static navigatorButtons = Platform.OS === "ios" ? iOSButtons : androidButtons;
