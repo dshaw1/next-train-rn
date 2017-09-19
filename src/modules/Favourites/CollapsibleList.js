@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View, TouchableHighlight, Text } from "react-native";
+import { StyleSheet, View, TouchableHighlight, Text, LayoutAnimation } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -57,6 +57,22 @@ class CollapsibleList extends Component {
   };
 
   toggleDetails = index => {
+    const CustomAnimation = {
+      duration: 220,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut
+      },
+      delete: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      }
+    };
+    LayoutAnimation.configureNext(CustomAnimation);
+
     let oldItem = this.state.activeItem;
     if (oldItem === index) {
       this.setState({ activeItem: undefined });
@@ -78,6 +94,7 @@ class CollapsibleList extends Component {
                 item={item}
                 collapse={this.state.activeItem !== index}
               />
+              <View style={styles.detailsContainer}>
               <CollapsibleDetails
                 loading={this.state.isLoading}
                 collapse={this.state.activeItem !== index}
@@ -92,6 +109,7 @@ class CollapsibleList extends Component {
                     item.departTime.value
                   )}
               />
+              </View>
             </View>
           );
         })}
@@ -117,8 +135,8 @@ const styles = StyleSheet.create({
   headerBorder: {
     borderBottomWidth: 1
   },
-  collapseContainer: {
-    paddingTop: 0
+  detailsContainer: {
+    overflow: "hidden"
   },
   collapseItem: {
     paddingBottom: 0

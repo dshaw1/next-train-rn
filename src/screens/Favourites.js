@@ -9,7 +9,8 @@ import {
   ActivityIndicator,
   RefreshControl,
   TouchableHighlight,
-  Platform
+  Platform,
+  LayoutAnimation
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -80,22 +81,28 @@ class Favourites extends Component {
   }
 
   onNavigatorEvent(event) {
+    const CustomAnimation = {
+      duration: 220,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut
+      },
+      delete: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity
+      }
+    };
+
     if (event.type == "NavBarButtonPress") {
       if (event.id == "add") {
         this.pushScreen();
       }
       if (event.id == "edit") {
         this.props.toggleEditing();
-        Platform.OS === "ios"
-          ? this.props.navigator.setButtons({
-              ...iOSEditButtons
-            })
-          : this.props.navigator.setButtons({
-              ...androidEditButtons
-            });
-      }
-      else if (event.id == "edit" && this.state.favourites.length === 0) {
-        this.props.toggleEditing();
+        LayoutAnimation.configureNext(CustomAnimation);
         Platform.OS === "ios"
           ? this.props.navigator.setButtons({
               ...iOSEditButtons
@@ -105,6 +112,7 @@ class Favourites extends Component {
             });
       } else if (event.id == "done") {
         this.props.toggleEditing();
+        LayoutAnimation.configureNext(CustomAnimation);
         Platform.OS === "ios"
           ? this.props.navigator.setButtons({
               ...iOSButtons
@@ -192,7 +200,6 @@ class Favourites extends Component {
         return item;
       }
     });
-
     AsyncStorage.setItem(
       "@NextTrain:MyKey",
       JSON.stringify(favArr)
@@ -201,6 +208,7 @@ class Favourites extends Component {
     });
 
     if (favArr.length === 0) {
+      this.props.toggleEditing();
       Platform.OS === "ios"
         ? this.props.navigator.setButtons({
             ...iOSButtons
