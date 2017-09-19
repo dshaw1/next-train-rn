@@ -23,6 +23,7 @@ import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 import NoJourneys from "../modules/Favourites/components/NoJourneys";
+import NoJourneysToEdit from "../modules/Favourites/components/NoJourneysToEdit";
 import {
   iOSButtons,
   iOSEditButtons
@@ -84,6 +85,16 @@ class Favourites extends Component {
         this.pushScreen();
       }
       if (event.id == "edit") {
+        this.props.toggleEditing();
+        Platform.OS === "ios"
+          ? this.props.navigator.setButtons({
+              ...iOSEditButtons
+            })
+          : this.props.navigator.setButtons({
+              ...androidEditButtons
+            });
+      }
+      else if (event.id == "edit" && this.state.favourites.length === 0) {
         this.props.toggleEditing();
         Platform.OS === "ios"
           ? this.props.navigator.setButtons({
@@ -218,7 +229,6 @@ class Favourites extends Component {
   };
 
   render() {
-    console.log(iOSEditButtons);
     // array of indexes used for sortable list
     const order = Object.keys(this.state.favourites);
     const newFavArr = this.state.favourites;
@@ -257,7 +267,7 @@ class Favourites extends Component {
       );
     }
     if (editing && this.state.favourites.length === 0) {
-      return <NoJourneys />;
+      return <NoJourneysToEdit />;
     }
     if (this.state.favourites.length === 0) {
       return <NoJourneys />;
@@ -291,7 +301,6 @@ class Favourites extends Component {
 const styles = StyleSheet.create({
   favouritesContainer: {
     flex: 1,
-    justifyContent: "center",
     backgroundColor: "#ebebeb"
   },
   activityIndicator: {
