@@ -1,15 +1,25 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import {
   StyleSheet,
   ScrollView,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  UIManager,
+  Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-export default class CollapsibleDetails extends Component {
+export default class CollapsibleDetails extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
+  }
+
   // Render each journey leg as bus or train method of transport
   renderListContent = item => {
     const journeyArr = [];

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
 
-export default class CollapsibleTitle extends Component {
+export default class CollapsibleTitle extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
