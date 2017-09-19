@@ -52,10 +52,10 @@ const StopsModal = props => {
               />
             </View>
           </View>
-          <View style={styles.listContainer}>
-            {props.content}
-          </View>
-          {this.renderNoResultsComponent()}
+          {props.resultsLength === 0 ? null : (
+            <View style={styles.listContainer}>{props.content}</View>
+          )}
+          {renderNoResultsComponent()}
         </View>
       </Modal>
     </View>
