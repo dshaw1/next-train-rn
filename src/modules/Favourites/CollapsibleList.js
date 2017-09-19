@@ -130,16 +130,14 @@ class CollapsibleList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    paddingBottom: 10
   },
   headerBorder: {
     borderBottomWidth: 1
   },
   detailsContainer: {
     overflow: "hidden"
-  },
-  collapseItem: {
-    paddingBottom: 0
   },
   headerText: {
     color: "grey"
