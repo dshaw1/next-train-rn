@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View, TouchableHighlight, Text, LayoutAnimation } from "react-native";
+import { StyleSheet, View, TouchableHighlight, Text, LayoutAnimation, Platform, UIManager } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -24,6 +24,9 @@ class CollapsibleList extends Component {
       arrivStop: "",
       fetchError: false
     };
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
   }
 
   setModalVisible(visible, arriv, arrivStop, depart, departStop, time) {
@@ -61,17 +64,17 @@ class CollapsibleList extends Component {
       duration: 220,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
-        property: LayoutAnimation.Properties.opacity,
+        property: LayoutAnimation.Properties.opacity
       },
       update: {
         type: LayoutAnimation.Types.easeInEaseOut
       },
       delete: {
         type: LayoutAnimation.Types.easeInEaseOut,
-        property: LayoutAnimation.Properties.opacity,
+        property: LayoutAnimation.Properties.opacity
       }
     };
-    LayoutAnimation.configureNext(CustomAnimation);
+    Platform.OS === "ios" ? LayoutAnimation.configureNext(CustomAnimation) : null;
 
     let oldItem = this.state.activeItem;
     if (oldItem === index) {
