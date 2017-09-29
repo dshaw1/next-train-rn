@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View, TouchableHighlight, Text, LayoutAnimation, Platform, UIManager } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableHighlight,
+  Text,
+  LayoutAnimation,
+  Platform,
+  UIManager
+} from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -24,8 +32,9 @@ class CollapsibleList extends Component {
       arrivStop: "",
       fetchError: false
     };
-    if (Platform.OS === 'android') {
-      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+    if (Platform.OS === "android") {
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
 
@@ -74,7 +83,9 @@ class CollapsibleList extends Component {
         property: LayoutAnimation.Properties.opacity
       }
     };
-    Platform.OS === "ios" ? LayoutAnimation.configureNext(CustomAnimation) : null;
+    Platform.OS === "ios"
+      ? LayoutAnimation.configureNext(CustomAnimation)
+      : null;
 
     let oldItem = this.state.activeItem;
     if (oldItem === index) {
@@ -98,20 +109,20 @@ class CollapsibleList extends Component {
                 collapse={this.state.activeItem !== index}
               />
               <View style={styles.detailsContainer}>
-              <CollapsibleDetails
-                loading={this.state.isLoading}
-                collapse={this.state.activeItem !== index}
-                content={item}
-                showModal={() =>
-                  this.setModalVisible(
-                    true,
-                    item.arriv,
-                    item.arrivStop,
-                    item.depart,
-                    item.departStop,
-                    item.departTime.value
-                  )}
-              />
+                <CollapsibleDetails
+                  loading={this.state.isLoading}
+                  collapse={this.state.activeItem !== index}
+                  content={item}
+                  showModal={() =>
+                    this.setModalVisible(
+                      true,
+                      item.arriv,
+                      item.arrivStop,
+                      item.depart,
+                      item.departStop,
+                      item.departTime.value
+                    )}
+                />
               </View>
             </View>
           );

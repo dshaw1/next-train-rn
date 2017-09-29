@@ -292,5 +292,7 @@ const styles = StyleSheet.create({
 });
 
 CollapsibleTitle.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  collapse: PropTypes.bool,
+  toggleDetails: PropTypes.func.isRequired
 };

@@ -6,7 +6,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  UIManager,
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -14,10 +13,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 export default class CollapsibleDetails extends PureComponent {
   constructor(props) {
     super(props);
-
-    if (Platform.OS === 'android') {
-      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
-    }
   }
 
   // Render each journey leg as bus or train method of transport
