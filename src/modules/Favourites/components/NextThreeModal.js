@@ -20,7 +20,7 @@ const NextThreeModal = props => {
             <Text style={styles.itemText}>
               {item.departure_time.text}
             </Text>
-            <Icon name="ios-arrow-round-forward" size={24} color="#fff" style={{textAlign: "center",marginLeft: 10, marginRight: 10}} />
+            <Icon name="ios-arrow-round-forward" size={24} color="#fff" style={styles.iconStyle} />
             <Text style={styles.itemText}>           
               {item.arrival_time.text}
             </Text>
@@ -128,6 +128,11 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "400",
     fontSize: 14
+  },
+  iconStyle: {
+    textAlign: "center",
+    marginLeft: 10,
+    marginRight: 10
   }
 });
 
