@@ -18,12 +18,12 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
 import { fetchNewJourney, toggleEditing } from "../actions/journeys";
+import { networkConnectionError } from "../actions/network";
 
 import SortableListView from "react-native-sortable-listview";
 import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
-import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
 import NoJourneys from "../modules/Favourites/components/NoJourneys";
 import NoJourneysToEdit from "../modules/Favourites/components/NoJourneysToEdit";
 import {
@@ -41,13 +41,13 @@ class Favourites extends Component {
     this.state = {
       favourites: [],
       refreshing: false,
-      isLoading: false,
-      fetchError: false
+      isLoading: false
     };
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
 
-    if (Platform.OS === 'android') {
-      UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+    if (Platform.OS === "android") {
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
 
@@ -169,11 +169,13 @@ class Favourites extends Component {
                 "@NextTrain:MyKey",
                 JSON.stringify(tempArray)
               ).then(() => {
-                this.setState({ favourites: tempArray, fetchError: false });
+                this.props.networkConnectionError(false);
+                this.setState({ favourites: tempArray });
               });
             })
             .catch(err => {
-              return this.setState({ isLoading: false, fetchError: true });
+              this.props.networkConnectionError(true);
+              this.setState({ isLoading: false });
             });
         }
       });
@@ -241,6 +243,7 @@ class Favourites extends Component {
     });
   };
 
+
   render() {
     // array of indexes used for sortable list
     const order = Object.keys(this.state.favourites);
@@ -288,7 +291,6 @@ class Favourites extends Component {
       // Show CollapsibleList
       return (
         <View style={styles.favouritesContainer}>
-          {this.state.fetchError ? <ShowErrorMessage /> : null}
           <ScrollView
             refreshControl={
               <RefreshControl
@@ -330,14 +332,16 @@ Favourites.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    journeys: state.journeys
+    journeys: state.journeys,
+    networkError: state.network.networkError
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchNewJourney: bindActionCreators(fetchNewJourney, dispatch),
-    toggleEditing: bindActionCreators(toggleEditing, dispatch)
+    toggleEditing: bindActionCreators(toggleEditing, dispatch),
+    networkConnectionError: bindActionCreators(networkConnectionError, dispatch)
   };
 };
 

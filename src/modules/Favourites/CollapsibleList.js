@@ -7,18 +7,21 @@ import {
   Text,
   LayoutAnimation,
   Platform,
-  UIManager
+  UIManager,
+  NetInfo
 } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { fetchNewJourney } from "../../actions/journeys";
+import { networkConnectionError } from "../../actions/network";
 
 import CollapsibleDetails from "./components/CollapsibleDetails";
 import CollapsibleTitle from "./components/CollapsibleTitle";
 import NextThreeModal from "./components/NextThreeModal";
 import nextThreeDepartures from "./helpers/nextThreeDepartures";
 import ShowErrorMessage from "../global/components/ShowErrorMessage";
+import checkNetworkConnection from "../global/helpers/netConnectionHelper";
 
 class CollapsibleList extends Component {
   constructor(props) {
@@ -29,8 +32,7 @@ class CollapsibleList extends Component {
       modalVisible: false,
       nextDepartures: [],
       departStop: "",
-      arrivStop: "",
-      fetchError: false
+      arrivStop: ""
     };
     if (Platform.OS === "android") {
       UIManager.setLayoutAnimationEnabledExperimental &&
@@ -50,12 +52,16 @@ class CollapsibleList extends Component {
             ...nextDepartures,
             arrivStop: arrivStop,
             departStop: departStop,
-            isLoading: false,
-            fetchError: false
+            isLoading: false
           });
+          this.props.networkConnectionError(false);
         })
         .catch(err => {
-          this.setState({ fetchError: true, isLoading: false });
+          this.props.networkConnectionError(true);
+          this.setState({
+            isLoading: false,
+            modalVisible: false
+          });
           return err;
         });
     }
@@ -96,10 +102,14 @@ class CollapsibleList extends Component {
   };
 
   render() {
-    const { items, headerRender } = this.props;
+    const { items, headerRender, networkError } = this.props;
     return (
       <View style={styles.container}>
-        {this.state.fetchError ? <ShowErrorMessage /> : null}
+        {networkError === true ? (
+          <ShowErrorMessage
+            checkConnection={() => checkNetworkConnection(this.props.networkConnectionError)}
+          />
+        ) : null}
         {items.map((item, index) => {
           return (
             <View key={index}>
@@ -113,15 +123,18 @@ class CollapsibleList extends Component {
                   loading={this.state.isLoading}
                   collapse={this.state.activeItem !== index}
                   content={item}
-                  showModal={() =>
-                    this.setModalVisible(
-                      true,
-                      item.arriv,
-                      item.arrivStop,
-                      item.depart,
-                      item.departStop,
-                      item.departTime.value
-                    )}
+                  showModal={() => {
+                    this.state.fetchError
+                      ? null
+                      : this.setModalVisible(
+                          true,
+                          item.arriv,
+                          item.arrivStop,
+                          item.depart,
+                          item.departStop,
+                          item.departTime.value
+                        );
+                  }}
                 />
               </View>
             </View>
@@ -168,13 +181,15 @@ CollapsibleList.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    journeys: state.journeys
+    journeys: state.journeys,
+    networkError: state.network.networkError
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNewJourney: bindActionCreators(fetchNewJourney, dispatch)
+    fetchNewJourney: bindActionCreators(fetchNewJourney, dispatch),
+    networkConnectionError: bindActionCreators(networkConnectionError, dispatch)
   };
 };
 

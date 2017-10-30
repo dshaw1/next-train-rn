@@ -16,6 +16,7 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
 import { fetchNewJourney } from "../actions/journeys";
+import { networkConnectionError } from "../actions/network";
 
 import ListContainer from "../modules/NewJourney/components/ListContainer";
 import ListItem from "../modules/NewJourney/components/ListItem";
@@ -24,6 +25,7 @@ import NewJourneyButtons from "../modules/NewJourney/components/NewJourneyButton
 import DuplicateJourneyMessage from "../modules/NewJourney/components/DuplicateJourneyMessage";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
 import ShowErrorMessage from "../modules/global/components/ShowErrorMessage";
+import checkNetworkConnection from "../modules/global/helpers/netConnectionHelper";
 
 // JSON data of all stops
 import stops from "../utils/stops";
@@ -208,7 +210,8 @@ class NewJourney extends Component {
 
         // Saving favourites to phone's asyncStorage
         this.handleAsyncStorage(asyncObject).then(() => {
-          this.setState({ isLoading: false, fetchError: false });
+          this.props.networkConnectionError(false);
+          this.setState({ isLoading: false });
           this.props.navigator.resetTo({
             screen: "app.Favourites",
             title: "Favourites",
@@ -217,11 +220,13 @@ class NewJourney extends Component {
         });
       })
       .catch(err => {
-        return this.setState({ isLoading: false, fetchError: true });
+        this.props.networkConnectionError(true);
+        this.setState({ isLoading: false });
       });
   };
 
   render() {
+    const networkError = this.props.networkError;
     // Render duplicate journey message if needed
     const renderDuplicateMsg = this.state.duplicateJourney ? (
       <DuplicateJourneyMessage />
@@ -246,7 +251,12 @@ class NewJourney extends Component {
     }
     return (
       <View style={styles.contentContainer}>
-        {this.state.fetchError ? <ShowErrorMessage /> : null}
+        {networkError === true ? (
+          <ShowErrorMessage
+            checkConnection={() =>
+              checkNetworkConnection(this.props.networkConnectionError)}
+          />
+        ) : null}
         <NewJourneyButtons
           onDepartPress={() => {
             this.setState({ modalType: "DEP" });
@@ -297,13 +307,15 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    journeys: state.journeys
+    journeys: state.journeys,
+    networkError: state.network.networkError
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNewJourney: bindActionCreators(fetchNewJourney, dispatch)
+    fetchNewJourney: bindActionCreators(fetchNewJourney, dispatch),
+    networkConnectionError: bindActionCreators(networkConnectionError, dispatch)
   };
 };
 
