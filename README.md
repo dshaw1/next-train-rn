@@ -3,6 +3,7 @@ My first React Native project, a simple train app for Melbournians that allows y
 
 ## Links
 - [App Store](https://itunes.apple.com/us/app/next-train/id1299647913?ls=1&mt=8)
+- Google Play store coming soon
 
 ## Screenshots
 <p>
