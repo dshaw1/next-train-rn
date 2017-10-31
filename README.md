@@ -7,13 +7,13 @@ My first React Native project, a simple train app for Melbournians that allows y
 
 ## Screenshots
 <p>
-  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_1.png" width="400" height="711" alt="Next Train screenshot 1"/>
-  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_2.png" width="400" height="711" alt="Next Train screenshot 2"/>
+  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_1.png" style="width: 40%; height: auto" alt="Next Train screenshot 1"/>
+  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_2.png" style="width: 40%; height: auto" alt="Next Train screenshot 2"/>
 </p>
 
 <p>
-  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_3.png" width="400" height="711" alt="Next Train screenshot 3"/>
-  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_4.png" width="400" height="711" alt="Next Train screenshot 4"/>
+  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_3.png" style="width: 40%; height: auto" alt="Next Train screenshot 3"/>
+  <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_4.png" style="width: 40%; height: auto" alt="Next Train screenshot 4"/>
 </p>
 
 TODO
