@@ -5,7 +5,6 @@ My first React Native project, a simple train app for Melbournians that allows y
 - [App Store](https://itunes.apple.com/us/app/next-train/id1299647913?ls=1&mt=8)
 
 ## Screenshots
-![Screenshot1](https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_1.png)
 <p>
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_1.png" width="400" height="711" alt="Next Train screenshot 1"/>
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_2.png" width="400" height="711" alt="Next Train screenshot 2"/>
