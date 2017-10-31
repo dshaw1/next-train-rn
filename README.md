@@ -6,12 +6,12 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 ## Screenshots
-<p>
+<p align="center">
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_1.png" width="40%" height="auto" alt="Next Train screenshot 1"/>
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_2.png" width="40%" height="auto" alt="Next Train screenshot 2"/>
 </p>
 
-<p>
+<p align="center">
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_3.png" width="40%" height="auto" alt="Next Train screenshot 3"/>
   <img src="https://github.com/dshaw1/next-train-rn/blob/master/docs/assets/screenshot_4.png" width="40%" height="auto" alt="Next Train screenshot 4"/>
 </p>
