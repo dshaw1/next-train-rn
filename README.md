@@ -17,6 +17,7 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
+- Fix splash screen issue on iPhone 6/7 plus
 - Add codepush
 - Fix animation on android
 - Add to Google Play store
