@@ -17,7 +17,11 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
-- Fix splash screen issue on iPhone 6/7 plus
-- Add codepush
 - Fix animation on android
+- Automatically fetch new times, if required, when opening app from sleep
+- Fix Android "white screen" after splash screen
+- Improve font/image scaling for small/big devices
+- Customise UI for Android vs iOS
+- Add Sentry for error reporting
+- Add codepush
 - Add to Google Play store
