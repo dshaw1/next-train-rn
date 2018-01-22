@@ -39,7 +39,6 @@ class CollapsibleList extends Component {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
-
   setModalVisible(visible, arriv, arrivStop, depart, departStop, time) {
     const data = { arriv, depart, arrivStop, departStop };
     const newTime = time + 60;
@@ -75,7 +74,7 @@ class CollapsibleList extends Component {
   };
 
   toggleDetails = index => {
-    const CustomAnimation = {
+    const iOSAnimations = {
       duration: 220,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
@@ -89,9 +88,20 @@ class CollapsibleList extends Component {
         property: LayoutAnimation.Properties.opacity
       }
     };
-    Platform.OS === "ios"
-      ? LayoutAnimation.configureNext(CustomAnimation)
-      : null;
+
+    const androidAnimations = {
+      duration: 190,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut
+      }
+    };
+    Platform.OS === "android"
+      ? LayoutAnimation.configureNext(androidAnimations)
+      : LayoutAnimation.configureNext(iOSAnimations);
 
     let oldItem = this.state.activeItem;
     if (oldItem === index) {
@@ -104,22 +114,25 @@ class CollapsibleList extends Component {
   render() {
     const { items, headerRender, networkError } = this.props;
     return (
-      <View style={styles.container}>
+      <View onLayout={this.calculateHeight} style={styles.container}>
         {networkError === true ? (
           <ShowErrorMessage
-            checkConnection={() => checkNetworkConnection(this.props.networkConnectionError)}
+            checkConnection={() =>
+              checkNetworkConnection(this.props.networkConnectionError)
+            }
           />
         ) : null}
         {items.map((item, index) => {
           return (
-            <View key={index}>
+            <View style={styles.collapsibleContainer} key={index}>
               <CollapsibleTitle
                 toggleDetails={() => this.toggleDetails(index)}
                 item={item}
                 collapse={this.state.activeItem !== index}
               />
-              <View style={styles.detailsContainer}>
+              <View>
                 <CollapsibleDetails
+                  animateOpacity={() => this.animationStuff()}
                   loading={this.state.isLoading}
                   collapse={this.state.activeItem !== index}
                   content={item}
@@ -156,15 +169,16 @@ class CollapsibleList extends Component {
 }
 
 const styles = StyleSheet.create({
+  collapsibleContainer: {
+    height: "100%",
+    flex: 1
+  },
   container: {
     flex: 1,
     paddingBottom: 10
   },
   headerBorder: {
     borderBottomWidth: 1
-  },
-  detailsContainer: {
-    overflow: "hidden"
   },
   headerText: {
     color: "grey"

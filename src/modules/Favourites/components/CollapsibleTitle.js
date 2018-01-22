@@ -210,15 +210,15 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 10,
-    borderRadius: 4,
+    borderRadius: Platform.OS === "ios" ? 4 : 2,
     backgroundColor: "#ffffff"
   },
   selectedItemContainer: {
     marginLeft: 15,
     marginRight: 15,
     marginTop: 10,
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
+    borderTopLeftRadius: Platform.OS === "ios" ? 4 : 2,
+    borderTopRightRadius: Platform.OS === "ios" ? 4 : 2,
     borderBottomLeftRadius: 0,
     borderBottomLeftRadius: 0,
     backgroundColor: "#ffffff"

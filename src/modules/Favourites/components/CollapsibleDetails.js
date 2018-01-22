@@ -15,6 +15,9 @@ export default class CollapsibleDetails extends PureComponent {
     super(props);
   }
 
+  //
+  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //
   // Render each journey leg as bus or train method of transport
   renderListContent = item => {
     const journeyArr = [];
@@ -83,10 +86,9 @@ export default class CollapsibleDetails extends PureComponent {
               size={22}
               color="#3e4450"
             />
-            <Text
-              style={styles.contentText}
-              key={index}
-            >{`${stop.html_instructions} - ${stop.distance.text}`}</Text>
+            <Text style={styles.contentText} key={index}>{`${
+              stop.html_instructions
+            } - ${stop.distance.text}`}</Text>
           </View>
         );
       }
@@ -95,10 +97,13 @@ export default class CollapsibleDetails extends PureComponent {
   };
 
   render() {
-    return (
-      <View style={styles.detailsContainer}>
-        {!this.props.collapse ? (
-          <View>
+    // Remove details view if collapsed and Platform === iOS
+    if (Platform.OS !== "android" && this.props.collapse) {
+      return null;
+    } else {
+      return (
+        <View style={this.props.collapse ? styles.hide : styles.show}>
+          <View onPress={() => this.props.animateOpacity()}>
             <View style={styles.separatorContainer}>
               <View style={styles.separator} />
             </View>
@@ -114,13 +119,21 @@ export default class CollapsibleDetails extends PureComponent {
               <Text style={styles.nextThreeText}>View Later Journeys</Text>
             </TouchableOpacity>
           </View>
-        ) : null}
-      </View>
-    );
+        </View>
+      );
+    }
   }
 }
 
 const styles = StyleSheet.create({
+  show: {
+    height: "100%",
+    opacity: 1
+  },
+  hide: {
+    height: 0,
+    opacity: 0.85
+  },
   detailsCtonainer: {
     marginLeft: 15,
     marginRight: 15,
@@ -150,8 +163,8 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingLeft: 15,
     paddingRight: 15,
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4,
+    borderBottomLeftRadius: Platform.OS === "ios" ? 4 : 2,
+    borderBottomRightRadius: Platform.OS === "ios" ? 4 : 2,
     flexDirection: "row",
     alignItems: "center"
   },
