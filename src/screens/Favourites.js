@@ -11,7 +11,8 @@ import {
   TouchableHighlight,
   Platform,
   LayoutAnimation,
-  UIManager
+  UIManager,
+  AppState
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -80,11 +81,24 @@ class Favourites extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    this.fetchAsyncStorageData();
-    this.intervalId = setInterval(this.fetchNewJourneyIfNeeded, 30000);
-    // AsyncStorage.clear();
+    // Create promise to ensure interval is set after initial async/remote fetch
+    const handleInitialLoad = new Promise((resolve, reject) => {
+      resolve(this.fetchAsyncStorageData());
+    })
+    handleInitialLoad.then(() => {
+      this.intervalId = setInterval(this.fetchNewJourneyIfNeeded, 30000);
+    })
+    // Watch app state and fetch, if needed, remote data each time app is re-opened
+    AppState.addEventListener('change', (state) => {
+      if (state === 'active') {
+       this.fetchAsyncStorageData();
+      } 
+   })
   }
 
+  //
+  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //
   onNavigatorEvent(event) {
     const CustomAnimation = {
       duration: 220,
@@ -134,6 +148,9 @@ class Favourites extends Component {
     clearInterval(this.intervalId);
   }
 
+  //
+  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //
   fetchNewJourneyIfNeeded = () => {
     if (!this.props.journeys.editing) {
       const tempArray = this.state.favourites;
@@ -193,6 +210,8 @@ class Favourites extends Component {
             favourites: JSON.parse(journeyStr),
             isLoading: false
           });
+          // Fetch journey data on initial app load
+          this.fetchNewJourneyIfNeeded();
         }
       })
       .catch(err => {
