@@ -145,6 +145,9 @@ class NewJourney extends Component {
     );
   };
 
+  //
+  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //
   handleAsyncStorage = journey => {
     // Local state item ID used to check against journey ID's in asyncStorage
     const itemId = `${this.state.departureLat},${this.state.departureLong}${this
@@ -178,6 +181,9 @@ class NewJourney extends Component {
     });
   };
 
+  //
+  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //
   handleJourneyFetch = () => {
     const {
       departureLat,
