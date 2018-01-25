@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { moderateScale } from '../../global/helpers/scalingHelper';
 
 export default class RenderRowComponent extends Component {
   renderRemoveIcon = () => {
@@ -18,7 +19,7 @@ export default class RenderRowComponent extends Component {
           <Icon
             style={{ flex: 0 }}
             name="ios-remove-circle"
-            size={24}
+            size={moderateScale(20, 0.25)}
             color="red"
           />
         </View>
@@ -29,7 +30,7 @@ export default class RenderRowComponent extends Component {
           <Icon
             style={{ flex: 0 }}
             name="md-remove-circle"
-            size={24}
+            size={moderateScale(24, 0.25)}
             color="red"
           />
         </View>
@@ -44,7 +45,7 @@ export default class RenderRowComponent extends Component {
           <Icon
             style={{ flex: 0 }}
             name="ios-reorder-outline"
-            size={32}
+            size={moderateScale(30, 0.25)}
             color="#3e4450"
           />
         </View>
@@ -55,7 +56,7 @@ export default class RenderRowComponent extends Component {
           <Icon
             style={{ flex: 0 }}
             name="md-reorder"
-            size={32}
+            size={moderateScale(30, 0.25)}
             color="#3e4450"
           />
         </View>
@@ -65,6 +66,7 @@ export default class RenderRowComponent extends Component {
 
   render() {
     const { departStop, arrivStop, id } = this.props.data;
+
     if (this.props) {
       return (
         <View style={styles.itemContainer}>
@@ -103,12 +105,12 @@ export default class RenderRowComponent extends Component {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    padding: 15,
+    padding: 10,
     backgroundColor: "#F8F8F8",
     borderBottomWidth: 1,
     borderColor: "#eee",
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 10,
+    marginRight: 10,
     marginTop: 10,
 
     borderRadius: 4,
@@ -129,15 +131,15 @@ const styles = StyleSheet.create({
   titleText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: 13
+    fontSize: moderateScale(11.5, 0.5)
   },
   smallText: {
     color: "#3e4450",
     fontWeight: "400",
-    fontSize: 11
+    fontSize: moderateScale(10, 0.5)
   },
   removeIcon: {
-    width: 40
+    width: 35
   },
   flexRow: {
     flexDirection: "row"

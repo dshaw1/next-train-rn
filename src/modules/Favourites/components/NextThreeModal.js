@@ -10,6 +10,7 @@ import {
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { moderateScale } from '../../global/helpers/scalingHelper';
 
 const NextThreeModal = props => {
   renderModalContent = data => {
@@ -49,7 +50,7 @@ const NextThreeModal = props => {
             <View>
               <View style={styles.closeModal}>
                 <TouchableOpacity onPress={props.hideModal}>
-                  <Icon name="md-close" size={32} color="#0dd3bb" />
+                  <Icon name="md-close" size={moderateScale(26, 1.23)} color="#0dd3bb" />
                 </TouchableOpacity>
               </View>
                 <Text style={styles.titleText}>{props.departStop}</Text>
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 4
+    borderRadius: (Platform.OS === "ios" ? 4 : 2)
   },
   activityIndicatorContainer: {
     flex: 1,
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   timesContainer: {
-    marginTop: 15
+    marginTop: 10
   },
   textContainer: {
     flexDirection: "row",
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   itemText: {
-    fontSize: 16,
+    fontSize: moderateScale(14, 1),
     color: "#fff",
     width: 80,
     textAlign: "center"
@@ -121,13 +122,13 @@ const styles = StyleSheet.create({
   titleText: {
     color: "#fff",
     fontWeight: "500",
-    fontSize: 18,
+    fontSize: moderateScale(14, 1),
     textAlign: "center"
   },
   smallText: {
     color: "#fff",
     fontWeight: "400",
-    fontSize: 14
+    fontSize: (Platform.OS === "ios" ? moderateScale(12, 0.25) : moderateScale(14, 0.25))
   },
   iconStyle: {
     textAlign: "center",

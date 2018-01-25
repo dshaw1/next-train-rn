@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
+import { moderateScale } from '../../global/helpers/scalingHelper';
 
 export default class CollapsibleTitle extends PureComponent {
   constructor(props) {
@@ -55,17 +56,17 @@ export default class CollapsibleTitle extends PureComponent {
 
   renderDownIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-down" size={18} color="#6b6b6b" />;
+      return <Icon name="ios-arrow-down" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
     } else {
-      return <Icon name="md-arrow-dropdown" size={18} color="#6b6b6b" />;
+      return <Icon name="md-arrow-dropdown" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
     }
   };
 
   renderUpIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-up" size={18} color="#6b6b6b" />;
+      return <Icon name="ios-arrow-up" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
     } else {
-      return <Icon name="md-arrow-dropup" size={18} color="#6b6b6b" />;
+      return <Icon name="md-arrow-dropup" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
     }
   };
 
@@ -80,7 +81,7 @@ export default class CollapsibleTitle extends PureComponent {
           <Icon
             key={index}
             name="ios-subway-outline"
-            size={26}
+            size={moderateScale(24, 0.5)}
             color="#0071cd"
             style={styles.iconStyle}
           />
@@ -94,7 +95,7 @@ export default class CollapsibleTitle extends PureComponent {
           <Icon
             key={index}
             name="ios-bus-outline"
-            size={26}
+            size={moderateScale(24, 0.5)}
             color="#fc9a1f"
             style={styles.iconStyle}
           />
@@ -105,7 +106,7 @@ export default class CollapsibleTitle extends PureComponent {
           <Icon
             key={index}
             name="ios-walk-outline"
-            size={26}
+            size={moderateScale(24, 0.5)}
             color="#3e4450"
             style={styles.iconStyle}
           />
@@ -119,7 +120,7 @@ export default class CollapsibleTitle extends PureComponent {
           <Icon
             key={index}
             name="ios-train-outline"
-            size={26}
+            size={moderateScale(24, 0.5)}
             color="#73bd48"
             style={styles.iconStyle}
           />
@@ -160,7 +161,7 @@ export default class CollapsibleTitle extends PureComponent {
             this.props.toggleDetails(index);
           }}
         >
-          <View style={styles.headerItem}>
+          <View style={styles.headerContainer}>
             <View style={styles.headerRow}>
               <View style={styles.iconsContainer}>
                 {this.checkTravelMode(item)}
@@ -185,7 +186,7 @@ export default class CollapsibleTitle extends PureComponent {
             </View>
             <View style={styles.iconsContainer}>
               <View style={[styles.flexRow, styles.countdownContainer]}>
-                <Icon name="ios-time-outline" size={18} color="#3e4450" />
+                <Icon name="ios-time-outline" size={moderateScale(16, 0.5)} color="#3e4450" />
                 {this.timerCountdown()}
               </View>
               <View style={styles.flexRow}>
@@ -207,15 +208,15 @@ export default class CollapsibleTitle extends PureComponent {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 10,
+    marginRight: 10,
     marginTop: 10,
     borderRadius: Platform.OS === "ios" ? 4 : 2,
     backgroundColor: "#ffffff"
   },
   selectedItemContainer: {
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 10,
+    marginRight: 10,
     marginTop: 10,
     borderTopLeftRadius: Platform.OS === "ios" ? 4 : 2,
     borderTopRightRadius: Platform.OS === "ios" ? 4 : 2,
@@ -223,24 +224,25 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     backgroundColor: "#ffffff"
   },
+  headerContainer: {
+    padding: 10,
+    paddingBottom: 15,
+    flex: 1
+  },
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: Platform.OS === "ios" ? 2 : 5
   },
-  headerItem: {
-    padding: 15,
-    flex: 1
-  },
   titleText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: 13
+    fontSize: moderateScale(11.5, 0.5)
   },
   smallText: {
     color: "#3e4450",
     fontWeight: "400",
-    fontSize: 11
+    fontSize: moderateScale(10, 0.5)
   },
   titleRow: {
     flexDirection: "row",
@@ -252,25 +254,25 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     padding: 4,
     borderRadius: 2,
-    width: 70,
-    height: Platform.OS === "ios" ? 30 : 32,
+    width: moderateScale(55, 0.75),
+    height: Platform.OS === "ios" ? moderateScale(28, 0.5) : 32,
     justifyContent: "center"
   },
   timeText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: 12,
+    fontSize: moderateScale(10, 0.5),
     textAlign: "center"
   },
   timeTitleText: {
     color: "#3e4450",
     fontWeight: "100",
-    fontSize: Platform.OS === "ios" ? 10 : 11,
+    fontSize: Platform.OS === "ios" ? moderateScale(8, 0.5) : 11,
     textAlign: "center",
     marginBottom: Platform.OS === "ios" ? 0 : -3
   },
   countdownText: {
-    fontSize: 13,
+    fontSize: moderateScale(11, 0.5),
     color: "#3e4450",
     fontWeight: "400",
     alignItems: "flex-end"

@@ -90,7 +90,7 @@ class CollapsibleList extends Component {
     };
 
     const androidAnimations = {
-      duration: 190,
+      duration: 200,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
         property: LayoutAnimation.Properties.opacity

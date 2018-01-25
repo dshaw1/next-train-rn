@@ -169,6 +169,7 @@ class Favourites extends Component {
           this.props
             .fetchNewJourney(fetchObj, "now")
             .then(res => {
+              console.log('Fetching for real!');
               // Helper function for creating new journey array
               const newStepsArr = journeyArrayHelper(res);
               const asyncObject = Object.assign({

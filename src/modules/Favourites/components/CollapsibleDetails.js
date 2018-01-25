@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { moderateScale } from '../../global/helpers/scalingHelper';
 
 export default class CollapsibleDetails extends PureComponent {
   constructor(props) {
@@ -36,7 +37,7 @@ export default class CollapsibleDetails extends PureComponent {
               <Icon
                 name="ios-subway-outline"
                 style={styles.icon}
-                size={22}
+                size={moderateScale(20, 0.2)}
                 color="#0071cd"
               />
               <Text
@@ -51,7 +52,7 @@ export default class CollapsibleDetails extends PureComponent {
               <Icon
                 name="ios-bus-outline"
                 style={styles.icon}
-                size={22}
+                size={moderateScale(20, 0.2)}
                 color="#fc9a1f"
               />
               <Text
@@ -67,7 +68,7 @@ export default class CollapsibleDetails extends PureComponent {
               <Icon
                 name="ios-train-outline"
                 style={styles.icon}
-                size={22}
+                size={moderateScale(20, 0.2)}
                 color="#73bd48"
               />
               <Text
@@ -83,7 +84,7 @@ export default class CollapsibleDetails extends PureComponent {
             <Icon
               name="ios-walk-outline"
               style={styles.icon}
-              size={22}
+              size={moderateScale(20, 0.2)}
               color="#3e4450"
             />
             <Text style={styles.contentText} key={index}>{`${
@@ -107,7 +108,7 @@ export default class CollapsibleDetails extends PureComponent {
             <View style={styles.separatorContainer}>
               <View style={styles.separator} />
             </View>
-            <View style={styles.detailsCtonainer}>
+            <View style={styles.detailsContainer}>
               {this.renderListContent(this.props.content)}
             </View>
             <TouchableOpacity
@@ -115,7 +116,7 @@ export default class CollapsibleDetails extends PureComponent {
               style={styles.nextThreeContainer}
               onPress={() => this.props.showModal()}
             >
-              <Icon name="ios-eye-outline" size={22} color="#fff" />
+              <Icon name="ios-eye-outline" size={moderateScale(20, 0.2)} color="#fff" />
               <Text style={styles.nextThreeText}>View Later Journeys</Text>
             </TouchableOpacity>
           </View>
@@ -134,35 +135,36 @@ const styles = StyleSheet.create({
     height: 0,
     opacity: 0.85
   },
-  detailsCtonainer: {
-    marginLeft: 15,
-    marginRight: 15,
-    paddingBottom: 15,
+  detailsContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    paddingTop: 5,
     backgroundColor: "#fff"
   },
   contentText: {
     backgroundColor: "#fff",
     color: "#3e4450",
-    paddingLeft: 15,
+    paddingLeft: 10,
     width: "95%",
-    fontSize: 12
+    fontSize: moderateScale(10, 0.5)
   },
   detailItem: {
-    paddingTop: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingTop: 0,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff"
   },
   nextThreeContainer: {
     backgroundColor: "#3e4450",
-    marginLeft: 15,
-    marginRight: 15,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 15,
-    paddingRight: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    paddingTop: Platform.OS === "ios" ? moderateScale(2, 1) : 5,
+    paddingBottom: Platform.OS === "ios" ? moderateScale(2, 1) : 5,
+    paddingLeft: 10,
+    paddingRight: 10,
     borderBottomLeftRadius: Platform.OS === "ios" ? 4 : 2,
     borderBottomRightRadius: Platform.OS === "ios" ? 4 : 2,
     flexDirection: "row",
@@ -170,19 +172,19 @@ const styles = StyleSheet.create({
   },
   nextThreeText: {
     textAlign: "center",
-    marginLeft: 15,
+    marginLeft: 10,
     color: "#fff",
-    fontSize: 12,
+    fontSize: moderateScale(10, 0.5),
     fontWeight: "100"
   },
   separatorContainer: {
     backgroundColor: "#fff",
-    marginLeft: 15,
-    marginRight: 15
+    marginLeft: 10,
+    marginRight: 10
   },
   separator: {
-    backgroundColor: "#CED0CE",
-    height: StyleSheet.hairlineWidth,
+    backgroundColor: "#ebebeb",
+    height: 0.5,
     marginBottom: 5
   },
   icon: {
