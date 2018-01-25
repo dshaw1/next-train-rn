@@ -17,12 +17,11 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
-- Automatically fetch new times, if required, when opening app from sleep
-
-- Improve font/image scaling for small/big devices
 - Customise UI for Android vs iOS
-- Simplify and clean up components/large functions (e.g. Favourites) - probably create more "dumb" smaller component pieces and pass props
+
+- Add iPhone X launchimages and screen scaling?
+- Break down larger components into smaller pieces if possible
+- Simplify large (tagged) functions into smaller, more readable code
 - Add Sentry for error reporting
-- Add codepush
 - Add to Google Play store
 - Fix Android "white screen" after splash screen
