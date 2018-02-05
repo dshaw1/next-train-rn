@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
-import { moderateScale } from '../../global/helpers/scalingHelper';
+import { moderateScale } from "../../global/helpers/scalingHelper";
 
 export default class CollapsibleTitle extends PureComponent {
   constructor(props) {
@@ -56,17 +56,41 @@ export default class CollapsibleTitle extends PureComponent {
 
   renderDownIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-down" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
+      return (
+        <Icon
+          name="ios-arrow-down"
+          size={moderateScale(16, 0.5)}
+          color="#6b6b6b"
+        />
+      );
     } else {
-      return <Icon name="md-arrow-dropdown" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
+      return (
+        <Icon
+          name="md-arrow-dropdown"
+          size={moderateScale(16, 0.5)}
+          color="#6b6b6b"
+        />
+      );
     }
   };
 
   renderUpIcon = () => {
     if (Platform.OS === "ios") {
-      return <Icon name="ios-arrow-up" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
+      return (
+        <Icon
+          name="ios-arrow-up"
+          size={moderateScale(16, 0.5)}
+          color="#6b6b6b"
+        />
+      );
     } else {
-      return <Icon name="md-arrow-dropup" size={moderateScale(16, 0.5)} color="#6b6b6b" />;
+      return (
+        <Icon
+          name="md-arrow-dropup"
+          size={moderateScale(16, 0.5)}
+          color="#6b6b6b"
+        />
+      );
     }
   };
 
@@ -151,26 +175,16 @@ export default class CollapsibleTitle extends PureComponent {
         <TouchableOpacity
           activeOpacity={1}
           style={
-            !this.props.collapse ? (
-              styles.selectedItemContainer
-            ) : (
-              styles.itemContainer
-            )
+            !this.props.collapse
+              ? styles.selectedItemContainer
+              : styles.itemContainer
           }
           onPress={index => {
             this.props.toggleDetails(index);
           }}
         >
-          <View style={styles.headerContainer}>
-            <View style={styles.headerRow}>
-              <View style={styles.iconsContainer}>
-                {this.checkTravelMode(item)}
-              </View>
-              <View style={styles.timeContainer}>
-                <Text style={styles.timeTitleText}>DEPART</Text>
-                <Text style={styles.timeText}>{item.departTime.text}</Text>
-              </View>
-            </View>
+        <View>
+          <View style={styles.contentContainer}>
             <View style={styles.headerRow}>
               <View>
                 <Text style={styles.titleText}>{item.departStop}</Text>
@@ -180,25 +194,37 @@ export default class CollapsibleTitle extends PureComponent {
                 </View>
               </View>
               <View style={styles.timeContainer}>
+                <Text style={styles.timeTitleText}>DEPART</Text>
+                <Text style={styles.timeText}>{item.departTime.text}</Text>
+              </View>
+            </View>
+            <View style={styles.headerRow}>
+              <View style={styles.iconsContainer}>
+                {this.checkTravelMode(item)}
+              </View>
+              <View style={styles.timeContainer}>
                 <Text style={styles.timeTitleText}>ARRIVE</Text>
                 <Text style={styles.timeText}>{item.arrivTime.text}</Text>
               </View>
             </View>
             <View style={styles.iconsContainer}>
               <View style={[styles.flexRow, styles.countdownContainer]}>
-                <Icon name="ios-time-outline" size={moderateScale(16, 0.5)} color="#3e4450" />
+                <Icon
+                  name="ios-time-outline"
+                  size={moderateScale(16, 0.5)}
+                  color="#3e4450"
+                />
                 {this.timerCountdown()}
               </View>
               <View style={styles.flexRow}>
                 <View style={styles.iconsContainer}>
-                  {!this.props.collapse ? (
-                    this.renderUpIcon()
-                  ) : (
-                    this.renderDownIcon()
-                  )}
+                  {!this.props.collapse
+                    ? this.renderUpIcon()
+                    : this.renderDownIcon()}
                 </View>
               </View>
             </View>
+          </View>
           </View>
         </TouchableOpacity>
       </View>
@@ -207,6 +233,11 @@ export default class CollapsibleTitle extends PureComponent {
 }
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    padding: 10,
+    paddingBottom: 15,
+    flex: 4
+  },
   itemContainer: {
     marginLeft: 10,
     marginRight: 10,
@@ -224,11 +255,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     backgroundColor: "#ffffff"
   },
-  headerContainer: {
-    padding: 10,
-    paddingBottom: 15,
-    flex: 1
-  },
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -237,7 +263,7 @@ const styles = StyleSheet.create({
   titleText: {
     color: "#3e4450",
     fontWeight: "500",
-    fontSize: moderateScale(11.5, 0.5)
+    fontSize: moderateScale(13.5, 0.5)
   },
   smallText: {
     color: "#3e4450",

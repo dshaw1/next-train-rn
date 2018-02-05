@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 10,
-    borderRadius: 4,
+    borderRadius: Platform.OS === "ios" ? 4 : 2,
     padding: 20,
     backgroundColor: "#ffffff",
     marginTop: 80
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 10,
-    borderRadius: 4,
+    borderRadius: Platform.OS === "ios" ? 4 : 2,
     backgroundColor: "#0dd3bb",
     padding: 10,
     marginTop: 40

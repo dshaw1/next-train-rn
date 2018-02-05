@@ -20,7 +20,7 @@ export default class RenderRowComponent extends Component {
             style={{ flex: 0 }}
             name="ios-remove-circle"
             size={moderateScale(20, 0.25)}
-            color="red"
+            color="#bd081d"
           />
         </View>
       );
@@ -31,7 +31,7 @@ export default class RenderRowComponent extends Component {
             style={{ flex: 0 }}
             name="md-remove-circle"
             size={moderateScale(24, 0.25)}
-            color="red"
+            color="#bd081d"
           />
         </View>
       );
@@ -112,8 +112,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10,
-
-    borderRadius: 4,
+    borderRadius: Platform.OS === "ios" ? 4 : 2,
     flexDirection: "row",
     alignItems: "center"
   },

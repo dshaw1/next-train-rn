@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 const NoJourneys = (props) => {
   return (
     <View style={styles.resultsContainer}>
-      <Icon style={styles.icon} name="ios-subway-outline" size={120} color="#0dd3bb" />
+      <Icon style={styles.icon} name="ios-subway-outline" size={120} color="#0ca794" />
       <Text style={styles.text}>Add your first journey,</Text>
       <Text style={styles.text}>you can save up to six favourites.</Text>
     </View>

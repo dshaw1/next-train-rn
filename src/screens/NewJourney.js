@@ -5,7 +5,6 @@ import {
   ActivityIndicator,
   FlatList,
   StyleSheet,
-  TextInput,
   Modal,
   TouchableOpacity,
   AsyncStorage,
@@ -51,7 +50,7 @@ class NewJourney extends Component {
   }
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#0dd3bb",
+    navBarBackgroundColor: "#0ca794",
     statusBarTextColorScheme: "light"
   };
 
@@ -246,7 +245,7 @@ class NewJourney extends Component {
       this.state.filterText.length >= 1 ? this.renderListContainer() : null;
     const statusBarToggle = this.state.modalVisible
       ? this.props.navigator.setStyle({ statusBarColor: "#3e4450" })
-      : this.props.navigator.setStyle({ statusBarColor: "#0ca794" });
+      : this.props.navigator.setStyle({ statusBarColor: "#0a8c7c" });
 
     if (this.state.isLoading) {
       return (

@@ -50,7 +50,7 @@ const NextThreeModal = props => {
             <View>
               <View style={styles.closeModal}>
                 <TouchableOpacity onPress={props.hideModal}>
-                  <Icon name="md-close" size={moderateScale(26, 1.23)} color="#0dd3bb" />
+                  <Icon name="md-close" size={moderateScale(26, 1.23)} color="#0ca794" />
                 </TouchableOpacity>
               </View>
                 <Text style={styles.titleText}>{props.departStop}</Text>

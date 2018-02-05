@@ -30,11 +30,11 @@ import NoJourneysToEdit from "../modules/Favourites/components/NoJourneysToEdit"
 import {
   iOSButtons,
   iOSEditButtons
-} from "../modules/global/components/iOSNavigationButtons";
+} from "../modules/global/components/IOSNavigationButtons";
 import {
   androidButtons,
   androidEditButtons
-} from "../modules/global/components/androidNavigationButtons";
+} from "../modules/global/components/AndroidNavigationButtons";
 
 class Favourites extends Component {
   constructor(props) {
@@ -47,6 +47,8 @@ class Favourites extends Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
 
     if (Platform.OS === "android") {
+      this.props.navigator.setStyle({ statusBarColor: "#0a8c7c" });
+      
       UIManager.setLayoutAnimationEnabledExperimental &&
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
@@ -55,7 +57,7 @@ class Favourites extends Component {
   static navigatorButtons = Platform.OS === "ios" ? iOSButtons : androidButtons;
 
   static navigatorStyle = {
-    navBarBackgroundColor: "#0dd3bb",
+    navBarBackgroundColor: "#0ca794",
     statusBarTextColorScheme: "light"
   };
 
@@ -154,7 +156,7 @@ class Favourites extends Component {
   fetchNewJourneyIfNeeded = () => {
     if (!this.props.journeys.editing) {
       const tempArray = this.state.favourites;
-
+      
       this.state.favourites.map(item => {
         const departTime = item.departTime.value * 1000;
         if (departTime < Date.now()) {
@@ -169,7 +171,6 @@ class Favourites extends Component {
           this.props
             .fetchNewJourney(fetchObj, "now")
             .then(res => {
-              console.log('Fetching for real!');
               // Helper function for creating new journey array
               const newStepsArr = journeyArrayHelper(res);
               const asyncObject = Object.assign({
@@ -336,7 +337,7 @@ class Favourites extends Component {
 const styles = StyleSheet.create({
   favouritesContainer: {
     flex: 1,
-    backgroundColor: "#ebebeb"
+    backgroundColor: "#d8d9dd"
   },
   activityIndicator: {
     marginTop: 20

@@ -9,7 +9,7 @@ import {
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { moderateScale } from '../../global/helpers/scalingHelper';
+import { moderateScale } from "../../global/helpers/scalingHelper";
 
 export default class CollapsibleDetails extends PureComponent {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class CollapsibleDetails extends PureComponent {
   }
 
   //
-  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //////////////////////// CLEAN UP THIS ////////////////////////
   //
   // Render each journey leg as bus or train method of transport
   renderListContent = item => {
@@ -116,7 +116,11 @@ export default class CollapsibleDetails extends PureComponent {
               style={styles.nextThreeContainer}
               onPress={() => this.props.showModal()}
             >
-              <Icon name="ios-eye-outline" size={moderateScale(20, 0.2)} color="#fff" />
+              <Icon
+                name="ios-eye-outline"
+                size={moderateScale(20, 0.2)}
+                color="#fff"
+              />
               <Text style={styles.nextThreeText}>View Later Journeys</Text>
             </TouchableOpacity>
           </View>

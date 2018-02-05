@@ -7,8 +7,7 @@ import {
   Text,
   LayoutAnimation,
   Platform,
-  UIManager,
-  NetInfo
+  UIManager
 } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -114,11 +113,12 @@ class CollapsibleList extends Component {
   render() {
     const { items, headerRender, networkError } = this.props;
     return (
-      <View onLayout={this.calculateHeight} style={styles.container}>
+      <View style={styles.container}>
         {networkError === true ? (
           <ShowErrorMessage
-            checkConnection={() =>
-              checkNetworkConnection(this.props.networkConnectionError)
+            checkConnection={() => {
+                checkNetworkConnection(this.props.networkConnectionError)
+              }
             }
           />
         ) : null}
