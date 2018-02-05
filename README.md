@@ -17,11 +17,12 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
-- Customise UI for Android vs iOS
-
 - Add iPhone X launchimages and screen scaling?
+- Re-do launch screens and icons
+
 - Break down larger components into smaller pieces if possible
 - Simplify large (tagged) functions into smaller, more readable code
 - Add Sentry for error reporting
 - Add to Google Play store
-- Fix Android "white screen" after splash screen
+- Android collapsible list bug - Icons getting "squished" on list collapse?
+- Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
