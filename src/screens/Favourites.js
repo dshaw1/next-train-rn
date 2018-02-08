@@ -48,7 +48,6 @@ class Favourites extends Component {
 
     if (Platform.OS === "android") {
       this.props.navigator.setStyle({ statusBarColor: "#0a8c7c" });
-      
       UIManager.setLayoutAnimationEnabledExperimental &&
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
