@@ -89,7 +89,7 @@ class CollapsibleList extends Component {
     };
 
     const androidAnimations = {
-      duration: 200,
+      duration: 190,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
         property: LayoutAnimation.Properties.opacity
@@ -117,9 +117,8 @@ class CollapsibleList extends Component {
         {networkError === true ? (
           <ShowErrorMessage
             checkConnection={() => {
-                checkNetworkConnection(this.props.networkConnectionError)
-              }
-            }
+              checkNetworkConnection(this.props.networkConnectionError);
+            }}
           />
         ) : null}
         {items.map((item, index) => {
