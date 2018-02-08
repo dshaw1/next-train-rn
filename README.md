@@ -17,12 +17,11 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
-- Add iPhone X launchimages and screen scaling?
+- iPhone X splash screen not 100% working
+- Adjust styling specifically for iPhone X
 - Re-do launch screens and icons
-
 - Break down larger components into smaller pieces if possible
 - Simplify large (tagged) functions into smaller, more readable code
 - Add Sentry for error reporting
 - Add to Google Play store
-- Android collapsible list bug - Icons getting "squished" on list collapse?
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
