@@ -12,9 +12,17 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { moderateScale } from "../../global/helpers/scalingHelper";
 
 export default class CollapsibleDetails extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
+
+  renderListIcon = (name, colour) => {
+    return (
+      <Icon
+        name={name}
+        style={styles.icon}
+        size={moderateScale(20, 0.2)}
+        color={colour}
+      />
+    );
+  };
 
   //
   //////////////////////// CLEAN UP THIS ////////////////////////
@@ -34,12 +42,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "HEAVY_RAIL") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon
-                name="ios-subway-outline"
-                style={styles.icon}
-                size={moderateScale(20, 0.2)}
-                color="#0071cd"
-              />
+              {this.renderListIcon("ios-subway-outline", "#0071cd")}
               <Text
                 style={styles.contentText}
               >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
@@ -49,12 +52,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "BUS") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon
-                name="ios-bus-outline"
-                style={styles.icon}
-                size={moderateScale(20, 0.2)}
-                color="#fc9a1f"
-              />
+              {this.renderListIcon("ios-bus-outline", "#fc9a1f")}
               <Text
                 style={styles.contentText}
                 key={index}
@@ -65,12 +63,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "TRAM") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              <Icon
-                name="ios-train-outline"
-                style={styles.icon}
-                size={moderateScale(20, 0.2)}
-                color="#73bd48"
-              />
+              {this.renderListIcon("ios-train-outline", "#73bd48")}
               <Text
                 style={styles.contentText}
                 key={index}
@@ -81,12 +74,7 @@ export default class CollapsibleDetails extends PureComponent {
       } else if (stop.travel_mode === "WALKING" && stop.distance.value >= 500) {
         journeyArr.push(
           <View key={index} style={styles.detailItem}>
-            <Icon
-              name="ios-walk-outline"
-              style={styles.icon}
-              size={moderateScale(20, 0.2)}
-              color="#3e4450"
-            />
+            {this.renderListIcon("ios-walk-outline", "#3e4450")}
             <Text style={styles.contentText} key={index}>{`${
               stop.html_instructions
             } - ${stop.distance.text}`}</Text>
@@ -133,16 +121,18 @@ export default class CollapsibleDetails extends PureComponent {
 const styles = StyleSheet.create({
   show: {
     height: "100%",
-    opacity: 1
+    opacity: 1,
+    flex: 1
   },
   hide: {
     height: 0,
-    opacity: 0.85
+    opacity: 0.98,
+    flex: 1
   },
   detailsContainer: {
     marginLeft: 10,
     marginRight: 10,
-    paddingTop: 5,
+
     backgroundColor: "#fff"
   },
   contentText: {
@@ -184,12 +174,12 @@ const styles = StyleSheet.create({
   separatorContainer: {
     backgroundColor: "#fff",
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
+    paddingBottom: 5
   },
   separator: {
     backgroundColor: "#ebebeb",
-    height: 0.5,
-    marginBottom: 5
+    height: 0.5
   },
   icon: {
     width: 15
