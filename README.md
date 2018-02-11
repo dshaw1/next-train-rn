@@ -18,10 +18,11 @@ My first React Native project, a simple train app for Melbournians that allows y
 
 TODO
 - iPhone X splash screen not 100% working
-- Adjust styling specifically for iPhone X
-- Re-do launch screens and icons
+
+- Re-do launch screens and icon sizes
 - Break down larger components into smaller pieces if possible
 - Simplify large (tagged) functions into smaller, more readable code
+- Fix android SplashScreens
 - Add Sentry for error reporting
 - Add to Google Play store
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
