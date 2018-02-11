@@ -93,12 +93,12 @@ class Favourites extends Component {
     AppState.addEventListener('change', (state) => {
       if (state === 'active') {
        this.fetchAsyncStorageData();
-      } 
+      }
    })
   }
 
   //
-  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //////////////////////// CLEAN UP THIS ////////////////////////
   //
   onNavigatorEvent(event) {
     const CustomAnimation = {
@@ -150,12 +150,12 @@ class Favourites extends Component {
   }
 
   //
-  //////////////////////// CLEAN UP THIS //////////////////////// 
+  //////////////////////// CLEAN UP THIS ////////////////////////
   //
   fetchNewJourneyIfNeeded = () => {
     if (!this.props.journeys.editing) {
       const tempArray = this.state.favourites;
-      
+
       this.state.favourites.map(item => {
         const departTime = item.departTime.value * 1000;
         if (departTime < Date.now()) {
