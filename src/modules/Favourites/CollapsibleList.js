@@ -14,6 +14,7 @@ import { connect } from "react-redux";
 
 import { fetchNewJourney } from "../../actions/journeys";
 import { networkConnectionError } from "../../actions/network";
+import { ifIphoneX } from "../global/helpers/iPhoneXHelper";
 
 import CollapsibleDetails from "./components/CollapsibleDetails";
 import CollapsibleTitle from "./components/CollapsibleTitle";
@@ -174,7 +175,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingBottom: 10
+    ...ifIphoneX({
+      paddingBottom: 40
+    }, {
+        paddingBottom: 10
+    })
   },
   headerBorder: {
     borderBottomWidth: 1

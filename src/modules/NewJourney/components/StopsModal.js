@@ -9,6 +9,7 @@ import {
   Platform,
   TextInput
 } from "react-native";
+import { ifIphoneX } from "../../global/helpers/iPhoneXHelper";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import NoSearchResults from "./NoSearchResults";
@@ -111,7 +112,11 @@ const styles = StyleSheet.create({
   },
   closeModalText: {
     color: "#fff",
-    paddingTop: 10,
+    ...ifIphoneX({
+      paddingTop: 36
+    }, {
+        paddingTop: 10
+    }),
     paddingBottom: 10,
     fontSize: 14
   },

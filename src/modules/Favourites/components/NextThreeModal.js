@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { moderateScale } from '../../global/helpers/scalingHelper';
+import { ifIphoneX } from "../../global/helpers/iPhoneXHelper";
 
 const NextThreeModal = props => {
   renderModalContent = data => {
@@ -22,7 +23,7 @@ const NextThreeModal = props => {
               {item.departure_time.text}
             </Text>
             <Icon name="ios-arrow-round-forward" size={24} color="#fff" style={styles.iconStyle} />
-            <Text style={styles.itemText}>           
+            <Text style={styles.itemText}>
               {item.arrival_time.text}
             </Text>
           </View>
@@ -84,7 +85,12 @@ const styles = StyleSheet.create({
   innerContainer: {
     backgroundColor: "#3e4450",
     width: "80%",
-    height: "35%",
+    height: "30%",
+    ...ifIphoneX({
+      height: "30%"
+    }, {
+      height: "35%"
+    }),
     paddingTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
@@ -101,7 +107,11 @@ const styles = StyleSheet.create({
     height: 50
   },
   timesContainer: {
-    marginTop: 10
+    ...ifIphoneX({
+      marginTop: 15
+    }, {
+      marginTop: 10
+    }),
   },
   textContainer: {
     flexDirection: "row",
