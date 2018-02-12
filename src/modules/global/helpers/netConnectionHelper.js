@@ -5,9 +5,9 @@ export default (checkNetworkConnection  = dispatchFunction => {
   handleFirstConnectivityChange = (isConnected) => {
     dispatchFunction(!isConnected);
     NetInfo.isConnected.removeEventListener(
-      "change",
+      "connectionChange",
       handleFirstConnectivityChange
     );
   }
-  NetInfo.isConnected.addEventListener("change", handleFirstConnectivityChange);
+  NetInfo.isConnected.addEventListener("connectionChange", handleFirstConnectivityChange);
 });
