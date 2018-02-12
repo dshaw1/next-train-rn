@@ -102,13 +102,13 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage~iphone_640x960.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "LaunchImage-568h@2x~iphone_640x1136-2.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
@@ -140,18 +140,6 @@
       "filename" : "LaunchImage-Landscape@2x~ipad_2048x1496.png",
       "extent" : "to-status-bar",
       "scale" : "2x"
-    },
-    {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "filename" : "LaunchImage~ipad.png",
-      "extent" : "to-status-bar",
-      "unassigned" : true,
-      "scale" : "2x"
-    },
-    {
-      "filename" : "LaunchImage-750@2x~iphone6-landscape_1334x750.png",
-      "unassigned" : true
     }
   ],
   "info" : {
