@@ -17,11 +17,11 @@ My first React Native project, a simple train app for Melbournians that allows y
 </p>
 
 TODO
-- iPhone X splash screen not 100% working
-
-- Re-do launch screens and icon sizes
 - Break down larger components into smaller pieces if possible
 - Simplify large (tagged) functions into smaller, more readable code
+
+- iPhone X splash screen not 100% working
+- Re-do launch screens and icon sizes
 - Fix android SplashScreens
 - Add Sentry for error reporting
 - Add to Google Play store
