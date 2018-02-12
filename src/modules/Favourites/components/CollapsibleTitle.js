@@ -21,77 +21,55 @@ export default class CollapsibleTitle extends PureComponent {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.countdownInterval(), 1000);
+    this.interval = setInterval(() => this.setCountdownInterval(), 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
-  countdownInterval() {
+  setCountdownInterval() {
     // Set the date we're counting down to
     const countDownDate = new Date(
       this.props.item.departTime.value * 1000
     ).getTime();
-
-    // Get todays date and time
     const now = new Date().getTime();
-
     // Find the distance between now an the count down date
     const distance = countDownDate - now;
+    return this.calculateTimes(distance);
+  }
 
-    // Time calculations for days, hours and minutes
+  calculateTimes = distance => {
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
     this.setState(prevState => ({
       days: days,
       hours: hours,
       minutes: minutes
     }));
-  }
+  };
 
   renderDownIcon = () => {
     if (Platform.OS === "ios") {
-      return (
-        <Icon
-          name="ios-arrow-down"
-          size={moderateScale(16, 0.5)}
-          color="#6b6b6b"
-        />
-      );
+      return this.renderArrowIcon("ios-arrow-down");
     } else {
-      return (
-        <Icon
-          name="md-arrow-dropdown"
-          size={moderateScale(16, 0.5)}
-          color="#6b6b6b"
-        />
-      );
+      return this.renderArrowIcon("md-arrow-dropdown");
     }
   };
 
   renderUpIcon = () => {
     if (Platform.OS === "ios") {
-      return (
-        <Icon
-          name="ios-arrow-up"
-          size={moderateScale(16, 0.5)}
-          color="#6b6b6b"
-        />
-      );
+      return this.renderArrowIcon("ios-arrow-up");
     } else {
-      return (
-        <Icon
-          name="md-arrow-dropup"
-          size={moderateScale(16, 0.5)}
-          color="#6b6b6b"
-        />
-      );
+      return this.renderArrowIcon("md-arrow-dropup");
     }
+  };
+
+  renderArrowIcon = name => {
+    return <Icon name={name} size={moderateScale(16, 0.5)} color="#6b6b6b" />;
   };
 
   // Render travel icons based on travel_mode
@@ -101,56 +79,36 @@ export default class CollapsibleTitle extends PureComponent {
         step.travel_mode === "TRANSIT" &&
         step.transit_details.line.vehicle.type === "HEAVY_RAIL"
       ) {
-        return (
-          <Icon
-            key={index}
-            name="ios-subway-outline"
-            size={moderateScale(24, 0.5)}
-            color="#0071cd"
-            style={styles.iconStyle}
-          />
-        );
+        return this.renderTravelIcon(index, "ios-subway-outline", "#0071cd");
       }
       if (
         step.travel_mode === "TRANSIT" &&
         step.transit_details.line.vehicle.type === "BUS"
       ) {
-        return (
-          <Icon
-            key={index}
-            name="ios-bus-outline"
-            size={moderateScale(24, 0.5)}
-            color="#fc9a1f"
-            style={styles.iconStyle}
-          />
-        );
+        return this.renderTravelIcon(index, "ios-bus-outline", "#fc9a1f");
       }
       if (step.travel_mode === "WALKING" && step.distance.value >= 500) {
-        return (
-          <Icon
-            key={index}
-            name="ios-walk-outline"
-            size={moderateScale(24, 0.5)}
-            color="#3e4450"
-            style={styles.iconStyle}
-          />
-        );
+        return this.renderTravelIcon(index, "ios-walk-outline", "#3e4450");
       }
       if (
         step.travel_mode === "TRANSIT" &&
         step.transit_details.line.vehicle.type === "TRAM"
       ) {
-        return (
-          <Icon
-            key={index}
-            name="ios-train-outline"
-            size={moderateScale(24, 0.5)}
-            color="#73bd48"
-            style={styles.iconStyle}
-          />
-        );
+        return this.renderTravelIcon(index, "ios-train-outline", "#73bd48");
       }
     });
+  };
+
+  renderTravelIcon = (index, name, colour) => {
+    return (
+      <Icon
+        key={index}
+        name={name}
+        size={moderateScale(24, 0.5)}
+        color={colour}
+        style={styles.iconStyle}
+      />
+    );
   };
 
   timerCountdown = () => {
@@ -183,48 +141,48 @@ export default class CollapsibleTitle extends PureComponent {
             this.props.toggleDetails(index);
           }}
         >
-        <View>
-          <View style={styles.contentContainer}>
-            <View style={styles.headerRow}>
-              <View>
-                <Text style={styles.titleText}>{item.departStop}</Text>
-                <View style={styles.titleRow}>
-                  <Text style={styles.smallText}>to </Text>
-                  <Text style={styles.titleText}>{item.arrivStop}</Text>
+          <View>
+            <View style={styles.contentContainer}>
+              <View style={styles.headerRow}>
+                <View>
+                  <Text style={styles.titleText}>{item.departStop}</Text>
+                  <View style={styles.titleRow}>
+                    <Text style={styles.smallText}>to </Text>
+                    <Text style={styles.titleText}>{item.arrivStop}</Text>
+                  </View>
+                </View>
+                <View style={styles.timeContainer}>
+                  <Text style={styles.timeTitleText}>DEPART</Text>
+                  <Text style={styles.timeText}>{item.departTime.text}</Text>
                 </View>
               </View>
-              <View style={styles.timeContainer}>
-                <Text style={styles.timeTitleText}>DEPART</Text>
-                <Text style={styles.timeText}>{item.departTime.text}</Text>
-              </View>
-            </View>
-            <View style={styles.headerRow}>
-              <View style={styles.iconsContainer}>
-                {this.checkTravelMode(item)}
-              </View>
-              <View style={styles.timeContainer}>
-                <Text style={styles.timeTitleText}>ARRIVE</Text>
-                <Text style={styles.timeText}>{item.arrivTime.text}</Text>
-              </View>
-            </View>
-            <View style={styles.iconsContainer}>
-              <View style={[styles.flexRow, styles.countdownContainer]}>
-                <Icon
-                  name="ios-time-outline"
-                  size={moderateScale(16, 0.5)}
-                  color="#3e4450"
-                />
-                {this.timerCountdown()}
-              </View>
-              <View style={styles.flexRow}>
+              <View style={styles.headerRow}>
                 <View style={styles.iconsContainer}>
-                  {!this.props.collapse
-                    ? this.renderUpIcon()
-                    : this.renderDownIcon()}
+                  {this.checkTravelMode(item)}
+                </View>
+                <View style={styles.timeContainer}>
+                  <Text style={styles.timeTitleText}>ARRIVE</Text>
+                  <Text style={styles.timeText}>{item.arrivTime.text}</Text>
+                </View>
+              </View>
+              <View style={styles.iconsContainer}>
+                <View style={[styles.flexRow, styles.countdownContainer]}>
+                  <Icon
+                    name="ios-time-outline"
+                    size={moderateScale(16, 0.5)}
+                    color="#3e4450"
+                  />
+                  {this.timerCountdown()}
+                </View>
+                <View style={styles.flexRow}>
+                  <View style={styles.iconsContainer}>
+                    {!this.props.collapse
+                      ? this.renderUpIcon()
+                      : this.renderDownIcon()}
+                  </View>
                 </View>
               </View>
             </View>
-          </View>
           </View>
         </TouchableOpacity>
       </View>

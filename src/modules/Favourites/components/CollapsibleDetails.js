@@ -12,7 +12,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { moderateScale } from "../../global/helpers/scalingHelper";
 
 export default class CollapsibleDetails extends PureComponent {
-
   renderListIcon = (name, colour) => {
     return (
       <Icon
@@ -24,9 +23,6 @@ export default class CollapsibleDetails extends PureComponent {
     );
   };
 
-  //
-  //////////////////////// CLEAN UP THIS ////////////////////////
-  //
   // Render each journey leg as bus or train method of transport
   renderListContent = item => {
     const journeyArr = [];

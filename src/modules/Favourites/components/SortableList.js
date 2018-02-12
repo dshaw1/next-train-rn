@@ -9,59 +9,47 @@ import {
   Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { moderateScale } from '../../global/helpers/scalingHelper';
+import { moderateScale } from "../../global/helpers/scalingHelper";
 
 export default class RenderRowComponent extends Component {
   renderRemoveIcon = () => {
     if (Platform.OS === "ios") {
-      return (
-        <View>
-          <Icon
-            style={{ flex: 0 }}
-            name="ios-remove-circle"
-            size={moderateScale(20, 0.25)}
-            color="#bd081d"
-          />
-        </View>
+      return this.renderGenericIcon(
+        "ios-remove-circle",
+        moderateScale(20, 0.25),
+        "#bd081d"
       );
     } else {
-      return (
-        <View>
-          <Icon
-            style={{ flex: 0 }}
-            name="md-remove-circle"
-            size={moderateScale(24, 0.25)}
-            color="#bd081d"
-          />
-        </View>
+      return this.renderGenericIcon(
+        "md-remove-circle",
+        moderateScale(24, 0.25),
+        "#bd081d"
       );
     }
   };
 
   renderReorderIcon = () => {
     if (Platform.OS === "ios") {
-      return (
-        <View>
-          <Icon
-            style={{ flex: 0 }}
-            name="ios-reorder-outline"
-            size={moderateScale(30, 0.25)}
-            color="#3e4450"
-          />
-        </View>
+      return this.renderGenericIcon(
+        "ios-reorder-outline",
+        moderateScale(30, 0.25),
+        "#3e4450"
       );
     } else {
-      return (
-        <View>
-          <Icon
-            style={{ flex: 0 }}
-            name="md-reorder"
-            size={moderateScale(30, 0.25)}
-            color="#3e4450"
-          />
-        </View>
+      return this.renderGenericIcon(
+        "md-reorder",
+        moderateScale(30, 0.25),
+        "#3e4450"
       );
     }
+  };
+
+  renderGenericIcon = (name, size, colour) => {
+    return (
+      <View>
+        <Icon style={styles.icon} name={name} size={size} color={colour} />
+      </View>
+    );
   };
 
   render() {
@@ -147,6 +135,9 @@ const styles = StyleSheet.create({
     width: 70,
     justifyContent: "flex-end",
     flexDirection: "row"
+  },
+  icon: {
+    flex: 0
   }
 });
 
