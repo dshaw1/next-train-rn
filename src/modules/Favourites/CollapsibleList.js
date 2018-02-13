@@ -39,12 +39,14 @@ class CollapsibleList extends Component {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
+
   setModalVisible(visible, arriv, arrivStop, depart, departStop, time) {
     const data = { arriv, depart, arrivStop, departStop };
     const newTime = time + 60;
     const fetchJourneys = this.props.fetchNewJourney;
     this.setState({ isLoading: true, modalVisible: visible });
-    if (this.state.modalVisible === false) {
+
+    if (!this.state.modalVisible) {
       const nextThree = nextThreeDepartures(fetchJourneys, data, newTime)
         .then(nextDepartures => {
           return this.setState({
@@ -74,7 +76,33 @@ class CollapsibleList extends Component {
   };
 
   toggleDetails = index => {
-    const iOSAnimations = {
+    Platform.OS === "android"
+      ? LayoutAnimation.configureNext(this.androidAnimationSettings())
+      : LayoutAnimation.configureNext(this.iOSAnimationSettings());
+
+    let oldItem = this.state.activeItem;
+    if (oldItem === index) {
+      this.setState({ activeItem: undefined });
+    } else {
+      this.setState({ activeItem: index });
+    }
+  };
+
+  androidAnimationSettings = () => {
+    return androidAnimations = {
+      duration: 190,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut
+      }
+    };
+  }
+
+  iOSAnimationSettings = () => {
+    return iOSAnimations = {
       duration: 220,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
@@ -88,28 +116,7 @@ class CollapsibleList extends Component {
         property: LayoutAnimation.Properties.opacity
       }
     };
-
-    const androidAnimations = {
-      duration: 190,
-      create: {
-        type: LayoutAnimation.Types.easeInEaseOut,
-        property: LayoutAnimation.Properties.opacity
-      },
-      update: {
-        type: LayoutAnimation.Types.easeInEaseOut
-      }
-    };
-    Platform.OS === "android"
-      ? LayoutAnimation.configureNext(androidAnimations)
-      : LayoutAnimation.configureNext(iOSAnimations);
-
-    let oldItem = this.state.activeItem;
-    if (oldItem === index) {
-      this.setState({ activeItem: undefined });
-    } else {
-      this.setState({ activeItem: index });
-    }
-  };
+  }
 
   render() {
     const { items, headerRender, networkError } = this.props;

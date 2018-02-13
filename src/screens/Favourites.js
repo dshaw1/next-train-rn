@@ -85,16 +85,16 @@ class Favourites extends Component {
     // Create promise to ensure interval is set after initial async/remote fetch
     const handleInitialLoad = new Promise((resolve, reject) => {
       resolve(this.fetchAsyncStorageData());
-    })
+    });
     handleInitialLoad.then(() => {
       this.intervalId = setInterval(this.fetchNewJourneyIfNeeded, 30000);
-    })
+    });
     // Watch app state and fetch, if needed, remote data each time app is re-opened
-    AppState.addEventListener('change', (state) => {
-      if (state === 'active') {
-       this.fetchAsyncStorageData();
+    AppState.addEventListener("change", state => {
+      if (state === "active") {
+        this.fetchAsyncStorageData();
       }
-   })
+    });
   }
 
   //
@@ -227,12 +227,11 @@ class Favourites extends Component {
         return item;
       }
     });
-    AsyncStorage.setItem(
-      "@NextTrain:MyKey",
-      JSON.stringify(favArr)
-    ).then(() => {
-      this.setState({ favourites: favArr });
-    });
+    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(favArr)).then(
+      () => {
+        this.setState({ favourites: favArr });
+      }
+    );
 
     if (favArr.length === 0) {
       this.props.toggleEditing();
@@ -255,14 +254,12 @@ class Favourites extends Component {
   updateListOrder = (favArr, item) => {
     favArr.splice(item.to, 0, favArr.splice(item.from, 1)[0]);
 
-    AsyncStorage.setItem(
-      "@NextTrain:MyKey",
-      JSON.stringify(favArr)
-    ).then(() => {
-      this.setState({ favourites: favArr });
-    });
+    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(favArr)).then(
+      () => {
+        this.setState({ favourites: favArr });
+      }
+    );
   };
-
 
   render() {
     // array of indexes used for sortable list
