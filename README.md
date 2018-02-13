@@ -21,8 +21,8 @@ TODO
 - Simplify large (tagged) functions into smaller, more readable code
 
 - iPhone X splash screen not 100% working
-- Re-do launch screens and icon sizes
-- Fix android SplashScreens
+- Fix iOS icons
+- Fix android SplashScreens and icons
 - Add Sentry for error reporting
 - Add to Google Play store
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
