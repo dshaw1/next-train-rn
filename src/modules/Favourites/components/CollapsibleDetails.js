@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginLeft: 10,
     marginRight: 10,
-    paddingBottom: 10
+    height: 10
   },
   separator: {
     backgroundColor: "#ebebeb",
