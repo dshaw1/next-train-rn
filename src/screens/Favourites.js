@@ -97,11 +97,52 @@ class Favourites extends Component {
     });
   }
 
-  //
-  //////////////////////// CLEAN UP THIS ////////////////////////
-  //
+  componentWillUnmount() {
+    // Clear auto-fetch interval
+    clearInterval(this.intervalId);
+  }
+
   onNavigatorEvent(event) {
-    const CustomAnimation = {
+    if (event.type == "NavBarButtonPress") {
+      if (event.id == "add") {
+        this.pushScreen();
+      }
+      if (event.id == "edit") {
+        this.fireEditingEvents(event);
+      } else if (event.id == "done") {
+        this.fireEditingEvents(event);
+      }
+    }
+  }
+
+  fireEditingEvents = event => {
+    this.props.toggleEditing();
+    LayoutAnimation.configureNext(this.layoutAnimationSettings());
+    this.setNavigationButtonsByPlatform(event);
+  };
+
+  setNavigationButtonsByPlatform = event => {
+    if (event.id == "done") {
+      return Platform.OS === "ios"
+        ? this.props.navigator.setButtons({
+            ...iOSButtons
+          })
+        : this.props.navigator.setButtons({
+            ...androidButtons
+          });
+    } else {
+      Platform.OS === "ios"
+        ? this.props.navigator.setButtons({
+            ...iOSEditButtons
+          })
+        : this.props.navigator.setButtons({
+            ...androidEditButtons
+          });
+    }
+  };
+
+  layoutAnimationSettings = () => {
+    return (CustomAnimation = {
       duration: 220,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
@@ -114,44 +155,9 @@ class Favourites extends Component {
         type: LayoutAnimation.Types.easeInEaseOut,
         property: LayoutAnimation.Properties.opacity
       }
-    };
+    });
+  };
 
-    if (event.type == "NavBarButtonPress") {
-      if (event.id == "add") {
-        this.pushScreen();
-      }
-      if (event.id == "edit") {
-        this.props.toggleEditing();
-        LayoutAnimation.configureNext(CustomAnimation);
-        Platform.OS === "ios"
-          ? this.props.navigator.setButtons({
-              ...iOSEditButtons
-            })
-          : this.props.navigator.setButtons({
-              ...androidEditButtons
-            });
-      } else if (event.id == "done") {
-        this.props.toggleEditing();
-        LayoutAnimation.configureNext(CustomAnimation);
-        Platform.OS === "ios"
-          ? this.props.navigator.setButtons({
-              ...iOSButtons
-            })
-          : this.props.navigator.setButtons({
-              ...androidButtons
-            });
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    // Clear auto-fetch interval
-    clearInterval(this.intervalId);
-  }
-
-  //
-  //////////////////////// CLEAN UP THIS ////////////////////////
-  //
   fetchNewJourneyIfNeeded = () => {
     if (!this.props.journeys.editing) {
       const tempArray = this.state.favourites;
