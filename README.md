@@ -6,12 +6,8 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
-- Break down larger components into smaller pieces if possible
-- Simplify large (tagged) functions into smaller, more readable code
-
 - iPhone X splash screen not 100% working
 - Fix iOS icons
-- Fix android SplashScreens and icons
-- Add Sentry for error reporting
+- Fix android icons
 - Add to Google Play store
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
