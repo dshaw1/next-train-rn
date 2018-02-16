@@ -105,13 +105,6 @@ class NewJourney extends Component {
     });
   }
 
-  // Ensure this is working properly with correct heights
-  getItemLayout = (data, index) => ({
-    length: 40,
-    offset: 40 * index,
-    index
-  });
-
   renderListItem = ({ item }) => {
     if (
       (this.state.modalType === "DEP" &&
@@ -127,7 +120,8 @@ class NewJourney extends Component {
               item.stop_name,
               item.stop_latitude,
               item.stop_longitude
-            )}
+            )
+          }
         />
       );
     }
@@ -137,27 +131,23 @@ class NewJourney extends Component {
     return (
       <ListContainer
         keyExtractor={(item, index) => index}
-        getItemLayout={this.getItemLayout}
         data={this.state.dataSource}
         renderItem={item => this.renderListItem(item)}
       />
     );
   };
 
-  //
-  //////////////////////// CLEAN UP THIS //////////////////////// 
-  //
   handleAsyncStorage = journey => {
     // Local state item ID used to check against journey ID's in asyncStorage
-    const itemId = `${this.state.departureLat},${this.state.departureLong}${this
-      .state.arrivalLat},${this.state.arrivalLong}`;
+    const itemId = `${this.state.departureLat}${this.state.departureLong}${
+      this.state.arrivalLat
+    }${this.state.arrivalLong}`;
     this.setState({ duplicateJourney: false });
 
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem("@NextTrain:MyKey")
         .then(data => {
           if (JSON.parse(data) && JSON.parse(data).length === 6) {
-            this.setState({ isLoading: false });
             return alert("You've reached the journey limit!");
           }
           const journeys = data == null ? [] : JSON.parse(data);
@@ -180,9 +170,7 @@ class NewJourney extends Component {
     });
   };
 
-  //
-  //////////////////////// CLEAN UP THIS //////////////////////// 
-  //
+
   handleJourneyFetch = () => {
     const {
       departureLat,
@@ -200,7 +188,7 @@ class NewJourney extends Component {
       arrivStop: arrivalStop,
       id: `${departureLat}${departureLong}${arrivalLat}${arrivalLong}`
     };
-    this.setState({ isLoading: true });
+
     this.props
       .fetchNewJourney(journeyDetails, "now")
       .then(res => {
@@ -216,7 +204,6 @@ class NewJourney extends Component {
         // Saving favourites to phone's asyncStorage
         this.handleAsyncStorage(asyncObject).then(() => {
           this.props.networkConnectionError(false);
-          this.setState({ isLoading: false });
           this.props.navigator.resetTo({
             screen: "app.Favourites",
             title: "Favourites",
@@ -226,16 +213,11 @@ class NewJourney extends Component {
       })
       .catch(err => {
         this.props.networkConnectionError(true);
-        this.setState({ isLoading: false });
       });
   };
 
   render() {
     const networkError = this.props.networkError;
-    // Render duplicate journey message if needed
-    const renderDuplicateMsg = this.state.duplicateJourney ? (
-      <DuplicateJourneyMessage />
-    ) : null;
     // Disable fetch button unless both stops are selected
     const btnDisabled =
       this.state.departureStop === "" || this.state.arrivalStop === ""
@@ -259,9 +241,11 @@ class NewJourney extends Component {
         {networkError === true ? (
           <ShowErrorMessage
             checkConnection={() =>
-              checkNetworkConnection(this.props.networkConnectionError)}
+              checkNetworkConnection(this.props.networkConnectionError)
+            }
           />
         ) : null}
+        {this.state.duplicateJourney ? <DuplicateJourneyMessage /> : null}
         <NewJourneyButtons
           onDepartPress={() => {
             this.setState({ modalType: "DEP" });
@@ -275,8 +259,6 @@ class NewJourney extends Component {
           onFetch={() => this.handleJourneyFetch()}
           {...this.state}
         />
-        {/* Temporary duplicate message */}
-        {renderDuplicateMsg}
         <StopsModal
           visible={this.state.modalVisible}
           hideModal={() => {

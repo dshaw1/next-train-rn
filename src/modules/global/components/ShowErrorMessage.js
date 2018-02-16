@@ -18,7 +18,11 @@ const ShowErrorMessage = props => {
 const styles = StyleSheet.create({
   errorContainer: {
     padding: 10,
-    backgroundColor: "#cb2431"
+    backgroundColor: "#cb2431",
+    position: "absolute",
+    width: "100%",
+    minHeight: 50,
+    zIndex: 2
   },
   errorText: {
     textAlign: "center",

@@ -89,7 +89,7 @@ class CollapsibleList extends Component {
   };
 
   androidAnimationSettings = () => {
-    return androidAnimations = {
+    return (androidAnimations = {
       duration: 190,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
@@ -98,11 +98,11 @@ class CollapsibleList extends Component {
       update: {
         type: LayoutAnimation.Types.easeInEaseOut
       }
-    };
-  }
+    });
+  };
 
   iOSAnimationSettings = () => {
-    return iOSAnimations = {
+    return (iOSAnimations = {
       duration: 220,
       create: {
         type: LayoutAnimation.Types.easeInEaseOut,
@@ -115,8 +115,8 @@ class CollapsibleList extends Component {
         type: LayoutAnimation.Types.easeInEaseOut,
         property: LayoutAnimation.Properties.opacity
       }
-    };
-  }
+    });
+  };
 
   render() {
     const { items, headerRender, networkError } = this.props;
@@ -182,11 +182,14 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    ...ifIphoneX({
-      paddingBottom: 40
-    }, {
+    ...ifIphoneX(
+      {
+        paddingBottom: 40
+      },
+      {
         paddingBottom: 10
-    })
+      }
+    )
   },
   headerBorder: {
     borderBottomWidth: 1

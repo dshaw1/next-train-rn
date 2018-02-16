@@ -160,8 +160,6 @@ class Favourites extends Component {
 
   fetchNewJourneyIfNeeded = () => {
     if (!this.props.journeys.editing) {
-      const tempArray = this.state.favourites;
-
       this.state.favourites.map(item => {
         const departTime = item.departTime.value * 1000;
         if (departTime < Date.now()) {
@@ -172,38 +170,45 @@ class Favourites extends Component {
             arrivStop: item.arrivStop,
             id: item.id
           };
-          // Fetches target journey from API and updates said journey, keeping correct position
-          this.props
-            .fetchNewJourney(fetchObj, "now")
-            .then(res => {
-              // Helper function for creating new journey array
-              const newStepsArr = journeyArrayHelper(res);
-              const asyncObject = Object.assign({
-                ...fetchObj,
-                departTime: res.journey.routes[0].legs[0].departure_time,
-                arrivTime: res.journey.routes[0].legs[0].arrival_time,
-                steps: newStepsArr
-              });
-
-              const foundIndex = tempArray.findIndex(
-                journey => journey.id == item.id
-              );
-              tempArray.splice(foundIndex, 1, asyncObject);
-              AsyncStorage.setItem(
-                "@NextTrain:MyKey",
-                JSON.stringify(tempArray)
-              ).then(() => {
-                this.props.networkConnectionError(false);
-                this.setState({ favourites: tempArray });
-              });
-            })
-            .catch(err => {
-              this.props.networkConnectionError(true);
-              this.setState({ isLoading: false });
-            });
+          // Fetches target journey from API, updates journey
+          // and keeps correct position
+          this.handleFetchandUpdateAsyncStorage(fetchObj, item);
         }
       });
     } else return;
+  };
+
+  handleFetchandUpdateAsyncStorage = (fetchObj, item) => {
+    const tempArray = this.state.favourites;
+
+    this.props
+      .fetchNewJourney(fetchObj, "now")
+      .then(res => {
+        // Helper function for creating new journey array
+        const newStepsArr = journeyArrayHelper(res);
+        const asyncObject = Object.assign({
+          ...fetchObj,
+          departTime: res.journey.routes[0].legs[0].departure_time,
+          arrivTime: res.journey.routes[0].legs[0].arrival_time,
+          steps: newStepsArr
+        });
+
+        const foundIndex = tempArray.findIndex(
+          journey => journey.id == item.id
+        );
+        tempArray.splice(foundIndex, 1, asyncObject);
+        AsyncStorage.setItem(
+          "@NextTrain:MyKey",
+          JSON.stringify(tempArray)
+        ).then(() => {
+          this.props.networkConnectionError(false);
+          this.setState({ favourites: tempArray });
+        });
+      })
+      .catch(err => {
+        this.props.networkConnectionError(true);
+        this.setState({ isLoading: false });
+      });
   };
 
   fetchAsyncStorageData = () => {
