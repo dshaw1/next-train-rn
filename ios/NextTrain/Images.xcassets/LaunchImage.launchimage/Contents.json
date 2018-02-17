@@ -47,7 +47,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage~iphone_640x960-1.png",
+      "filename" : "Default@2x-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -56,7 +56,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "LaunchImage-568h@2x~iphone_640x1136-1.png",
+      "filename" : "Default-568h@2x-1.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -64,7 +64,6 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait~ipad_768x1024.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -80,7 +79,6 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait@2x~ipad_1536x2048.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -118,8 +116,15 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "LaunchImage.png",
+      "filename" : "LaunchImage-1.png",
       "extent" : "to-status-bar",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "LaunchImage-Portrait~ipad_768x1024.png",
+      "extent" : "full-screen",
       "scale" : "1x"
     },
     {
@@ -137,6 +142,13 @@
       "scale" : "2x"
     },
     {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "LaunchImage-Portrait@2x~ipad_1536x2048.png",
+      "extent" : "full-screen",
+      "scale" : "2x"
+    },
+    {
       "orientation" : "landscape",
       "idiom" : "ipad",
       "filename" : "LaunchImage-Landscape@2x~ipad_2048x1496.png",
@@ -144,22 +156,10 @@
       "scale" : "2x"
     },
     {
+      "orientation" : "landscape",
+      "idiom" : "ipad",
+      "filename" : "LaunchImage-Landscape@2x~ipad_2048x1536-1.png",
       "extent" : "full-screen",
-      "idiom" : "iphone",
-      "filename" : "LaunchImage~iphone_640x960.png",
-      "minimum-system-version" : "7.0",
-      "orientation" : "portrait",
-      "unassigned" : true,
-      "scale" : "2x"
-    },
-    {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "subtype" : "retina4",
-      "filename" : "LaunchImage-568h@2x~iphone_640x1136.png",
-      "minimum-system-version" : "7.0",
-      "orientation" : "portrait",
-      "unassigned" : true,
       "scale" : "2x"
     }
   ],
