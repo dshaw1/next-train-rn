@@ -8,6 +8,5 @@ My first React Native project, a simple train app for Melbournians that allows y
 TODO
 - iPhone X splash screen not 100% working
 - Fix iOS icons
-- Fix android icons
 - Add to Google Play store
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
