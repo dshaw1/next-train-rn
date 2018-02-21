@@ -189,6 +189,7 @@ class NewJourney extends Component {
       id: `${departureLat}${departureLong}${arrivalLat}${arrivalLong}`
     };
 
+    this.setState({ isLoading: true });
     this.props
       .fetchNewJourney(journeyDetails, "now")
       .then(res => {
@@ -200,7 +201,6 @@ class NewJourney extends Component {
           arrivTime: res.journey.routes[0].legs[0].arrival_time,
           steps: newStepsArr
         });
-
         // Saving favourites to phone's asyncStorage
         this.handleAsyncStorage(asyncObject).then(() => {
           this.props.networkConnectionError(false);
@@ -212,6 +212,7 @@ class NewJourney extends Component {
         });
       })
       .catch(err => {
+        this.setState({ isLoading: false });
         this.props.networkConnectionError(true);
       });
   };
@@ -231,7 +232,7 @@ class NewJourney extends Component {
 
     if (this.state.isLoading) {
       return (
-        <View>
+        <View style={styles.contentContainer}>
           <ActivityIndicator style={styles.activityIndicator} size="small" />
         </View>
       );
