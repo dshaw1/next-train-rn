@@ -25,6 +25,7 @@ const StopsModal = props => {
           placeholder="Start typing to search..."
           autoCorrect={false}
           blurOnSubmit={true}
+          autoFocus={true}
         />
       );
     } else {
@@ -39,6 +40,7 @@ const StopsModal = props => {
           autoCorrect={false}
           underlineColorAndroid="transparent"
           blurOnSubmit={true}
+          autoFocus={true}
         />
       );
     }
