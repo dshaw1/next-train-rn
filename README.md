@@ -6,6 +6,8 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
+- Add autoFocus and bring up keyboard on StopsModal
+- Hide all elements and only show activity spinner on NewJourney view when adding journey
 - iPhone X splash screen not 100% working
 - Fix iOS icons
 - Add to Google Play store
