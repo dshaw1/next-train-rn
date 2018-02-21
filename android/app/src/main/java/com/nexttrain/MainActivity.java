@@ -18,7 +18,7 @@ public class MainActivity extends SplashActivity {
     view.setGravity(Gravity.CENTER);
 
     textView.setTextColor(Color.parseColor("#FFFFFF"));
-    textView.setText("Loading...");
+    textView.setText("Loading Next Train...");
     textView.setGravity(Gravity.CENTER);
     textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24);
 
