@@ -6,6 +6,7 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
+- Fix journey sorting (currently bringing back deleted item if you continue to sort)
 - iPhone X splash screen not 100% working
 - Fix iOS icons
 - Add to Google Play store
