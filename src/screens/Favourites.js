@@ -243,7 +243,6 @@ class Favourites extends Component {
         this.setState({ favourites: favArr });
       }
     );
-
     if (favArr.length === 0) {
       this.props.toggleEditing();
       Platform.OS === "ios"
@@ -262,12 +261,13 @@ class Favourites extends Component {
     this.setState({ refreshing: false });
   };
 
-  updateListOrder = (favArr, item) => {
-    favArr.splice(item.to, 0, favArr.splice(item.from, 1)[0]);
+  updateListOrder = (item) => {
+    var updateArray = this.state.favourites;
+    updateArray.splice(item.to, 0, updateArray.splice(item.from, 1)[0]);
 
-    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(favArr)).then(
+    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(updateArray)).then(
       () => {
-        this.setState({ favourites: favArr });
+        this.setState({ favourites: updateArray });
       }
     );
   };
@@ -298,7 +298,7 @@ class Favourites extends Component {
             order={order}
             onRowMoved={item => {
               order.splice(item.to, 0, order.splice(item.from, 1)[0]);
-              this.updateListOrder(newFavArr, item);
+              this.updateListOrder(item);
             }}
             renderRow={row => (
               <RenderRowComponent
