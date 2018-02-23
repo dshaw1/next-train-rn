@@ -6,6 +6,7 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
+- Android sortable issue when flicking journey quickly
 - iPhone X splash screen not 100% working
 - Fix iOS icons
 - Add to Google Play store
