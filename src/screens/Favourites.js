@@ -21,7 +21,7 @@ import PropTypes from "prop-types";
 import { fetchNewJourney, toggleEditing } from "../actions/journeys";
 import { networkConnectionError } from "../actions/network";
 
-import SortableListView from "react-native-sortable-listview";
+import SortableListView from "../modules/Favourites/components/SortableListView";
 import CollapsibleList from "../modules/Favourites/CollapsibleList";
 import RenderRowComponent from "../modules/Favourites/components/SortableList";
 import journeyArrayHelper from "../modules/global/helpers/journeyArrayHelper";
