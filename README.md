@@ -6,6 +6,7 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
+- Call PTV api with next journey to get platform info for each step of journey?
 - iPhone X splash screen not 100% working
 - Fix iOS icons
 - Add to Google Play store
