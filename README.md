@@ -6,6 +6,5 @@ My first React Native project, a simple train app for Melbournians that allows y
 - Google Play store coming soon
 
 TODO
-- Error handling of non-network related errors?
 - Add to Google Play store
 - Android netConnectionHelper - AddEventListener not working on android simulator (Test on device)?
