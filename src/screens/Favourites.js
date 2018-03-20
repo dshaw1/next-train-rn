@@ -186,24 +186,19 @@ class Favourites extends Component {
       .then(res => {
         // Helper function for creating new journey array
         const newStepsArr = journeyArrayHelper(res);
+        // Create new object and ensure array order is not interrupted
         const asyncObject = Object.assign({
           ...fetchObj,
           departTime: res.journey.routes[0].legs[0].departure_time,
           arrivTime: res.journey.routes[0].legs[0].arrival_time,
           steps: newStepsArr
         });
-
         const foundIndex = tempArray.findIndex(
           journey => journey.id == item.id
         );
+
         tempArray.splice(foundIndex, 1, asyncObject);
-        AsyncStorage.setItem(
-          "@NextTrain:MyKey",
-          JSON.stringify(tempArray)
-        ).then(() => {
-          this.props.networkConnectionError(false);
-          this.setState({ favourites: tempArray });
-        });
+        this.setAsyncStorage(tempArray, true);
       })
       .catch(err => {
         this.props.networkConnectionError(true);
@@ -238,22 +233,25 @@ class Favourites extends Component {
         return item;
       }
     });
-    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(favArr)).then(
-      () => {
-        this.setState({ favourites: favArr });
-      }
-    );
+    this.setAsyncStorage(favArr);
     if (favArr.length === 0) {
       this.props.toggleEditing();
-      Platform.OS === "ios"
-        ? this.props.navigator.setButtons({
-            ...iOSButtons
-          })
-        : this.props.navigator.setButtons({
-            ...androidButtons
-          });
+      this.setNavigationButtonsByPlatform("done");
     }
   };
+
+  setAsyncStorage = (array, networkErrorFunction) => {
+    return AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(array))
+    .then(() => {
+      networkErrorFunction ? this.props.networkConnectionError(false) : null;
+      this.setState({ favourites: array });
+      this.setState({ isLoading: false });
+    })
+    .catch(err => {
+      this.setState({ isLoading: false });
+      return err;
+    });
+  }
 
   handlePullRefresh = () => {
     this.setState({ refreshing: true });
@@ -261,15 +259,10 @@ class Favourites extends Component {
     this.setState({ refreshing: false });
   };
 
-  updateListOrder = (item) => {
+  updateListOrder = item => {
     var updateArray = this.state.favourites;
     updateArray.splice(item.to, 0, updateArray.splice(item.from, 1)[0]);
-
-    AsyncStorage.setItem("@NextTrain:MyKey", JSON.stringify(updateArray)).then(
-      () => {
-        this.setState({ favourites: updateArray });
-      }
-    );
+    this.setAsyncStorage(updateArray);
   };
 
   render() {
