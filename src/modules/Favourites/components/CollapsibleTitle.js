@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: "#3e4450",
-    fontWeight: "500",
+    fontWeight: Platform.OS === "ios" ? "600" : "500",
     fontSize: moderateScale(13.5, 0.5)
   },
   smallText: {
@@ -244,13 +244,13 @@ const styles = StyleSheet.create({
   },
   timeText: {
     color: "#3e4450",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: moderateScale(10, 0.5),
     textAlign: "center"
   },
   timeTitleText: {
     color: "#3e4450",
-    fontWeight: "100",
+    fontWeight: Platform.OS === "ios" ? "800" : "600",
     fontSize: Platform.OS === "ios" ? moderateScale(8, 0.5) : 11,
     textAlign: "center",
     marginBottom: Platform.OS === "ios" ? 0 : -3
