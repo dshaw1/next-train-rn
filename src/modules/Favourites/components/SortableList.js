@@ -11,16 +11,16 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import { moderateScale } from "../../global/helpers/scalingHelper";
 
-export default class RenderRowComponent extends Component {
+const RenderRowComponent = props => {
   renderRemoveIcon = () => {
     if (Platform.OS === "ios") {
-      return this.renderGenericIcon(
+      return renderGenericIcon(
         "ios-remove-circle",
         moderateScale(20, 0.25),
         "#bd081d"
       );
     } else {
-      return this.renderGenericIcon(
+      return renderGenericIcon(
         "md-remove-circle",
         moderateScale(24, 0.25),
         "#bd081d"
@@ -30,13 +30,13 @@ export default class RenderRowComponent extends Component {
 
   renderReorderIcon = () => {
     if (Platform.OS === "ios") {
-      return this.renderGenericIcon(
+      return renderGenericIcon(
         "ios-reorder-outline",
         moderateScale(30, 0.25),
         "#3e4450"
       );
     } else {
-      return this.renderGenericIcon(
+      return renderGenericIcon(
         "md-reorder",
         moderateScale(30, 0.25),
         "#3e4450"
@@ -52,44 +52,39 @@ export default class RenderRowComponent extends Component {
     );
   };
 
-  render() {
-    const { departStop, arrivStop, id } = this.props.data;
+  const { departStop, arrivStop, id } = props.data;
 
-    if (this.props) {
-      return (
-        <View style={styles.itemContainer}>
-          <View style={styles.headerItem}>
-            <View style={styles.headerRow}>
-              <TouchableOpacity
-                style={styles.removeIcon}
-                onPress={() => this.props.removeJourney(id)}
-              >
-                {this.renderRemoveIcon()}
-              </TouchableOpacity>
-              <View>
+  if (props) {
+    return (
+      <View style={styles.itemContainer}>
+        <View style={styles.headerItem}>
+          <View style={styles.headerRow}>
+            <TouchableOpacity
+              style={styles.removeIcon}
+              onPress={() => props.removeJourney(id)}
+            >
+              {renderRemoveIcon()}
+            </TouchableOpacity>
+            <View>
+              <Text style={styles.titleText}>
+                {props.data ? departStop : null}
+              </Text>
+              <View style={styles.row}>
+                <Text style={styles.smallText}>to </Text>
                 <Text style={styles.titleText}>
-                  {this.props.data ? departStop : null}
+                  {props.data ? arrivStop : null}
                 </Text>
-                <View style={styles.row}>
-                  <Text style={styles.smallText}>to </Text>
-                  <Text style={styles.titleText}>
-                    {this.props.data ? arrivStop : null}
-                  </Text>
-                </View>
               </View>
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.sortButton}
-            {...this.props.sortHandlers}
-          >
-            {this.renderReorderIcon()}
-          </TouchableOpacity>
         </View>
-      );
-    }
+        <TouchableOpacity style={styles.sortButton} {...props.sortHandlers}>
+          {renderReorderIcon()}
+        </TouchableOpacity>
+      </View>
+    );
   }
-}
+};
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -146,3 +141,5 @@ RenderRowComponent.propTypes = {
   sortHandlers: PropTypes.object,
   data: PropTypes.object.isRequired
 };
+
+export default RenderRowComponent;

@@ -11,7 +11,7 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import { moderateScale } from "../../global/helpers/scalingHelper";
 
-export default class CollapsibleDetails extends PureComponent {
+const CollapsibleDetails = props => {
   renderListIcon = (name, colour) => {
     return (
       <Icon
@@ -38,7 +38,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "HEAVY_RAIL") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              {this.renderListIcon("ios-subway-outline", "#0071cd")}
+              {renderListIcon("ios-subway-outline", "#0071cd")}
               <Text
                 style={styles.contentText}
               >{`Train departs ${departStop} at ${departTime} and arrives ${arrivStop} at ${arrivTime}`}</Text>
@@ -48,7 +48,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "BUS") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              {this.renderListIcon("ios-bus-outline", "#fc9a1f")}
+              {renderListIcon("ios-bus-outline", "#fc9a1f")}
               <Text
                 style={styles.contentText}
                 key={index}
@@ -59,7 +59,7 @@ export default class CollapsibleDetails extends PureComponent {
         if (stop.transit_details.line.vehicle.type === "TRAM") {
           journeyArr.push(
             <View key={index} style={styles.detailItem}>
-              {this.renderListIcon("ios-train-outline", "#73bd48")}
+              {renderListIcon("ios-train-outline", "#73bd48")}
               <Text
                 style={styles.contentText}
                 key={index}
@@ -70,7 +70,7 @@ export default class CollapsibleDetails extends PureComponent {
       } else if (stop.travel_mode === "WALKING" && stop.distance.value >= 500) {
         journeyArr.push(
           <View key={index} style={styles.detailItem}>
-            {this.renderListIcon("ios-walk-outline", "#3e4450")}
+            {renderListIcon("ios-walk-outline", "#3e4450")}
             <Text style={styles.contentText} key={index}>{`${
               stop.html_instructions
             } - ${stop.distance.text}`}</Text>
@@ -81,38 +81,36 @@ export default class CollapsibleDetails extends PureComponent {
     return journeyArr;
   };
 
-  render() {
-    // Remove details view if collapsed and Platform === iOS
-    if (Platform.OS !== "android" && this.props.collapse) {
-      return null;
-    } else {
-      return (
-        <View style={this.props.collapse ? styles.hide : styles.show}>
-          <View onPress={() => this.props.animateOpacity()}>
-            <View style={styles.separatorContainer}>
-              <View style={styles.separator} />
-            </View>
-            <View style={styles.detailsContainer}>
-              {this.renderListContent(this.props.content)}
-            </View>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={styles.nextThreeContainer}
-              onPress={() => this.props.showModal()}
-            >
-              <Icon
-                name="ios-eye-outline"
-                size={moderateScale(20, 0.2)}
-                color="#fff"
-              />
-              <Text style={styles.nextThreeText}>View Later Journeys</Text>
-            </TouchableOpacity>
+  // Remove details view if collapsed and Platform === iOS
+  if (Platform.OS !== "android" && props.collapse) {
+    return null;
+  } else {
+    return (
+      <View style={props.collapse ? styles.hide : styles.show}>
+        <View onPress={() => props.animateOpacity()}>
+          <View style={styles.separatorContainer}>
+            <View style={styles.separator} />
           </View>
+          <View style={styles.detailsContainer}>
+            {renderListContent(props.content)}
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.nextThreeContainer}
+            onPress={() => props.showModal()}
+          >
+            <Icon
+              name="ios-eye-outline"
+              size={moderateScale(20, 0.2)}
+              color="#fff"
+            />
+            <Text style={styles.nextThreeText}>View Later Journeys</Text>
+          </TouchableOpacity>
         </View>
-      );
-    }
+      </View>
+    );
   }
-}
+};
 
 const styles = StyleSheet.create({
   show: {
@@ -187,3 +185,5 @@ CollapsibleDetails.propTypes = {
   content: PropTypes.object.isRequired,
   showModal: PropTypes.func.isRequired
 };
+
+export default CollapsibleDetails;
