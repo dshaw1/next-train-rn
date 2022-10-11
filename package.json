@@ -10,7 +10,7 @@
     "axios": "^0.16.2",
     "prop-types": "^15.5.10",
     "react": "16.0.0",
-    "react-native": "0.49.0",
+    "react-native": "0.70.2",
     "react-native-navigation": "latest",
     "react-native-vector-icons": "^4.3.0",
     "react-redux": "^5.0.5",
